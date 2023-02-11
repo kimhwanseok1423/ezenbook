@@ -15,7 +15,9 @@ const MainMenu = () => {
         <div className='row'>
           <div className='col-xl-2 col-lg-2 mt-4'>
             <div className='header__logo'>
-              <img src='img/MainLogo.png' alt='Main Logos' />
+              <a href='/'>
+                <img src='img/MainLogo.png' alt='Main Logos' />
+              </a>
             </div>
           </div>
           <div className='container colums-row col-xl-8 col-lg-8'>
@@ -23,7 +25,7 @@ const MainMenu = () => {
               <nav className='header__menu'>
                 <ul>
                   <li className='active'>
-                    <a href='./index.html'>Home</a>
+                    <a href='/'>Home</a>
                   </li>
                   <li>
                     <a href='#'>카테고리</a>

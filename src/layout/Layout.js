@@ -1,14 +1,12 @@
 import { NavLink } from 'react-router-dom';
-import Footer from './Footer';
-import Header from './Header';
-import Nav from './Nav';
+import MainMenu from '../routes/MainMenu';
+import MainPage from '../routes/MainPage';
 
 const Layout = () => {
   return (
     <div>
-      <Header />
-      <Nav />
-      <Footer />
+      <MainMenu />
+      <MainPage />
     </div>
   );
 };
