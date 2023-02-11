@@ -1,12 +1,11 @@
-import { NavLink } from 'react-router-dom';
 import MainMenu from '../routes/MainMenu';
-import MainPage from '../routes/MainPage';
+import Curation from '../routes/Curation';
 
 const Layout = () => {
   return (
     <div>
       <MainMenu />
-      <MainPage />
+      <Curation />
     </div>
   );
 };
