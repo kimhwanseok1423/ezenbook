@@ -1,3 +1,6 @@
+p {
+  font-size: 18px;
+}
 div.category-list li {
   list-style: none;
 }
@@ -12,4 +15,32 @@ div.category-list li a {
 
 div.category-list {
   padding: 10px;
+}
+
+div.book-img img {
+  width: 180px;
+  height: 220px;
+  margin-right: 20px;
+}
+
+div.book-details {
+  text-align: left;
+  font-size: 20px;
+}
+
+div.book-title p {
+  text-size: 18px;
+}
+p#book-title-name {
+  font-size: 24px;
+}
+p#book-detail-category {
+  font-size: 18px;
+}
+p#book-discounted-price {
+  color: #f100e5;
+}
+
+p#book-discounted-percent {
+  color: #f100e5;
 }

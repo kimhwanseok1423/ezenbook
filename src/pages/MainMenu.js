@@ -13,7 +13,7 @@ const MainMenu = () => {
     <div className='main-menu'>
       <div className='container-fluid'>
         <div className='row'>
-          <div className='col-xl-2 col-lg-2 mt-4'>
+          <div className='col-xl-2 col-lg-2 mt-4 mb-4'>
             <div className='header__logo'>
               <a href='/'>
                 <img src='img/MainLogo.png' alt='Main Logos' />
@@ -28,7 +28,7 @@ const MainMenu = () => {
                     <a href='/'>Home</a>
                   </li>
                   <li>
-                    <a href='/cagetory'>카테고리</a>
+                    <a href='/category'>카테고리</a>
                     <ul className='dropdown'>
                       <li>
                         <a href='#'>전체</a>

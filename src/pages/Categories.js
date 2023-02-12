@@ -2,7 +2,7 @@ import '../css/category.css';
 import '../css/bootstrap.min.css';
 const Categories = () => {
   return (
-    <div className='col-xl-2 col-lg-2 mt-3'>
+    <div className='container-fluid'>
       <div className='card category-list'>
         <ul>
           <li>

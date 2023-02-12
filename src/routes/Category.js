@@ -6,10 +6,16 @@ import CategoryRight from '../pages/CategoryRight';
 
 const Category = () => {
   return (
-    <div className='container-body'>
+    <div className='category-body'>
       <MainMenu />
-      <Categories />
-      <CategoryRight />
+      <div className='container-fluid d-flex'>
+        <div className='col-xl-2 col-lg-2'>
+          <Categories />
+        </div>
+        <div className='col-xl-10 col-lg-10'>
+          <CategoryRight />
+        </div>
+      </div>
     </div>
   );
 };

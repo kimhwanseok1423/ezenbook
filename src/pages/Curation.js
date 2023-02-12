@@ -7,6 +7,7 @@ import Carousel from 'better-react-carousel';
 const Curation = () => {
   return (
     <div className='curation container-fluid mt-4'>
+      <p id='curation-title'>"name" 고객님을 위한 추천 도서</p>
       <Carousel cols={5} rows={1} gap={15} loop>
         <Carousel.Item>
           <div id='book-image'>
