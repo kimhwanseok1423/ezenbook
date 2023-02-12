@@ -84,13 +84,13 @@ const MainMenu = () => {
                     </ul>
                   </li>
                   <li>
-                    <a href='#'>베스트셀러</a>
+                    <a href='/bestseller'>베스트셀러</a>
                   </li>
                   <li>
-                    <a href='#'>랭킹#20</a>
+                    <a href='/ranking29'>랭킹#20</a>
                   </li>
                   <li>
-                    <a href='#'>신간</a>
+                    <a href='/newest'>신간</a>
                   </li>
                 </ul>
               </nav>
@@ -124,21 +124,12 @@ const MainMenu = () => {
                 <div className='header__right__widget container d-flex'>
                   <div className='fontawsome' id='fauser'>
                     <a href='#'>
-                      <FontAwesomeIcon
-                        icon={faUser}
-                        size='3x'
-                        color='#301fbf'
-                        alt='mypage'
-                      />
+                      <FontAwesomeIcon icon={faUser} size='3x' />
                     </a>
                   </div>
-                  <div className='fontawsome'>
+                  <div className='fontawsome' id='faCartShopping'>
                     <a href='#'>
-                      <FontAwesomeIcon
-                        icon={faCartShopping}
-                        size='3x'
-                        color='#301fbf'
-                      />
+                      <FontAwesomeIcon icon={faCartShopping} size='3x' />
                     </a>
                   </div>
                 </div>

@@ -469,7 +469,7 @@ ol {
   right: -15px;
   top: -2px;
   content: '/';
-  font-size: 16px;
+  font-size: 20px;
 }
 
 .header__right__widget {
@@ -3747,8 +3747,8 @@ ol {
 }
 .btn-search:hover {
   color: #fff;
-  background-color: #301fbf;
-  border-color: #301fbf;
+  background-color: #4c40c0;
+  border-color: #4c40c0;
 }
 .btn-search.focus,
 .btn-search:focus {

@@ -1,13 +1,13 @@
 import '../css/bootstrap.min.css';
 import '../css/style.css';
-import '../css/curation.css';
+import '../css/carousel.css';
 import React from 'react';
 import Carousel from 'better-react-carousel';
 
-const Newest = () => {
+const NewestSmall = () => {
   return (
     <div className='bestseller container col-xl-6 col-lg-6'>
-      <div className='curation container-fluid mt-4'>
+      <div className='carousel container-fluid mt-4'>
         <Carousel cols={2} rows={1} gap={15} loop>
           <Carousel.Item>
             <div id='book-image'>
@@ -142,4 +142,4 @@ const Newest = () => {
   );
 };
 
-export default Newest;
+export default NewestSmall;

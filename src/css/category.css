@@ -17,22 +17,30 @@ div.category-list {
   padding: 10px;
 }
 
+div.book-img {
+  padding: 0px;
+  text-align: left;
+}
 div.book-img img {
   width: 180px;
   height: 220px;
-  margin-right: 20px;
 }
 
 div.book-details {
   text-align: left;
   font-size: 20px;
+  padding-left: 0px;
 }
 
 div.book-title p {
-  text-size: 18px;
+  font-size: 18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 p#book-title-name {
   font-size: 24px;
+  max-width: 650px;
 }
 p#book-detail-category {
   font-size: 18px;
@@ -43,4 +51,10 @@ p#book-discounted-price {
 
 p#book-discounted-percent {
   color: #f100e5;
+}
+
+.book-cart button {
+  width: 150px;
+  height: 45px;
+  margin-top: 10px;
 }

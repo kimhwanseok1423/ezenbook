@@ -4,7 +4,7 @@ import '../css/curation.css';
 import React from 'react';
 import Carousel from 'better-react-carousel';
 
-const BestSeller = () => {
+const NewestPage = () => {
   return (
     <div className='bestseller container col-xl-6 col-lg-6'>
       <div className='curation container-fluid mt-4'>
@@ -142,4 +142,4 @@ const BestSeller = () => {
   );
 };
 
-export default BestSeller;
+export default NewestPage;

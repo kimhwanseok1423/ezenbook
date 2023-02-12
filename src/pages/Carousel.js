@@ -1,17 +1,17 @@
 import '../css/bootstrap.min.css';
 import '../css/style.css';
-import '../css/curation.css';
+import '../css/carousel.css';
 import React from 'react';
 import Carousel from 'better-react-carousel';
 
-const Curation = () => {
+const CarouselPage = () => {
   return (
-    <div className='curation container-fluid mt-4'>
-      <p id='curation-title'>"name" 고객님을 위한 추천 도서</p>
+    <div className='carousel container-fluid mt-4'>
+      <p id='Carousel-title'>"name" 고객님을 위한 추천 도서</p>
       <Carousel cols={5} rows={1} gap={15} loop>
         <Carousel.Item>
           <div id='book-image'>
-            <a href='#'>
+            <a href='/bookdetail'>
               <img src='./test/test1.jpg' />
             </a>
           </div>
@@ -141,4 +141,4 @@ const Curation = () => {
   );
 };
 
-export default Curation;
+export default CarouselPage;
