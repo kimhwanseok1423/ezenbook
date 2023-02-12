@@ -28,7 +28,7 @@ const MainMenu = () => {
                     <a href='/'>Home</a>
                   </li>
                   <li>
-                    <a href='#'>카테고리</a>
+                    <a href='/cagetory'>카테고리</a>
                     <ul className='dropdown'>
                       <li>
                         <a href='#'>전체</a>

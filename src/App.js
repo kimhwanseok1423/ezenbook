@@ -1,13 +1,16 @@
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
-import Layout from './layout/Layout';
+import Home from './routes/Home';
+import Category from './routes/Category';
 
 const App = () => {
   return (
     <div className='App'>
       <Routes>
-        <Route path='/' element={<Layout />} />
-        <Route index element={<Layout />} />
+        <Route path='/' element={<Home />} />
+        <Route index element={<Home />} />
+        <Route path='/category' element={<Category />} />
+        <Route index element={<Category />} />
       </Routes>
     </div>
   );
