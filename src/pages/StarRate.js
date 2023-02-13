@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
   /* AVR_RATE 에 별점값을 넣어줘야함 */
 }
 function StarRate() {
-  const AVR_RATE = 80;
+  const AVR_RATE = 88;
   const STAR_IDX_ARR = ['first', 'second', 'third', 'fourth', 'last'];
   const [ratesResArr, setRatesResArr] = useState([0, 0, 0, 0, 0]);
   const calcStarRates = () => {
