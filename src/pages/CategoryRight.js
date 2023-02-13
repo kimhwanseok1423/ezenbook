@@ -46,7 +46,9 @@ const CategoryRight = () => {
           </div>
           <div className='book-cart col-2 colums-row'>
             <div>
-              <button className='btn btn-secondary'>장바구니</button>
+              <a href='/cart'>
+                <button className='btn btn-secondary'>장바구니</button>
+              </a>
             </div>
             <div>
               <button className='btn btn-search'>바로구매</button>

@@ -123,12 +123,12 @@ const MainMenu = () => {
               <div className='row'>
                 <div className='header__right__widget container d-flex'>
                   <div className='fontawsome' id='fauser'>
-                    <a href='#'>
+                    <a href='/mypage'>
                       <FontAwesomeIcon icon={faUser} size='3x' />
                     </a>
                   </div>
                   <div className='fontawsome' id='faCartShopping'>
-                    <a href='#'>
+                    <a href='/cart'>
                       <FontAwesomeIcon icon={faCartShopping} size='3x' />
                     </a>
                   </div>

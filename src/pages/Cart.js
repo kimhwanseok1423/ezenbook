@@ -7,7 +7,7 @@ const Cart = () => {
   return (
     <div className='cart-body'>
       <MainMenu />
-      <div className='container-fluid d-flex col-xl-12 col-lg-12'>
+      <div className='container-fluid d-flex'>
         <CartPage />
       </div>
     </div>
