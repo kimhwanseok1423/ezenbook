@@ -7,6 +7,7 @@ import Bestseller from './routes/Bestseller';
 import Cart from './routes/Cart';
 import Mypage from './routes/Mypage';
 import Order from './routes/Order';
+import Admin from './routes/Admin';
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         <Route path='/cart' element={<Cart />} />
         <Route path='/order' element={<Order />} />
         <Route path='/mypage' element={<Mypage />} />
+        <Route path='/admin' element={<Admin />} />
       </Routes>
     </div>
   );
