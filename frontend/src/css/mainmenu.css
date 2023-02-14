@@ -17,15 +17,3 @@ input#main-search {
 div#fauser {
   margin-right: 20px;
 }
-
-div.admin a {
-  margin-left: 105px;
-}
-
-div.test a {
-  margin-left: 105px;
-}
-/* 
-body * {
-  border: 1px solid black;
-} */

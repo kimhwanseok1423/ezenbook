@@ -87,7 +87,7 @@ const MainMenu = () => {
                     <a href='/bestseller'>베스트셀러</a>
                   </li>
                   <li>
-                    <a href='/ranking20'>랭킹#20</a>
+                    <a href='/ranking29'>랭킹#20</a>
                   </li>
                   <li>
                     <a href='/newest'>신간</a>
@@ -132,12 +132,6 @@ const MainMenu = () => {
                       <FontAwesomeIcon icon={faCartShopping} size='3x' />
                     </a>
                   </div>
-                </div>
-                <div className='admin'>
-                  <a href='/admin'>임시관리자게시판</a>
-                </div>
-                <div className='test'>
-                  <a href='/test'>임시테스트게시판</a>
                 </div>
               </div>
             </div>

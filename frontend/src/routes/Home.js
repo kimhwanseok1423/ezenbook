@@ -1,9 +1,10 @@
 import MainMenu from '../pages/MainMenu';
+import Curation from '../pages/Carousel';
 import NewestSmall from '../pages/NewestSmall';
-import BestsellerSmall from '../pages/BestsellerSmall';
-import CarouselPage from '../pages/Carousel';
 import '../css/main.css';
 import '../css/bootstrap.min.css';
+import BestsellerSmall from '../pages/BestsellerSmall';
+import CarouselPage from '../pages/Carousel';
 
 const Home = () => {
   return (

@@ -1,10 +1,11 @@
+import '../css/style.css';
 import '../css/admin.css';
 
 const AdminPage = () => {
   return (
     <div className='adminpage-wrap container-fluid d-flex'>
       <div className='adminpage-menu col-xl-2 col-lg-2 column-row'>
-        <div className='admin-menu-listcolumn-row'>
+        <div className='admin-menu-list column-row'>
           <ul>
             <li>회원 관리</li>
             <li>상품 관리</li>

@@ -344,16 +344,15 @@ ol {
 
 .header__menu {
   padding: 20px 0 10px;
-  margin-left: 160px;
-  width: 850px;
+  margin-left: 200px;
 }
 
 .header__menu ul li {
   list-style: none;
   display: inline-block;
-  margin-right: 30px;
+  margin-right: 55px;
   position: relative;
-  width: 130px;
+  font-size: 22px;
 }
 
 .header__menu ul li.active a:after {

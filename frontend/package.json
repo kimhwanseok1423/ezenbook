@@ -7,7 +7,6 @@
     "@fortawesome/free-regular-svg-icons": "^6.3.0",
     "@fortawesome/free-solid-svg-icons": "^6.3.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
-    "@grapecity/wijmo.react.all": "^5.20222.877",
     "axios": "^1.3.2",
     "better-react-carousel": "^1.1.1",
     "bootstrap": "^5.2.3",
