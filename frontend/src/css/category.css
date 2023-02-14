@@ -11,6 +11,7 @@ div.category-list li a {
   position: relative;
   font-size: 22px;
   color: black;
+  width: 150px;
 }
 
 div.category-list {

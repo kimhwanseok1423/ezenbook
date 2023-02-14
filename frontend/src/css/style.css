@@ -350,11 +350,11 @@ ol {
 .header__menu ul li {
   list-style: none;
   display: inline-block;
-  margin-right: 55px;
+  margin-right: 15px;
   position: relative;
-  font-size: 22px;
+  font-size: 24px;
+  padding-top: 5px;
 }
-
 .header__menu ul li.active a:after {
   -webkit-transform: scale(1);
   -ms-transform: scale(1);
@@ -368,7 +368,7 @@ ol {
 }
 
 .header__menu ul li:hover .dropdown {
-  top: 27px;
+  top: 56px;
   opacity: 1;
   visibility: visible;
 }
@@ -381,12 +381,11 @@ ol {
   position: absolute;
   left: 0;
   top: 56px;
-  width: 180px;
+  width: 150px;
   background: #ffffff;
   color: #000000;
   text-align: left;
   padding: 2px;
-  margin-top: 15px;
   z-index: 9;
   opacity: 0;
   visibility: hidden;
@@ -398,13 +397,13 @@ ol {
 .header__menu ul li .dropdown li {
   display: block;
   margin-right: 0;
+  height: 45px;
 }
 
 .header__menu ul li .dropdown li a {
   font-size: 14px;
   color: #000000;
   font-weight: 400;
-  padding: 8px 0px;
   text-transform: capitalize;
 }
 
@@ -413,7 +412,6 @@ ol {
 }
 
 .header__menu ul li a {
-  font-size: 22px;
   text-transform: uppercase;
   color: #111111;
   font-weight: 500;

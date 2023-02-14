@@ -8,6 +8,7 @@ import Cart from './routes/Cart';
 import Mypage from './routes/Mypage';
 import Order from './routes/Order';
 import Admin from './routes/Admin';
+import Test from './routes/Test';
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
         <Route path='/order' element={<Order />} />
         <Route path='/mypage' element={<Mypage />} />
         <Route path='/admin' element={<Admin />} />
+        <Route path='/test' element={<Test />} />
       </Routes>
     </div>
   );

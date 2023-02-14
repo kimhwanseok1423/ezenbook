@@ -16,7 +16,7 @@ const MainMenu = () => {
           <div className='col-xl-2 col-lg-2 mt-4 mb-4'>
             <div className='header__logo'>
               <a href='/'>
-                <img src='img/MainLogo.png' alt='Main Logos' />
+                <img src='../img/MainLogo.png' alt='Main Logos' />
               </a>
             </div>
           </div>
@@ -87,7 +87,7 @@ const MainMenu = () => {
                     <a href='/bestseller'>베스트셀러</a>
                   </li>
                   <li>
-                    <a href='/ranking29'>랭킹#20</a>
+                    <a href='/ranking20'>랭킹#20</a>
                   </li>
                   <li>
                     <a href='/newest'>신간</a>
@@ -132,6 +132,16 @@ const MainMenu = () => {
                       <FontAwesomeIcon icon={faCartShopping} size='3x' />
                     </a>
                   </div>
+                </div>
+                <div>
+                  <a href='/admin'>
+                    <p>임시1 / </p>
+                  </a>
+                </div>
+                <div>
+                  <a href='/test'>
+                    <p> 임시2</p>
+                  </a>
                 </div>
               </div>
             </div>
