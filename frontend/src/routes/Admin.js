@@ -6,7 +6,7 @@ const Admin = () => {
   return (
     <>
       <MainMenu />
-      <div className='container d-flex'>
+      <div className='container-fluid d-flex'>
         <div className='col-2'>
           <AdminMenu />
         </div>
