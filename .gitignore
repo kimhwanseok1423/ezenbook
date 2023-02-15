@@ -45,3 +45,4 @@ sketch
 # End of https://www.toptal.com/developers/gitignore/api/react,java
 
 /Bootstrap_Template/*.*
+/.metadata/

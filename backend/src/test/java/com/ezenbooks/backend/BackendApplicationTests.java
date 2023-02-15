@@ -1,4 +1,4 @@
-package com.ezenbooks;
+package com.ezenbooks.backend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,5 +1,5 @@
 -- 생성자 Oracle SQL Developer Data Modeler 22.2.0.165.1149
---   위치:        2023-02-13 16:50:02 KST
+--   위치:        2023-02-15 16:38:34 KST
 --   사이트:      Oracle Database 11g
 --   유형:      Oracle Database 11g
 
@@ -11,6 +11,7 @@
 
 CREATE TABLE book_review (
     review_num            NUMBER NOT NULL,
+    user_id               NUMBER NOT NULL,
     book_num              NUMBER NOT NULL,
     review_content        CLOB,
     review_rating         NUMBER(3),
@@ -23,8 +24,8 @@ ALTER TABLE book_review ADD CONSTRAINT book_review_pk PRIMARY KEY ( review_num )
 CREATE TABLE books (
     book_num       NUMBER NOT NULL,
     category_code  NUMBER,
-    book_title     VARCHAR2(50) NOT NULL,
-    book_author    VARCHAR2(50) NOT NULL,
+    book_title     VARCHAR2(200) NOT NULL,
+    book_author    VARCHAR2(100) NOT NULL,
     book_image     VARCHAR2(1000) NOT NULL,
     book_price     NUMBER NOT NULL,
     book_publisher VARCHAR2(50) NOT NULL,
@@ -96,10 +97,10 @@ ALTER TABLE user_order ADD CONSTRAINT user_order_pk PRIMARY KEY ( order_num );
 CREATE TABLE user_order_detail (
     order_detail_num    NUMBER NOT NULL,
     order_num           NUMBER,
-    book_num            NUMBER,
     book_count          NUMBER NOT NULL,
     book_price          NUMBER,
-    order_datail_status VARCHAR2(10) NOT NULL
+    order_datail_status VARCHAR2(10) NOT NULL,
+    books_book_num      NUMBER
 );
 
 ALTER TABLE user_order_detail ADD CONSTRAINT user_order_detail_pk PRIMARY KEY ( order_detail_num );
@@ -132,6 +133,10 @@ ALTER TABLE book_review
     ADD CONSTRAINT book_review_books_fk FOREIGN KEY ( book_num )
         REFERENCES books ( book_num );
 
+ALTER TABLE book_review
+    ADD CONSTRAINT book_review_users_fk FOREIGN KEY ( user_id )
+        REFERENCES users ( user_id );
+
 ALTER TABLE books
     ADD CONSTRAINT books_product_category_fk FOREIGN KEY ( category_code )
         REFERENCES product_category ( category_code );
@@ -149,7 +154,7 @@ ALTER TABLE user_log
         REFERENCES users ( user_id );
 
 ALTER TABLE user_order_detail
-    ADD CONSTRAINT user_order_detail_books_fk FOREIGN KEY ( book_num )
+    ADD CONSTRAINT user_order_detail_books_fk FOREIGN KEY ( books_book_num )
         REFERENCES books ( book_num );
 
 ALTER TABLE user_order_detail
@@ -176,7 +181,7 @@ CREATE SEQUENCE user_id_seq START WITH 1 NOCACHE;
 -- 
 -- CREATE TABLE                             9
 -- CREATE INDEX                             2
--- ALTER TABLE                             14
+-- ALTER TABLE                             15
 -- CREATE VIEW                              0
 -- ALTER VIEW                               0
 -- CREATE PACKAGE                           0

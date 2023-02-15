@@ -8,13 +8,12 @@ import Cart from './routes/Cart';
 import Mypage from './routes/Mypage';
 import Order from './routes/Order';
 import Admin from './routes/Admin';
-import Test from './routes/Test';
+import Admin1 from './routes/Admin1';
 
 const App = () => {
   return (
     <div className='App'>
       <Routes>
-        <Route path='/' element={<Home />} />
         <Route index element={<Home />} />
         <Route path='/category' element={<Category />} />
         <Route path='/bookdetail' element={<BookDetail />} />
@@ -23,7 +22,7 @@ const App = () => {
         <Route path='/order' element={<Order />} />
         <Route path='/mypage' element={<Mypage />} />
         <Route path='/admin' element={<Admin />} />
-        <Route path='/test' element={<Test />} />
+        <Route path='/admin1' element={<Admin1 />} />
       </Routes>
     </div>
   );

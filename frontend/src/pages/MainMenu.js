@@ -139,7 +139,7 @@ const MainMenu = () => {
                   </a>
                 </div>
                 <div>
-                  <a href='/test'>
+                  <a href='/admin1'>
                     <p> 임시2</p>
                   </a>
                 </div>
