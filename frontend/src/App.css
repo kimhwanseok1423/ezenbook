@@ -4,9 +4,9 @@ body {
     format('woff2');
 }
 
-.App {
+/* .App {
   text-align: center;
-}
+} */
 
 .App-logo {
   height: 40vmin;
@@ -41,4 +41,8 @@ body {
   to {
     transform: rotate(360deg);
   }
+}
+
+h4 {
+  text-align: center;
 }

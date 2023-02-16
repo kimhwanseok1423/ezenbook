@@ -38,3 +38,7 @@ h4 {
   color: #301fbf;
   font-weight: 700;
 }
+
+div.carousel-item-detail {
+  text-align: center;
+}

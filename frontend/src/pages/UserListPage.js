@@ -1,10 +1,14 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { baseUrl } from '../components/commonApi/mainApi';
+import Pagination from '../components/commonApi/Pagination';
 import '../css/admin.css';
 
 const UserListPage = () => {
   const [user, setUser] = useState([]);
+  const [limit, setLimit] = useState(10);
+  const [page, setPage] = useState(1);
+  const offset = (page - 1) * limit;
 
   useEffect(() => {
     getUser();
@@ -24,9 +28,24 @@ const UserListPage = () => {
 
   return (
     <div className='UserPage-Wrap container-fluid col-xl-12 col-lg-12 mt-3'>
+      <div className='set_pages'>
+        <label>
+          페이지 당 표시할 게시물 수&nbsp;&nbsp;:&nbsp;&nbsp;
+          <select
+            type='number'
+            value={limit}
+            onChange={({ target: { value } }) => setLimit(Number(value))}
+          >
+            <option value='10'>10</option>
+            <option value='15'>15</option>
+            <option value='25'>25</option>
+            <option value='50'>50</option>
+          </select>
+        </label>
+      </div>
       <div className='row'>
-        <div className='card'>
-          <table className='table' id='user-title'>
+        <div className='card mt-2'>
+          <table className='table mb-0' id='user-title'>
             <thead>
               {/* 테이블 헤드 */}
               <tr>
@@ -64,7 +83,7 @@ const UserListPage = () => {
               </tr>
             </thead>
           </table>
-          {user.map((user) => {
+          {user.slice(offset, offset + limit).map((user) => {
             return (
               <div key={user.user_id}>
                 <table className='user_data'>
@@ -86,7 +105,15 @@ const UserListPage = () => {
               </div>
             );
           })}
-          ;
+
+          <footer>
+            <Pagination
+              total={user.length}
+              limit={limit}
+              page={page}
+              setPage={setPage}
+            />
+          </footer>
         </div>
       </div>
     </div>

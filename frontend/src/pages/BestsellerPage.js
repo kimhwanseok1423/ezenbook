@@ -15,7 +15,7 @@ const BestsellerPage = () => {
                 <img src='./test/test1.jpg' />
               </a>
             </div>
-            <div>
+            <div className='carousel-item-detail'>
               <p id='book-ranking'>#1</p>
               <p id='book-title'>세이노의 가르침</p>
               <p id='book-category'>자기계발</p>
@@ -28,7 +28,7 @@ const BestsellerPage = () => {
                 <img src='./test/test2.jpg' />
               </a>
             </div>
-            <div>
+            <div className='carousel-item-detail'>
               <p id='book-ranking'>#2</p>
               <p id='book-title'>만일 내가 인생을 다시 산다면</p>
               <p id='book-category'>인문</p>
@@ -40,7 +40,7 @@ const BestsellerPage = () => {
                 <img src='./test/test3.jpg' />
               </a>
             </div>
-            <div>
+            <div className='carousel-item-detail'>
               <p id='book-ranking'>#3</p>
               <p id='book-title'>원씽(The One Thing)</p>
               <p id='book-category'>자기계발</p>
@@ -52,7 +52,7 @@ const BestsellerPage = () => {
                 <img src='./test/test4.jpg' />
               </a>
             </div>
-            <div>
+            <div className='carousel-item-detail'>
               <p id='book-ranking'>#4</p>
               <p id='book-title'>김미경의 마흔 수업</p>
               <p id='book-category'>자기계발</p>
