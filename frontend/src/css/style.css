@@ -439,7 +439,7 @@ ol {
 }
 
 .header__right {
-  text-align: right;
+  text-align: center;
   padding: 20px 0 10px;
   height: 75px;
 }
@@ -464,19 +464,15 @@ ol {
   display: none;
 }
 
-.header__right__auth a:after {
-  position: absolute;
-  right: -15px;
-  top: -2px;
-  content: '/';
-  font-size: 20px;
-}
-
 .header__right__widget {
   display: inline-block;
   height: 75px;
-  margin: 20px 20px 0px 95px;
+  margin: 5px 0px 0px 5px;
   padding-top: 10px;
+}
+
+.header__right__widget div {
+  margin-right: 20px;
 }
 
 .header__right__widget li {

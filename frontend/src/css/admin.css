@@ -6,55 +6,46 @@ li {
   font-size: 20px;
 }
 
-th.user_role,
-th.user_modify,
-th.user_delete {
-  width: 70px;
+.user_role,
+.user_modify,
+.user_delete {
+  width: 80px;
 }
 
-th.user_num,
-th.user_name,
-th.create_date,
-th.dodify_date {
-  width: 120px;
-}
-
-th.user_num {
+.user_num,
+.user_name,
+.create_date,
+.modify_date {
   width: 130px;
 }
 
+td.user_id {
+  width: 180px;
+  padding-left: 10px;
+  text-align: left;
+}
 th.user_id {
-  width: 150px;
+  width: 180px;
+}
+.user_nickname {
+  width: 180px;
 }
 
-th.user_nickname {
-  width: 160px;
-}
-
-th.user_email {
+.user_email {
   width: 350px;
 }
 
-td.user_num,
 td.user_id,
 td.user_name,
 td.user_email,
 td.user_nickname,
 td.user_create_date,
-tu.user_modyfy_date {
+td.user_modyfy_date {
   text-align: left;
+  padding-left: 5px;
 }
 
-th.user_data {
-  text-align: right;
-}
-
-#check-btn {
-  display: none;
-}
-#check-btn:checked ~ .user-detail-hided {
-  display: block;
-}
-.user-detail-hided {
-  display: none;
+table.user_data tr {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  height: 40px;
 }

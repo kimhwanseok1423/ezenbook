@@ -3,7 +3,7 @@ import '../css/bootstrap.min.css';
 const Categories = () => {
   return (
     <div className='container-fluid'>
-      <div className='card category-list'>
+      <div className='card category-list mt-3'>
         <ul>
           <li>
             <a href='#'>전체</a>

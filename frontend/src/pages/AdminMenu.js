@@ -3,7 +3,7 @@ import '../css/admin.css';
 
 const AdminMenu = () => {
   return (
-    <div className='adminpage-wrap container-fluid d-flex'>
+    <div className='adminpage-wrap container-fluid d-flex mt-3'>
       <div className='adminpage-menu column-row'>
         <ul>
           <a href='./userlist'>

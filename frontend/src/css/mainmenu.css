@@ -14,6 +14,6 @@ input#main-search {
   height: 70px;
 }
 
-div#fauser {
-  margin-right: 20px;
+div.fontawesome a {
+  margin-left: 5px;
 }

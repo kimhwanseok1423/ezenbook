@@ -6,7 +6,7 @@ import { faArrowRight, faStar } from '@fortawesome/free-solid-svg-icons';
 import StarRate from '../pages/StarRate';
 const CategoryRight = () => {
   return (
-    <div className='categoryRight col-xl-12 col-lg-12 container-fluid'>
+    <div className='categoryRight col-xl-12 col-lg-12 container-fluid mt-3'>
       <div className='book-list-body colums-row mt-1'>
         {
           //////// 반복리스트

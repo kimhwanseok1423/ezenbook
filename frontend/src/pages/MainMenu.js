@@ -6,6 +6,7 @@ import {
   faCartShopping,
   faMagnifyingGlass,
   faUser,
+  faScrewdriverWrench,
 } from '@fortawesome/free-solid-svg-icons';
 
 const MainMenu = () => {
@@ -104,7 +105,7 @@ const MainMenu = () => {
                       id='main-search'
                       className='form-control'
                     />
-                    <label className='form-label' for='main-search'></label>
+                    <label className='form-label' htmlFor='main-search'></label>
                   </div>
                   <button type='button' className='btn btn-search'>
                     <FontAwesomeIcon icon={faMagnifyingGlass} />
@@ -115,33 +116,29 @@ const MainMenu = () => {
           </div>
           <div className='col-xl-2 col-lg-2 container colums-row'>
             <div className='header__right'>
-              <div className='header__right__auth'>
-                <a href='#'>Login</a>
-                <a href='#'>Register</a>
+              <div className='header__right__auth mt-2'>
+                <a href='#'>Login</a>/ &nbsp;&nbsp;<a href='#'>SignUp</a>
               </div>
 
               <div className='row'>
-                <div className='header__right__widget container d-flex'>
+                <div className='header__right__widget container d-flex justify-content-end mt-4'>
+                  {/*  운영자 메뉴, 운영자만 접근 가능 */}
+                  <div className='fontawsome' id='fascrewdriverwrench'>
+                    <a href='/admin'>
+                      <FontAwesomeIcon icon={faScrewdriverWrench} size='3x' />
+                    </a>
+                  </div>
+
                   <div className='fontawsome' id='fauser'>
                     <a href='/mypage'>
                       <FontAwesomeIcon icon={faUser} size='3x' />
                     </a>
                   </div>
-                  <div className='fontawsome' id='faCartShopping'>
+                  <div className='fontawsome' id='facartshopping'>
                     <a href='/cart'>
                       <FontAwesomeIcon icon={faCartShopping} size='3x' />
                     </a>
                   </div>
-                </div>
-                <div>
-                  <a href='/admin'>
-                    <p>임시1 / </p>
-                  </a>
-                </div>
-                <div>
-                  <a href='/admin1'>
-                    <p> 임시2</p>
-                  </a>
                 </div>
               </div>
             </div>

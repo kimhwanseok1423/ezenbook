@@ -1,6 +1,6 @@
 import AdminMenu from '../pages/AdminMenu';
 import MainMenu from '../pages/MainMenu';
-import UserPage from '../pages/UserPage';
+import UserListPage from '../pages/UserListPage';
 
 const Admin = () => {
   return (
@@ -11,7 +11,7 @@ const Admin = () => {
           <AdminMenu />
         </div>
         <div className='col-10'>
-          <UserPage />
+          <UserListPage />
         </div>
       </div>
     </>

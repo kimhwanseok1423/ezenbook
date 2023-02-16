@@ -4,7 +4,7 @@ import { baseUrl } from '../components/commonApi/mainApi';
 import '../css/admin.css';
 
 const UserListPage = () => {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState([]);
 
   useEffect(() => {
     getUser();
@@ -23,16 +23,17 @@ const UserListPage = () => {
   }
 
   return (
-    <div className='UserPage-Wrap container-fluid col-xl-12 col-lg-12 mt-2'>
-      <div class='row'>
-        <div class='card'>
-          <table class='table' id='user-table'>
+    <div className='UserPage-Wrap container-fluid col-xl-12 col-lg-12 mt-3'>
+      <div className='row'>
+        <div className='card'>
+          <table className='table' id='user-title'>
             <thead>
               {/* 테이블 헤드 */}
               <tr>
-                <th scope='col' className='user_num'>
+                {/* <th scope='col' className='user_num'>
                   User No.
-                </th>
+                </th> */}
+
                 <th scope='col' className='user_id'>
                   ID
                 </th>
@@ -63,37 +64,32 @@ const UserListPage = () => {
               </tr>
             </thead>
           </table>
-
-          {/* Default Table */}
-
-          <table>
-            <tbody>
-              {user.map((user) => {
-                return (
-                  <tr className='view' id='user-E000000001'>
-                    <th scope='row' className='user_data'>
-                      {user.user_num}
-                    </th>
-                    <td className='user_id'>{user.user_id}</td>
-                    <td className='user_name'>{user.user_name}</td>
-                    <td className='user_email'>{user.user_email}</td>
-                    <td className='user_nickname'>{user.user_nickname}</td>
-                    <td className='user_role'>{user.user_role}</td>
-                    <td className='create_date'>22/02/17</td>
-                    <td className='modify_date'>22/12/29</td>
-                    <td className='user-modify'>수정</td>
-                    <td className='user-delete'>삭제</td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-
-          {/* End Default Table Example */}
+          {user.map((user) => {
+            return (
+              <div key={user.user_id}>
+                <table className='user_data'>
+                  <tbody>
+                    <tr>
+                      <th scope='row'>{user.user_num}</th>
+                      <td className='user_id'>{user.user_id}</td>
+                      <td className='user_name'>{user.user_name}</td>
+                      <td className='user_email'>{user.user_email}</td>
+                      <td className='user_nickname'>{user.user_nickname}</td>
+                      <td className='user_role'>{user.user_role}</td>
+                      <td className='create_date'>22/02/17</td>
+                      <td className='modify_date'>22/12/29</td>
+                      <td className='user_modify'>수정</td>
+                      <td className='user_delete'>삭제</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            );
+          })}
+          ;
         </div>
       </div>
     </div>
   );
 };
-
 export default UserListPage;
