@@ -29,21 +29,46 @@ div.book-cart-count {
 div.book-cart-quantity {
   display: flex;
   align-items: center;
-  border: 1px solid #dad5d5;
-  height: 50px;
-  margin-top: 80px;
   width: 150px;
+  height: 44px;
+  margin-top: 80px;
+  border: 1px solid #dad5d5;
 }
+/* 보더 미세 조정 다시 해야함 */
 
 div.book-cart-quantity p {
   width: 30px;
   padding-top: 10px;
 }
 
-p#buying-book-quantity {
-  width: 70px;
+div.book-cart-quantity button {
+  width: 35px;
+  color: white;
+  padding: 0;
 }
 
+button#num_plus {
+  margin-left: -15px;
+}
+
+button#num_plus p {
+  color: white !important;
+}
+
+button#num_minus {
+  margin-right: -15px;
+}
+
+p#buying-book-quantity {
+  width: 80px;
+  text-align: right;
+  padding-right: 20px;
+  height: 35px;
+}
+
+button.btn-cart-order {
+  margin-left: 45px;
+}
 div.book-img {
   padding: 0px;
   text-align: left;

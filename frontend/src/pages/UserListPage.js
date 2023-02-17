@@ -4,6 +4,8 @@ import { baseUrl } from '../components/commonApi/mainApi';
 import Pagination from '../components/commonApi/Pagination';
 import '../css/admin.css';
 import '../css/bootstrap.min.css';
+import Table from 'react-bootstrap/Table';
+import Collapse from 'react-bootstrap/Collapse';
 
 const UserListPage = () => {
   const [user, setUser] = useState([]);
@@ -83,7 +85,7 @@ const UserListPage = () => {
           {user.slice(offset, offset + limit).map((user) => {
             return (
               <div key={user.user_id}>
-                <table className='table table-responsive table-hover'>
+                <Table>
                   <tbody>
                     <tr
                       className='clickable'
@@ -105,12 +107,13 @@ const UserListPage = () => {
                       <td colSpan='9'>aa</td>
                     </tr>
                   </tbody>
-                </table>
+                </Table>
               </div>
             );
           })}
 
           <footer>
+            <hr />
             <Pagination
               total={user.length}
               limit={limit}

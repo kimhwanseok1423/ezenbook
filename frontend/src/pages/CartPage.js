@@ -4,16 +4,30 @@ import {
   faPlus,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useState } from 'react';
 import StarRate from './StarRate';
 import '../css/cart.css';
 import '../css/bootstrap.min.css';
 
+let init = 1;
+
 const CartPage = () => {
+  const [num, setNum] = useState(1);
+
+  const increase = () => {
+    setNum(num + 1);
+  };
+
+  const decrease = () => {
+    if (num >= 1) setNum(num - 1);
+  };
+
   return (
     <div className='cartpage-wrap container-fluid d-flex'>
       {
         ///////////반복 아이템
       }
+
       <div class='cart-wrap colums-row container-fluid'>
         <div className='cart-item d-flex' id='cart-item-1'>
           <div className='cart-book-img col-2' id>
@@ -50,25 +64,33 @@ const CartPage = () => {
           </div>
           <div className='book-cart-count col-2 colums-row'>
             <div className='book-cart-quantity container d-flex'>
-              <a href='#'>
+              <button
+                className='btn btn-search'
+                onClick={increase}
+                id='num_plus'
+              >
                 <p>
                   <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
                 </p>
-              </a>
-              <p id='buying-book-quantity'>1</p>
-              <a href='#'>
-                <p>
-                  <FontAwesomeIcon icon={faMinus}></FontAwesomeIcon>
-                </p>{' '}
-              </a>
+              </button>
+              <p id='buying-book-quantity'>{num}</p>
+              <button
+                className='btn btn-search'
+                onClick={decrease}
+                id='num_minus'
+              >
+                <FontAwesomeIcon icon={faMinus}></FontAwesomeIcon>
+              </button>
             </div>
           </div>
           <hr />
         </div>
+
         {
           ///////////반복 아이템
         }
-        <div className='cart-item d-flex' id='cart-item-2'>
+
+        {/* <div className='cart-item d-flex' id='cart-item-2'>
           <div className='book-img col-2'>
             <a href='/bookdetail'>
               <img src='../test/test5.jpg'></img>
@@ -103,21 +125,27 @@ const CartPage = () => {
           </div>
           <div className='book-cart-count col-2 colums-row'>
             <div className='book-cart-quantity container d-flex'>
-              <a href='#'>
+              <button
+                className='btn btn-search'
+                onClick={increase}
+                id='num_plus'
+              >
                 <p>
                   <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
                 </p>
-              </a>
-              <p id='buying-book-quantity'>2</p>
-              <a href='#'>
-                <p>
+              </button>
+              <p id='buying-book-quantity'>{num}</p>
+                <button
+                  className='btn btn-search'
+                  onClick={decrease}
+                  id='num_minus'
+                >
                   <FontAwesomeIcon icon={faMinus}></FontAwesomeIcon>
-                </p>
-              </a>
+                </button>
             </div>
           </div>
           <hr />
-        </div>
+        </div> */}
         {
           ///////////반복 아이템
         }
@@ -126,7 +154,7 @@ const CartPage = () => {
         <div className='cart-sum-wrap mt-3'>
           <div className='cart-sum-price d-flex'>
             <p className='title'>상품금액 : </p>
-            <p className='price'>11,222,230원 </p>
+            <p className='price'>100원 </p>
           </div>
           <div class='cart-sum-shipping d-flex'>
             <p className='title'>배 송 비 : </p>
@@ -135,7 +163,7 @@ const CartPage = () => {
           <hr />
           <div className='cart-total-price d-flex'>
             <p className='title'>결제금액 : </p>
-            <p className='price'>11,222,230원 </p>
+            <p className='price'>100원 </p>
           </div>
           <div calssName='cart-order'>
             <a href='/order'>

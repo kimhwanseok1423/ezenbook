@@ -63,3 +63,7 @@ td.user_modify,
 td.user_delete {
   text-align: center;
 }
+
+.table {
+  margin-bottom: 0;
+}
