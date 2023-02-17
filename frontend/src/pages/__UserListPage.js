@@ -1,9 +1,9 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { slideDown, slideUp } from '../components/anim';
 import { baseUrl } from '../components/commonApi/mainApi';
 import Pagination from '../components/commonApi/Pagination';
 import '../css/admin.css';
-import '../css/bootstrap.min.css';
 
 const UserListPage = () => {
   const [user, setUser] = useState([]);
@@ -25,6 +25,28 @@ const UserListPage = () => {
         console.log(error);
       });
     console.log('setUser added');
+  }
+
+  class UserTableRow extends React.Component {
+    state = { expanded: false };
+
+    toggleExpander = (e) => {
+      if (e.target.type === 'checkbox') return;
+
+      if (!this.state.expanded) {
+        this.setState({ expanded: true }, () => {
+          if (this.expanderBody) {
+            slideDown(this.expanderBody);
+          }
+        });
+      } else {
+        slideUp(this.expanderBody, {
+          onComplete: () => {
+            this.setState({ expanded: false });
+          },
+        });
+      }
+    };
   }
 
   return (
@@ -50,6 +72,10 @@ const UserListPage = () => {
             <thead>
               {/* 테이블 헤드 */}
               <tr>
+                {/* <th scope='col' className='user_num'>
+                  User No.
+                </th> */}
+
                 <th scope='col' className='user_id'>
                   ID
                 </th>
@@ -83,15 +109,11 @@ const UserListPage = () => {
           {user.slice(offset, offset + limit).map((user) => {
             return (
               <div key={user.user_id}>
-                <table className='table table-responsive table-hover'>
+                <table className='user_data'>
                   <tbody>
-                    <tr
-                      className='clickable'
-                      data-toggle='collapse'
-                      id={'row' + user.user_id}
-                      data-target={'.row' + user.user_id}
-                    >
-                      <th className='user_id'>{user.user_id}</th>
+                    <tr key='main' onClick={this.toggleExpander}>
+                      <th scope='row'>{user.user_num}</th>
+                      <td className='user_id'>{user.user_id}</td>
                       <td className='user_name'>{user.user_name}</td>
                       <td className='user_email'>{user.user_email}</td>
                       <td className='user_nickname'>{user.user_nickname}</td>
@@ -101,10 +123,17 @@ const UserListPage = () => {
                       <td className='user_modify'>수정</td>
                       <td className='user_delete'>삭제</td>
                     </tr>
-                    <tr className={'collapse row' + user.user_id}>
-                      <td colSpan='9'>aa</td>
-                    </tr>
                   </tbody>
+                  this.state.expanded && (
+                  <tr className='expandable' key='tr-expander'>
+                    <td className='folded-userdetail' colSpan='9'>
+                      <div ref='expanderBody' className='fold-book-detail'>
+                        &nbsp;&nbsp;&nbsp;&nbsp;고객 상세내용 폴딩 페이지 test
+                        ex 주소, 전화번호, 사용금액 등등 추가 정보
+                      </div>
+                    </td>
+                  </tr>
+                  )
                 </table>
               </div>
             );

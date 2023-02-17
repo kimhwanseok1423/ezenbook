@@ -19,8 +19,7 @@ li {
   width: 130px;
 }
 
-td.user_id {
-  width: 180px;
+th.user_id {
   padding-left: 15px;
   text-align: left;
 }

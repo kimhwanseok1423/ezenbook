@@ -9484,4 +9484,8 @@ a.text-dark:hover {
     color: inherit;
     border-color: #dee2e6;
   }
+
+  table .collapse.in {
+    display: table-row;
+  }
 }

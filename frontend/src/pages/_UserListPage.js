@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import { baseUrl } from '../components/commonApi/mainApi';
 import Pagination from '../components/commonApi/Pagination';
 import '../css/admin.css';
-import '../css/bootstrap.min.css';
 
 const UserListPage = () => {
   const [user, setUser] = useState([]);
@@ -50,6 +49,10 @@ const UserListPage = () => {
             <thead>
               {/* 테이블 헤드 */}
               <tr>
+                {/* <th scope='col' className='user_num'>
+                  User No.
+                </th> */}
+
                 <th scope='col' className='user_id'>
                   ID
                 </th>
@@ -83,15 +86,11 @@ const UserListPage = () => {
           {user.slice(offset, offset + limit).map((user) => {
             return (
               <div key={user.user_id}>
-                <table className='table table-responsive table-hover'>
+                <table className='user_data'>
                   <tbody>
-                    <tr
-                      className='clickable'
-                      data-toggle='collapse'
-                      id={'row' + user.user_id}
-                      data-target={'.row' + user.user_id}
-                    >
-                      <th className='user_id'>{user.user_id}</th>
+                    <tr>
+                      <th scope='row'>{user.user_num}</th>
+                      <td className='user_id'>{user.user_id}</td>
                       <td className='user_name'>{user.user_name}</td>
                       <td className='user_email'>{user.user_email}</td>
                       <td className='user_nickname'>{user.user_nickname}</td>
@@ -101,10 +100,13 @@ const UserListPage = () => {
                       <td className='user_modify'>수정</td>
                       <td className='user_delete'>삭제</td>
                     </tr>
-                    <tr className={'collapse row' + user.user_id}>
-                      <td colSpan='9'>aa</td>
-                    </tr>
                   </tbody>
+                  <tr className='fold-detail'>
+                    <td className='fold-book-detail' colspan='9'>
+                      &nbsp;&nbsp;&nbsp;&nbsp;고객 상세내용 폴딩 페이지 test ex)
+                      주소, 전화번호, 사용금액 등등 추가 정보
+                    </td>
+                  </tr>
                 </table>
               </div>
             );
