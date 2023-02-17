@@ -6,7 +6,6 @@ function Pagination({ total, limit, page, setPage }) {
   const numPages = Math.ceil(total / limit);
   const [currPage, setCurrPage] = useState(page);
   let firstNum = currPage - (currPage % 10) + 1;
-  let lastNum = currPage - (currPage % 10) + 10;
 
   return (
     <>

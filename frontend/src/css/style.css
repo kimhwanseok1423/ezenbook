@@ -354,6 +354,7 @@ ol {
   position: relative;
   font-size: 24px;
   padding-top: 5px;
+  text-align: center;
 }
 .header__menu ul li.active a:after {
   -webkit-transform: scale(1);
@@ -401,7 +402,7 @@ ol {
 }
 
 .header__menu ul li .dropdown li a {
-  font-size: 14px;
+  font-size: 16px;
   color: #000000;
   font-weight: 400;
   text-transform: capitalize;

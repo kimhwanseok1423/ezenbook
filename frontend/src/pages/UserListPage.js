@@ -12,6 +12,7 @@ const UserListPage = () => {
   const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(1);
   const offset = (page - 1) * limit;
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     getUser();
@@ -89,9 +90,10 @@ const UserListPage = () => {
                   <tbody>
                     <tr
                       className='clickable'
-                      data-toggle='collapse'
+                      onClick={() => setOpen(!open)}
+                      aria-controls='collapse-text'
+                      aria-expanded={'#row' + user.user_id}
                       id={'row' + user.user_id}
-                      data-target={'.row' + user.user_id}
                     >
                       <th className='user_id'>{user.user_id}</th>
                       <td className='user_name'>{user.user_name}</td>
@@ -103,9 +105,17 @@ const UserListPage = () => {
                       <td className='user_modify'>수정</td>
                       <td className='user_delete'>삭제</td>
                     </tr>
-                    <tr className={'collapse row' + user.user_id}>
-                      <td colSpan='9'>aa</td>
-                    </tr>
+                    <Collapse in={open}>
+                      <tr>
+                        <td
+                          className='collapse-text'
+                          colSpan='9'
+                          id={'row' + user.user_id}
+                        >
+                          aa
+                        </td>
+                      </tr>
+                    </Collapse>
                   </tbody>
                 </Table>
               </div>
