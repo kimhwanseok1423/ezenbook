@@ -7,10 +7,10 @@ const Admin = () => {
     <>
       <MainMenu />
       <div className='container-fluid d-flex'>
-        <div className='col-2'>
+        <div className='col-1'>
           <AdminMenu />
         </div>
-        <div className='col-10'>
+        <div className='col-11'>
           <UserListPage />
         </div>
       </div>

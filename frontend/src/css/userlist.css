@@ -71,3 +71,16 @@ td.user_delete {
 .UserPage-Wrap {
   margin-bottom: 30px;
 }
+
+.adminpage-menu li {
+  text-align: center;
+  width: 100px;
+}
+
+.adminpage-wrap {
+  padding: 0px;
+}
+
+.userPage-wrap {
+  padding: 0px;
+}

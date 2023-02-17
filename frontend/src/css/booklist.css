@@ -17,8 +17,8 @@ tr {
 }
 
 .table {
-  min-width: 1350px;
-  max-width: 1350px;
+  min-width: 1500px;
+  max-width: 1500px;
 }
 .book_price {
   width: 80px;
@@ -33,11 +33,11 @@ tr {
 
 .book_category,
 .book_image,
-.book_publisher,
 .book_isbn {
   width: 120px;
 }
 
+.book_publisher,
 .book_author {
   width: 150px;
   word-break: keep-all;
@@ -76,10 +76,19 @@ td.book_delete {
   text-align: center;
 }
 
+td.book_price {
+  text-align: right;
+}
+
+td.book_image {
+  padding: 0px;
+}
+
 .table {
   margin-bottom: 0;
 }
 
 .bookPage-Wrap {
-  margin-bottom: 30px;
+  padding: 0px;
+  width: 1500px;
 }

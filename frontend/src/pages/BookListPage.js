@@ -29,7 +29,7 @@ const BookListPage = () => {
   }
 
   return (
-    <div className='bookPage-Wrap container-fluid col-xl-12 col-lg-12 mt-3'>
+    <div className='bookPage-Wrap container-fluid col-xl-12 col-lg-12'>
       <div className='set_pages'>
         <label>
           페이지 당 표시할 게시물 수&nbsp;&nbsp;:&nbsp;&nbsp;
@@ -46,7 +46,7 @@ const BookListPage = () => {
         </label>
       </div>
       <div className='row'>
-        <div className='card mt-2'>
+        <div className='card'>
           <table className='table mb-0' id='booklist-title'>
             <thead>
               {/* 테이블 헤드 */}
@@ -94,7 +94,7 @@ const BookListPage = () => {
                       <th scope='row' className='book_num'>
                         {book.book_num}
                       </th>
-                      <td className='book_category'>{book.book_category}</td>
+                      <td className='book_category'>{book.category_code}</td>
                       <td className='book_title'>{book.book_title}</td>
                       <td className='book_author'>{book.book_author}</td>
                       <td className='book_publisher'>{book.book_publisher}</td>
