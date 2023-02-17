@@ -2,11 +2,13 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { baseUrl } from '../components/commonApi/mainApi';
 import Pagination from '../components/commonApi/Pagination';
-import '../css/admin.css';
+import Table from 'react-bootstrap/Table';
+import '../css/booklist.css';
+import '../css/bootstrap.min.css';
 
 const BookListPage = () => {
   const [book, setbook] = useState([]);
-  const [limit, setLimit] = useState(10);
+  const [limit, setLimit] = useState(5);
   const [page, setPage] = useState(1);
   const offset = (page - 1) * limit;
 
@@ -36,8 +38,8 @@ const BookListPage = () => {
             value={limit}
             onChange={({ target: { value } }) => setLimit(Number(value))}
           >
+            <option value='5'>5</option>
             <option value='10'>10</option>
-            <option value='15'>15</option>
             <option value='25'>25</option>
             <option value='50'>50</option>
           </select>
@@ -45,7 +47,7 @@ const BookListPage = () => {
       </div>
       <div className='row'>
         <div className='card mt-2'>
-          <table className='table mb-0' id='book-title'>
+          <table className='table mb-0' id='booklist-title'>
             <thead>
               {/* 테이블 헤드 */}
               <tr>
@@ -53,55 +55,58 @@ const BookListPage = () => {
                   book No.
                 </th> */}
 
-                <th scope='col' className='book_id'>
-                  ID
+                <th scope='col' className='book_num'>
+                  상품번호
                 </th>
-                <th scope='col' className='book_name'>
-                  Name
+                <th scope='col' className='book_category'>
+                  카테고리
                 </th>
-                <th scope='col' className='book_email'>
-                  Email
+                <th scope='col' className='book_title'>
+                  제목
                 </th>
-                <th scope='col' className='book_nickname'>
-                  Nickname
+                <th scope='col' className='book_author'>
+                  저자
                 </th>
-                <th scope='col' className='book_role'>
-                  Level
+                <th scope='col' className='book_publisher'>
+                  출판사
                 </th>
-                <th scope='col' className='create_date'>
-                  가입일
+                <th scope='col' className='book_image'>
+                  표지
                 </th>
-                <th scope='col' className='modify_date'>
-                  수정일
+                <th scope='col' className='book_price'>
+                  가격
                 </th>
-                <th scope='col' className='book-modify'>
-                  Modify
+                <th scope='col' className='book_pubdate'>
+                  출판일
                 </th>
-                <th scope='col' className='book-delete'>
-                  Delete
+                <th scope='col' className='book_isbn'>
+                  ISBN
                 </th>
               </tr>
             </thead>
           </table>
           {book.slice(offset, offset + limit).map((book) => {
             return (
-              <div key={book.book_id}>
-                <table className='book_data'>
+              <div key={book.book_num}>
+                <Table className='book_data'>
                   <tbody>
                     <tr>
-                      <th scope='row'>{book.book_num}</th>
-                      <td className='book_id'>{book.book_id}</td>
-                      <td className='book_name'>{book.book_name}</td>
-                      <td className='book_email'>{book.book_email}</td>
-                      <td className='book_nickname'>{book.book_nickname}</td>
-                      <td className='book_role'>{book.book_role}</td>
-                      <td className='create_date'>22/02/17</td>
-                      <td className='modify_date'>22/12/29</td>
-                      <td className='book_modify'>수정</td>
-                      <td className='book_delete'>삭제</td>
+                      <th scope='row' className='book_num'>
+                        {book.book_num}
+                      </th>
+                      <td className='book_category'>{book.book_category}</td>
+                      <td className='book_title'>{book.book_title}</td>
+                      <td className='book_author'>{book.book_author}</td>
+                      <td className='book_publisher'>{book.book_publisher}</td>
+                      <td className='book_image'>
+                        <img src={book.book_image} />
+                      </td>
+                      <td className='book_price'>{book.book_price}</td>
+                      <td className='book_pubdate'>{book.book_pubdate}</td>
+                      <td className='book_isbn'>{book.book_isbn}</td>
                     </tr>
                   </tbody>
-                </table>
+                </Table>
               </div>
             );
           })}

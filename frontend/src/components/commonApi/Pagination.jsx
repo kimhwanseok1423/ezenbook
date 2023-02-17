@@ -1,36 +1,53 @@
 import styled from 'styled-components';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import { useState } from 'react';
 function Pagination({ total, limit, page, setPage }) {
   const numPages = Math.ceil(total / limit);
+  const [currPage, setCurrPage] = useState(page);
+  let firstNum = currPage - (currPage % 10) + 1;
+  let lastNum = currPage - (currPage % 10) + 10;
 
   return (
     <>
-      <Nav>
+      <Nav className='paging'>
         <Button
-          className='btn btn-secondary'
-          onClick={() => setPage(page - 1)}
+          onClick={() => {
+            setPage(page - 1);
+            setCurrPage(page - 2);
+          }}
           disabled={page === 1}
         >
-          &lt;
+          <FontAwesomeIcon icon={faAngleLeft} />
         </Button>
-        {Array(numPages)
+
+        {Array(10)
           .fill()
-          .map((_, i) => (
-            <Button
-              className='btn btn-secondary'
-              key={i + 1}
-              onClick={() => setPage(i + 1)}
-              aria-current={page === i + 1 ? 'page' : null}
-            >
-              {i + 1}
-            </Button>
-          ))}
+          .map((_, i) => {
+            for (let a = 0; a < 9; a++)
+              if (firstNum + i <= numPages) {
+                return (
+                  <Button
+                    border='true'
+                    key={i + 1}
+                    onClick={() => {
+                      setPage(firstNum + i);
+                    }}
+                    aria-current={page === firstNum + i ? 'page' : null}
+                  >
+                    {firstNum + i}
+                  </Button>
+                );
+              }
+          })}
         <Button
-          className='btn btn-secondary'
-          onClick={() => setPage(page + 1)}
+          onClick={() => {
+            setPage(page + 1);
+            setCurrPage(page);
+          }}
           disabled={page === numPages}
         >
-          &gt;
+          <FontAwesomeIcon icon={faAngleRight} />
         </Button>
       </Nav>
     </>
@@ -54,6 +71,7 @@ const Button = styled.button`
   color: white;
   font-size: 1rem;
   margin-right: 5px;
+  width: 50px;
 
   &:hover {
     background: #4c40c0;

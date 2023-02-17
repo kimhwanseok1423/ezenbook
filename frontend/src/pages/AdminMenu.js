@@ -1,5 +1,5 @@
 import '../css/style.css';
-import '../css/admin.css';
+import '../css/userlist.css';
 
 const AdminMenu = () => {
   return (
