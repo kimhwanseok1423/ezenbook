@@ -56,6 +56,12 @@ const Categories = () => {
           <li>
             <a href='#'>해외도서</a>
           </li>
+          <li>
+            <a href='#'>라이트노벨</a>
+          </li>
+          <li>
+            <a href='#'>만화</a>
+          </li>
         </ul>
       </div>
     </div>

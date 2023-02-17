@@ -30,7 +30,14 @@ public class BookController {
 		public List<BookDTO> getBookList() throws Exception{
 			System.out.println("BookList Called"); 
 			return bookService.bookSearch();
+			}//end getBookList()
 			
-		}//end getBookList()
+			//http://localhost:8090/category
+			@GetMapping("/category")
+			public List<BookDTO> getCategoryList() throws Exception{
+				System.out.println("CategoryList Called"); 
+				return bookService.bookSearch();
+				} //end getCategoryList
+				
 
 }//end class
