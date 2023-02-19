@@ -4,12 +4,12 @@ import { baseUrl } from '../components/commonApi/mainApi';
 import Pagination from '../components/commonApi/Pagination';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
-import StarRate from '../pages/StarRate';
+import StarRate from './StarRate';
 import '../css/category.css';
 import '../css/style.css';
 import '../css/bootstrap.min.css';
 
-const CategoryRight = () => {
+const NewestRight = () => {
   const [book, setbook] = useState([]);
   const [limit, setLimit] = useState(5);
   const [page, setPage] = useState(1);
@@ -21,13 +21,14 @@ const CategoryRight = () => {
 
   async function getbook() {
     await axios
-      .get(baseUrl + '/category')
+      .get(baseUrl + '/newest')
       .then((response) => {
         setbook(response.data);
       })
       .catch((error) => {
         console.log(error);
       });
+    console.log('setbook added');
   }
 
   return (
@@ -128,4 +129,4 @@ const CategoryRight = () => {
     </div>
   );
 };
-export default CategoryRight;
+export default NewestRight;

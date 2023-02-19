@@ -10,6 +10,12 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 const MainMenu = () => {
+  const [search, setSearch] = userState('');
+  const onChangeSearch = (e) => {
+    e.preventDefault();
+    setSearch(e.target.value);
+  };
+
   return (
     <div className='main-menu'>
       <div className='container-fluid'>
@@ -32,64 +38,61 @@ const MainMenu = () => {
                     <a href='/category'>카테고리</a>
                     <ul className='dropdown'>
                       <li>
-                        <a href='#'>전체</a>
+                        <a href='/category'>전체</a>
                       </li>
                       <li>
-                        <a href='#'>소설</a>
+                        <a href='/category/2'>소설</a>
                       </li>
                       <li>
-                        <a href='#'>시/에세이</a>
+                        <a href='/category/3'>시/에세이</a>
                       </li>
                       <li>
-                        <a href='#'>경제/경영</a>
+                        <a href='/category/4'>경제/경영</a>
                       </li>
                       <li>
-                        <a href='#'>자기계발</a>
+                        <a href='/category/5'>자기계발</a>
                       </li>
                       <li>
-                        <a href='#'>인문</a>
+                        <a href='/category/6'>인문</a>
                       </li>
                       <li>
-                        <a href='#'>역사/문화</a>
+                        <a href='/category/7'>역사/문화</a>
                       </li>
                       <li>
-                        <a href='#'>사회</a>
+                        <a href='/category/8'>사회</a>
                       </li>
                       <li>
-                        <a href='#'>과학</a>
+                        <a href='/category/9'>과학</a>
                       </li>
                       <li>
-                        <a href='#'>예술/종교</a>
+                        <a href='/category/10'>예술/종교</a>
                       </li>
                       <li>
-                        <a href='#'>어린이/청소년</a>
+                        <a href='/category/11'>어린이/청소년</a>
                       </li>
                       <li>
-                        <a href='#'>생활</a>
+                        <a href='/category/12'>생활</a>
                       </li>
                       <li>
-                        <a href='#'>취미</a>
+                        <a href='/category/13'>취미</a>
                       </li>
                       <li>
-                        <a href='#'>어학</a>
+                        <a href='/category/14'>어학</a>
                       </li>
                       <li>
-                        <a href='#'>IT</a>
+                        <a href='/category/15'>IT</a>
                       </li>
                       <li>
-                        <a href='#'>학습</a>
+                        <a href='/category/16'>학습</a>
                       </li>
                       <li>
-                        <a href='#'>해외도서</a>
+                        <a href='/category/17'>해외도서</a>
                       </li>
                       <li>
-                        <a href='#'>라이트노벨</a>
+                        <a href='/category/18'>라이트노벨</a>
                       </li>
                       <li>
-                        <a href='#'>만화</a>
-                      </li>
-                      <li>
-                        <a href='#'>기타</a>
+                        <a href='/category/20'>기타</a>
                       </li>
                     </ul>
                   </li>
@@ -110,9 +113,11 @@ const MainMenu = () => {
                 <div className='input-group'>
                   <div className='form-outline'>
                     <input
-                      type='search'
+                      type='text'
                       id='main-search'
                       className='form-control'
+                      value='search'
+                      onChange='onChangeSearch'
                     />
                     <label className='form-label' htmlFor='main-search'></label>
                   </div>

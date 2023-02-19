@@ -1,11 +1,8 @@
-import '../css/style.css';
-import '../css/category.css';
-import MainMenu from '../pages/MainMenu';
 import Categories from '../pages/Categories';
-import CategoryRight from '../pages/CategoryRight';
-import queryString from 'query-string';
+import MainMenu from '../pages/MainMenu';
+import NewestRight from '../pages/NewestRight.js';
 
-const Category = () => {
+const Newest = () => {
   return (
     <div className='category-body'>
       <MainMenu />
@@ -14,11 +11,11 @@ const Category = () => {
           <Categories />
         </div>
         <div className='col-xl-10 col-lg-10'>
-          <CategoryRight />
+          <NewestRight />
         </div>
       </div>
     </div>
   );
 };
 
-export default Category;
+export default Newest;

@@ -1,7 +1,5 @@
 import './App.css';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import { baseUrl } from './components/commonApi/mainApi.js';
+import { Route, Routes } from 'react-router-dom';
 
 import Home from './routes/Home';
 import Category from './routes/Category';
@@ -13,15 +11,18 @@ import Order from './routes/Order';
 import Admin from './routes/Admin';
 import BookList from './routes/BookList';
 import UserList from './routes/UserList';
+import Newest from './routes/Newest';
 
 const App = () => {
   return (
     <div className='App'>
       <Routes>
         <Route index element={<Home />} />
+        <Route path='/category/:code' element={<Category />} />
         <Route path='/category' element={<Category />} />
         <Route path='/bookdetail' element={<BookDetail />} />
         <Route path='/bestseller' element={<Bestseller />} />
+        <Route path='/newest' element={<Newest />} />
         <Route path='/cart' element={<Cart />} />
         <Route path='/order' element={<Order />} />
         <Route path='/mypage' element={<Mypage />} />

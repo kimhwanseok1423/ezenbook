@@ -1,20 +1,18 @@
 import '../css/category.css';
 import '../css/bootstrap.min.css';
-import { Link, useLocation } from 'react-router-dom';
 const Categories = () => {
   return (
     <div className='container-fluid'>
       <div className='card category-list mt-3'>
-        {Location.search}
         <ul>
           <li>
-            <Link to='/category'>전체</Link>
+            <a href='/category'>전체</a>
           </li>
           <li>
-            <Link to='/category?2'>소설</Link>
+            <a href='/category/2'>소설</a>
           </li>
           <li>
-            <Link to='/category?3'>시/에세이</Link>
+            <a href='/category/3'>시/에세이</a>
           </li>
           <li>
             <a href='/category/4'>경제/경영</a>
