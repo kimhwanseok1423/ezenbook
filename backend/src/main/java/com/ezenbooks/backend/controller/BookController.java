@@ -22,20 +22,17 @@ public class BookController {
 		private BookService bookService;
 		
 		public BookController() {
-			System.out.println("Book controller Called");
 		} //end BookController
 		
 		//http://localhost:8090/booklist
 		@GetMapping("/booklist")
 		public List<BookDTO> getBookList() throws Exception{
-			System.out.println("BookList Called"); 
 			return bookService.bookSearch();
 			}//end getBookList()
 			
 			//http://localhost:8090/category
 			@GetMapping("/category")
 			public List<BookDTO> getCategoryList() throws Exception{
-				System.out.println("CategoryList Called"); 
 				return bookService.bookSearch();
 				} //end getCategoryList
 				
