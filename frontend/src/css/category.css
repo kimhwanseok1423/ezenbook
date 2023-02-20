@@ -1,17 +1,21 @@
 p {
   font-size: 18px;
 }
-div.category-list li {
+/* div.category-list li {
   list-style: none;
+  width: 250px;
+  height: 40px;
+} */
+
+li.categorylist_li {
+  height: 38px;
 }
 
 div.category-list li a {
   display: inline-block;
-  margin-bottom: 10px;
   position: relative;
-  font-size: 22px;
+  font-size: 18px;
   color: black;
-  width: 150px;
 }
 
 div.category-list {

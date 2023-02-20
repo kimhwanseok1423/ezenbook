@@ -400,11 +400,14 @@ ol {
   height: 40px;
 }
 
-.header__menu ul li .dropdown li a {
+.header__menu ul li .dropdown li a,
+.category-list {
   font-size: 15px;
   color: #000000;
   font-weight: 400;
   text-transform: capitalize;
+  text-align: left;
+  margin-top: 0px;
 }
 
 .header__menu ul li .dropdown li a:after {

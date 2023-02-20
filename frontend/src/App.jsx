@@ -1,5 +1,5 @@
 import './App.css';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 
 import Home from './routes/Home';
 import Category from './routes/Category';
@@ -12,13 +12,18 @@ import Admin from './routes/Admin';
 import BookList from './routes/BookList';
 import UserList from './routes/UserList';
 import Newest from './routes/Newest';
+import CategoryList from './routes/CategoryList';
 
-const App = () => {
+function App() {
+  const location = useLocation();
+  const locationPathname = location.pathname;
+  console.log(locationPathname);
+
   return (
     <div className='App'>
       <Routes>
         <Route index element={<Home />} />
-        <Route path='/category/:code' element={<Category />} />
+        <Route path=':locationPathname' element={<CategoryList />} />
         <Route path='/category' element={<Category />} />
         <Route path='/bookdetail' element={<BookDetail />} />
         <Route path='/bestseller' element={<Bestseller />} />
@@ -32,6 +37,6 @@ const App = () => {
       </Routes>
     </div>
   );
-};
+}
 
 export default App;

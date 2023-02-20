@@ -9,7 +9,7 @@ import '../css/category.css';
 import '../css/style.css';
 import '../css/bootstrap.min.css';
 
-const NewestRight = () => {
+const CategoryMain = () => {
   const [book, setbook] = useState([]);
   const [limit, setLimit] = useState(5);
   const [page, setPage] = useState(1);
@@ -21,7 +21,7 @@ const NewestRight = () => {
 
   async function getbook() {
     await axios
-      .get(baseUrl + '/newest')
+      .get(baseUrl + '/category')
       .then((response) => {
         setbook(response.data);
       })
@@ -56,7 +56,6 @@ const NewestRight = () => {
           const bdiscountedprice = (book.book_price * 0.9).toLocaleString(
             'ko-KR'
           );
-
           return (
             <div key={book.book_num}>
               <div className='book-list-item d-flex'>
@@ -129,4 +128,4 @@ const NewestRight = () => {
     </div>
   );
 };
-export default NewestRight;
+export default CategoryMain;
