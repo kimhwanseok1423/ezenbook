@@ -12,14 +12,12 @@ import Admin from './routes/Admin';
 import BookList from './routes/BookList';
 import UserList from './routes/UserList';
 import Newest from './routes/Newest';
-import CategoryList from './pages/CategoryList';
 import Header from './components/Shared/Header';
 import CategoryPage from './pages/CategoryPage';
 
 function App() {
   const location = useLocation();
-  const locationPathname = location.pathname;
-  console.log(locationPathname);
+  console.log(location.pathname);
 
   return (
     <div className='App'>
@@ -27,12 +25,9 @@ function App() {
       <Routes>
         <Route index element={<Home />} />
         <Route exact path='/' element={<Home />} />
-
-        <Route path='/category/' element={<Category />} />
-
-        <Route path='/category/:id' component={<CategoryList />} />
-
+        <Route path='/category/*' element={<Category />} />
         <Route path='/bestseller' element={<Bestseller />} />
+        <Route path='/newest/*' element={<Newest />} />
       </Routes>
     </div>
   );

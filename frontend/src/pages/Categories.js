@@ -8,13 +8,12 @@ const Categories = () => {
   const [category, setCategory] = useState([]);
 
   useEffect(() => {
-    console.log('category_list loaded');
     getCategory();
   }, []);
 
   async function getCategory() {
     await axios
-      .get(baseUrl + '/categorydata')
+      .get(`${baseUrl}/categorydata`)
       .then((response) => {
         setCategory(response.data);
       })
@@ -25,16 +24,22 @@ const Categories = () => {
 
   return (
     <ul>
+      <li className='categorylist_li'>
+        <a href='/category'>전체</a>
+      </li>
       {category.map((category) => {
         return (
-          <li className='categorylist_li' key={category.category_code}>
-            <Link to={'/category/' + category.category_code}>
+          <li
+            className='categorylist_li'
+            key={category.category_code}
+            id={'category_' + category.category_code}
+          >
+            <a href={`/category/${category.category_code}`}>
               {category.category_name}
-            </Link>
+            </a>
           </li>
         );
       })}
-      ;
     </ul>
   );
 };

@@ -1,6 +1,5 @@
 import BestsellerPage from '../pages/BestsellerPage';
 import Categories from '../pages/Categories';
-import MainMenu from '../pages/_MainMenu';
 
 const Bestseller = () => {
   return (

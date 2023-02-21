@@ -9,12 +9,15 @@ import '../css/category.css';
 import '../css/style.css';
 import '../css/bootstrap.min.css';
 import Pagination from '../components/Shared/Pagination';
+import { useLocation } from 'react-router-dom';
 
-const Category = () => {
+const CategoryList = () => {
   const [book, setbook] = useState([]);
   const [limit, setLimit] = useState(5);
   const [page, setPage] = useState(1);
   const offset = (page - 1) * limit;
+  const location = useLocation();
+  const [code] = useState(location.pathname);
 
   useEffect(() => {
     getbook();
@@ -22,7 +25,7 @@ const Category = () => {
 
   async function getbook() {
     await axios
-      .get(baseUrl + '/category')
+      .get(baseUrl + code)
       .then((response) => {
         setbook(response.data);
       })
@@ -67,7 +70,7 @@ const Category = () => {
                   <div className='book-list-item d-flex'>
                     <div className='book-img col-2'>
                       <a href={'/bookdetail/' + book.book_num}>
-                        <img src={book.book_image}></img>
+                        <img src={book.book_image} alt={book.book_title} />
                       </a>
                     </div>
                     <div className='book-details col-9 colums-row'>
@@ -136,4 +139,4 @@ const Category = () => {
     </>
   );
 };
-export default Category;
+export default CategoryList;

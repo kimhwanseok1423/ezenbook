@@ -7,6 +7,7 @@ import {
   faMagnifyingGlass,
   faUser,
   faScrewdriverWrench,
+  faBolt,
 } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import Categories from '../../pages/Categories';
@@ -40,7 +41,11 @@ const Header = () => {
                     <Link to='/bestseller'>베스트셀러</Link>
                   </li>
                   <li>
-                    <Link to='/ranking20'>랭킹#20</Link>
+                    <Link to='/pick20'>
+                      UserPick
+                      <FontAwesomeIcon icon={faBolt} size='sm' />
+                      20
+                    </Link>
                   </li>
                   <li>
                     <Link to='/newest'>신간</Link>

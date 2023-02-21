@@ -405,7 +405,6 @@ ol {
   font-size: 15px;
   color: #000000;
   font-weight: 400;
-  text-transform: capitalize;
   text-align: left;
   margin-top: 0px;
 }
@@ -415,7 +414,6 @@ ol {
 }
 
 .header__menu ul li a {
-  text-transform: uppercase;
   color: #111111;
   font-weight: 500;
   display: block;
@@ -423,6 +421,7 @@ ol {
   position: relative;
   margin-right: 10px;
   margin-left: 10px;
+  width: 150px;
 }
 
 .header__menu ul li a:after {
