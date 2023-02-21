@@ -1,6 +1,6 @@
 import AdminMenu from '../pages/AdminMenu';
 import UserListPage from '../pages/UserListPage';
-import MainMenu from '../pages/MainMenu';
+import MainMenu from '../pages/_MainMenu';
 
 const UserList = () => {
   return (

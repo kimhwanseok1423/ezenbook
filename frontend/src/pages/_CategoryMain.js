@@ -4,7 +4,7 @@ import { baseUrl } from '../components/commonApi/mainApi';
 import Pagination from '../components/commonApi/Pagination';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
-import StarRate from './StarRate';
+import StarRate from '../components/Shared/StarRate';
 import '../css/category.css';
 import '../css/style.css';
 import '../css/bootstrap.min.css';

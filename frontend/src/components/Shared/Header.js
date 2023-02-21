@@ -1,6 +1,6 @@
-import '../css/bootstrap.min.css';
-import '../css/style.css';
-import '../css/mainmenu.css';
+import '../../css/bootstrap.min.css';
+import '../../css/style.css';
+import '../../css/header.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faCartShopping,
@@ -9,9 +9,9 @@ import {
   faScrewdriverWrench,
 } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
-import Categories from './Categories';
+import Categories from '../../pages/Categories';
 
-const MainMenu = () => {
+const Header = () => {
   return (
     <div className='main-menu'>
       <div className='container-fluid'>
@@ -102,4 +102,4 @@ const MainMenu = () => {
   );
 };
 
-export default MainMenu;
+export default Header;

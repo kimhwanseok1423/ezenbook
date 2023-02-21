@@ -1,6 +1,6 @@
 import '../css/style.css';
 import '../css/cart.css';
-import MainMenu from '../pages/MainMenu';
+import MainMenu from '../pages/_MainMenu';
 import OrderPage from '../pages/OrderPage';
 
 const Order = () => {

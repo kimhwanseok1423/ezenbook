@@ -5,7 +5,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
-import StarRate from './StarRate';
+import StarRate from '../components/Shared/StarRate';
 import '../css/cart.css';
 import '../css/bootstrap.min.css';
 

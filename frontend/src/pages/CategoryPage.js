@@ -1,24 +1,19 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { baseUrl } from '../components/commonApi/mainApi';
-import { useLocation } from 'react-router-dom';
-import Pagination from '../components/commonApi/Pagination';
+import Pagination from '../components/Shared/Pagination';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
-import StarRate from './StarRate';
+import StarRate from '../components/Shared/StarRate';
 import '../css/category.css';
 import '../css/style.css';
 import '../css/bootstrap.min.css';
 
-const CategoryListRight = () => {
+const CategoryPage = () => {
   const [book, setbook] = useState([]);
   const [limit, setLimit] = useState(5);
   const [page, setPage] = useState(1);
   const offset = (page - 1) * limit;
-
-  const location = useLocation();
-  const locationPathname = location.pathname;
-  console.log(locationPathname);
 
   useEffect(() => {
     getbook();
@@ -26,7 +21,7 @@ const CategoryListRight = () => {
 
   async function getbook() {
     await axios
-      .get(baseUrl + { locationPathname })
+      .get(baseUrl + '/category')
       .then((response) => {
         setbook(response.data);
       })
@@ -133,4 +128,4 @@ const CategoryListRight = () => {
     </div>
   );
 };
-export default CategoryListRight;
+export default CategoryPage;

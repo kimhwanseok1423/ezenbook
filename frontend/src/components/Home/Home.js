@@ -1,14 +1,11 @@
-import MainMenu from '../pages/MainMenu';
-import NewestSmall from '../pages/NewestSmall';
-import BestsellerSmall from '../pages/BestsellerSmall';
-import CarouselPage from '../pages/Carousel';
-import '../css/main.css';
-import '../css/bootstrap.min.css';
+import BestsellerSmall from '../../pages/BestsellerSmall';
+import CarouselPage from '../../pages/Carousel';
+import NewestSmall from '../../pages/NewestSmall';
+import Header from '../Shared/Header';
 
 const Home = () => {
   return (
-    <div className='Main-body'>
-      <MainMenu />
+    <>
       <CarouselPage />
       <div className='container-fulid d-flex col-xl-12 col-lg-12 mt-3'>
         <div className='col-xl-6 col-lg-6' id='bestseller-body'>
@@ -24,7 +21,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

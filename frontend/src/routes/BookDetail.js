@@ -1,6 +1,6 @@
 import '../css/style.css';
 import '../css/category.css';
-import MainMenu from '../pages/MainMenu';
+import MainMenu from '../pages/_MainMenu';
 import Categories from '../pages/Categories';
 import BookDetailPage from '../pages/BookDetailPage';
 

@@ -1,7 +1,7 @@
 import './App.css';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Router, Routes, useLocation } from 'react-router-dom';
 
-import Home from './routes/Home';
+import Home from './components/Home/Home';
 import Category from './routes/Category';
 import BookDetail from './routes/BookDetail';
 import Bestseller from './routes/Bestseller';
@@ -12,7 +12,9 @@ import Admin from './routes/Admin';
 import BookList from './routes/BookList';
 import UserList from './routes/UserList';
 import Newest from './routes/Newest';
-import CategoryList from './routes/CategoryList';
+import CategoryList from './pages/CategoryList';
+import Header from './components/Shared/Header';
+import CategoryPage from './pages/CategoryPage';
 
 function App() {
   const location = useLocation();
@@ -21,19 +23,16 @@ function App() {
 
   return (
     <div className='App'>
+      <Header />
       <Routes>
         <Route index element={<Home />} />
-        <Route path=':locationPathname' element={<CategoryList />} />
-        <Route path='/category' element={<Category />} />
-        <Route path='/bookdetail' element={<BookDetail />} />
+        <Route exact path='/' element={<Home />} />
+
+        <Route path='/category/' element={<Category />} />
+
+        <Route path='/category/:id' component={<CategoryList />} />
+
         <Route path='/bestseller' element={<Bestseller />} />
-        <Route path='/newest' element={<Newest />} />
-        <Route path='/cart' element={<Cart />} />
-        <Route path='/order' element={<Order />} />
-        <Route path='/mypage' element={<Mypage />} />
-        <Route path='/admin' element={<Admin />} />
-        <Route path='/booklist' element={<BookList />} />
-        <Route path='/userlist' element={<UserList />} />
       </Routes>
     </div>
   );

@@ -1,6 +1,6 @@
 import AdminMenu from '../pages/AdminMenu';
 import BookListPage from '../pages/BookListPage';
-import MainMenu from '../pages/MainMenu';
+import MainMenu from '../pages/_MainMenu';
 
 const BookList = () => {
   return (

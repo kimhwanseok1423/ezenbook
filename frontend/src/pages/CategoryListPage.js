@@ -1,7 +1,7 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useLocation, useEffect, useState } from 'react';
 import { baseUrl } from '../components/commonApi/mainApi';
-import Pagination from '../components/Shared/Pagination';
+import Pagination from '../components/commonApi/Pagination';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import StarRate from '../components/Shared/StarRate';
@@ -9,7 +9,9 @@ import '../css/category.css';
 import '../css/style.css';
 import '../css/bootstrap.min.css';
 
-const NewestRight = () => {
+const { params } = this.props.match;
+
+const CategoryListPage = (id) => {
   const [book, setbook] = useState([]);
   const [limit, setLimit] = useState(5);
   const [page, setPage] = useState(1);
@@ -21,7 +23,7 @@ const NewestRight = () => {
 
   async function getbook() {
     await axios
-      .get(baseUrl + '/newest')
+      .get(baseUrl + { id })
       .then((response) => {
         setbook(response.data);
       })
@@ -56,7 +58,6 @@ const NewestRight = () => {
           const bdiscountedprice = (book.book_price * 0.9).toLocaleString(
             'ko-KR'
           );
-
           return (
             <div key={book.book_num}>
               <div className='book-list-item d-flex'>
@@ -129,4 +130,4 @@ const NewestRight = () => {
     </div>
   );
 };
-export default NewestRight;
+export default CategoryListPage;

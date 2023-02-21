@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { baseUrl } from '../components/commonApi/mainApi';
-import Pagination from '../components/commonApi/Pagination';
+import Pagination from '../components/Shared/Pagination';
 import Table from 'react-bootstrap/Table';
 import '../css/booklist.css';
 import '../css/bootstrap.min.css';

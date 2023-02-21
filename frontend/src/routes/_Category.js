@@ -1,10 +1,10 @@
 import '../css/style.css';
 import '../css/category.css';
-import MainMenu from '../pages/MainMenu';
+import MainMenu from '../pages/_MainMenu';
 import Categories from '../pages/Categories';
-import CategoryListRight from '../pages/CategoryListRight';
+import CategoryMain from '../pages/CategoryMain';
 
-const CategoryList = () => {
+const Category = () => {
   return (
     <div className='category-body'>
       <MainMenu />
@@ -13,11 +13,11 @@ const CategoryList = () => {
           <Categories />
         </div>
         <div className='col-xl-10 col-lg-10'>
-          <CategoryListRight />
+          <CategoryMain />
         </div>
       </div>
     </div>
   );
 };
 
-export default CategoryList;
+export default Category;

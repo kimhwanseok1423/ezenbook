@@ -1,5 +1,5 @@
 import AdminMenu from '../pages/AdminMenu';
-import MainMenu from '../pages/MainMenu';
+import MainMenu from '../pages/_MainMenu';
 import UserListPage from '../pages/UserListPage';
 
 const Admin = () => {

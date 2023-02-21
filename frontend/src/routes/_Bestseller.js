@@ -1,8 +1,8 @@
+import BestsellerPage from '../pages/BestsellerPage';
 import Categories from '../pages/Categories';
 import MainMenu from '../pages/_MainMenu';
-import NewestRight from '../pages/NewestRight.js';
 
-const Newest = () => {
+const Bestseller = () => {
   return (
     <div className='category-body'>
       <MainMenu />
@@ -11,11 +11,11 @@ const Newest = () => {
           <Categories />
         </div>
         <div className='col-xl-10 col-lg-10'>
-          <NewestRight />
+          <BestsellerPage />
         </div>
       </div>
     </div>
   );
 };
 
-export default Newest;
+export default Bestseller;
