@@ -1,9 +1,9 @@
+import { useParams } from 'react-router-dom';
 import Bestseller from '../../routes/Bestseller';
 import Category from '../../routes/Category';
 import Newest from '../../routes/Newest';
 import Admin from '../../routes/Admin';
 import DefaultPage from '../../pages/DefaultPage';
-import { useParams } from 'react-router-dom';
 
 const MainTemplate = () => {
   const { menu } = useParams();

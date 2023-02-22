@@ -1,22 +1,23 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { baseUrl } from '../../components/commonApi/mainApi';
+import { baseUrl } from '../commonApi/mainApi';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
-import StarRate from '../../components/Shared/StarRate';
-import Pagination from '../../components/Shared/Pagination';
+import StarRate from './StarRate';
+import Pagination from './Pagination';
 import '../../css/category.css';
 import '../../css/style.css';
 import '../../css/bootstrap.min.css';
 
-const MainListTemplate = (props) => {
+const MultiListTemplate = (props) => {
   const [book, setbook] = useState([]);
   const [limit, setLimit] = useState(5);
   const [page, setPage] = useState(1);
   const offset = (page - 1) * limit;
-  const menu = baseUrl + '/' + props.menu;
+  const menu = baseUrl + '/' + props.menu + '/' + props.id;
   console.log(menu);
   console.log(props.menu);
+  console.log(props.id);
 
   useEffect(() => {
     getbook();
@@ -131,4 +132,4 @@ const MainListTemplate = (props) => {
     </div>
   );
 };
-export default MainListTemplate;
+export default MultiListTemplate;

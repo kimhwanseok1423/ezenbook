@@ -3,7 +3,7 @@ import Categories from '../pages/Categories';
 
 const Newest = (props) => {
   const menu = props.menu;
-  const id = props.id;
+  console.log('NewestMulti loaded');
 
   return (
     <div className='container-fluid d-flex'>
@@ -11,7 +11,7 @@ const Newest = (props) => {
         <Categories name={menu} />
       </div>
       <div className='categoryRight col-xl-10 col-lg-10 container-fluid mt-3'>
-        <MainListTemplate menu={menu} id={id} />
+        <MainListTemplate menu={menu} />
       </div>
     </div>
   );

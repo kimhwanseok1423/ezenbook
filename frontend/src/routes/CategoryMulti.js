@@ -1,9 +1,10 @@
-import MainListTemplate from '../components/Shared/MainListTemplate';
+import MultiListTemplate from '../components/Shared/MultiListTemplate';
 import Categories from '../pages/Categories';
 
-const Category = (props) => {
+const CategoryMulti = (props) => {
   const menu = props.menu;
-  console.log('Category Loaded : ' + `${menu}`);
+  const id = props.id;
+  console.log('CategoryMulti Loaded : ' + `${menu}` + '/' + `${props.id}`);
 
   return (
     <div className='container-fluid d-flex'>
@@ -11,9 +12,9 @@ const Category = (props) => {
         <Categories name={menu} />
       </div>
       <div className='categoryRight col-xl-10 col-lg-10 container-fluid mt-3'>
-        <MainListTemplate menu={menu} />
+        <MultiListTemplate menu={menu} id={id} />
       </div>
     </div>
   );
 };
-export default Category;
+export default CategoryMulti;

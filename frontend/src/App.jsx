@@ -20,8 +20,8 @@ function App() {
       <Routes>
         <Route index element={<Home />} />
         <Route exact path='/' element={<Home />} />
-        <Route path='/:menu' element={<MainTemplate />} />
         <Route path='/:menu/:id' element={<MultiTemplate />} />
+        <Route path='/:menu' element={<MainTemplate />} />
         <Route path='/admin/:id' element={<Admin />} />
         <Route path='/booklist' element={<BookList />} />
         <Route path='/userlist' element={<UserList />} />
