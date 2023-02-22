@@ -1,11 +1,14 @@
 import '../css/bootstrap.min.css';
 import '../css/category.css';
-import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { baseUrl } from '../components/commonApi/mainApi';
-const Categories = () => {
+import { useParams } from 'react-router-dom';
+
+const Categories = (props) => {
   const [category, setCategory] = useState([]);
+  const url = 'http://localhost:3000/';
+  const address = `${url}${props.name}` + '/';
 
   useEffect(() => {
     getCategory();
@@ -25,16 +28,17 @@ const Categories = () => {
   return (
     <ul>
       <li className='categorylist_li'>
-        <a href='/category'>전체</a>
+        <a href={`${url}${props.name}`}>전체</a>
+        {/* <a href={`${url}${props.name}`}>전체</a> */}
       </li>
       {category.map((category) => {
         return (
           <li
             className='categorylist_li'
             key={category.category_code}
-            id={'category_' + category.category_code}
+            id={`${props.name}` + '_' + category.category_code}
           >
-            <a href={`/category/${category.category_code}`}>
+            <a href={`${address}${category.category_code}`}>
               {category.category_name}
             </a>
           </li>

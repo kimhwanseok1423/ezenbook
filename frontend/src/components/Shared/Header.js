@@ -11,6 +11,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import Categories from '../../pages/Categories';
+const menu = 'category';
 
 const Header = () => {
   return (
@@ -19,9 +20,9 @@ const Header = () => {
         <div className='row'>
           <div className='col-xl-2 col-lg-2 mt-4 mb-4'>
             <div className='header__logo'>
-              <Link to='/'>
+              <a href='/'>
                 <img src='../img/MainLogo.png' alt='Main Logos' />
-              </Link>
+              </a>
             </div>
           </div>
           <div className='container colums-row col-xl-8 col-lg-8'>
@@ -29,26 +30,26 @@ const Header = () => {
               <nav className='header__menu'>
                 <ul>
                   <li className='active'>
-                    <Link to='/'>Home</Link>
+                    <a href='/'>Home</a>
                   </li>
                   <li>
-                    <Link to='/category'>카테고리</Link>
+                    <a href='/category'>카테고리</a>
                     <ul className='dropdown'>
-                      <Categories />
+                      <Categories name={menu} />
                     </ul>
                   </li>
                   <li>
-                    <Link to='/bestseller'>베스트셀러</Link>
+                    <a href='/bestseller'>베스트셀러</a>
                   </li>
                   <li>
-                    <Link to='/pick20'>
+                    <a href='/pick20'>
                       UserPick
                       <FontAwesomeIcon icon={faBolt} size='sm' />
                       20
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link to='/newest'>신간</Link>
+                    <a href='/newest'>신간</a>
                   </li>
                 </ul>
               </nav>
@@ -74,28 +75,28 @@ const Header = () => {
           <div className='col-xl-2 col-lg-2 container colums-row'>
             <div className='header__right'>
               <div className='header__right__auth mt-2'>
-                <Link to='#'>Login</Link>/ &nbsp;&nbsp;
-                <Link to='#'>SignUp</Link>
+                <a href='#'>Login</a>/ &nbsp;&nbsp;
+                <a href='#'>SignUp</a>
               </div>
 
               <div className='row'>
                 <div className='header__right__widget container d-flex justify-content-end mt-4'>
                   {/*  운영자 메뉴, 운영자만 접근 가능 */}
                   <div className='fontawsome' id='fascrewdriverwrench'>
-                    <Link to='/admin'>
+                    <a href='/admin'>
                       <FontAwesomeIcon icon={faScrewdriverWrench} size='3x' />
-                    </Link>
+                    </a>
                   </div>
 
                   <div className='fontawsome' id='fauser'>
-                    <Link to='/mypage'>
+                    <a href='/mypage'>
                       <FontAwesomeIcon icon={faUser} size='3x' />
-                    </Link>
+                    </a>
                   </div>
                   <div className='fontawsome' id='facartshopping'>
-                    <Link to='/cart'>
+                    <a href='/cart'>
                       <FontAwesomeIcon icon={faCartShopping} size='3x' />
-                    </Link>
+                    </a>
                   </div>
                 </div>
               </div>

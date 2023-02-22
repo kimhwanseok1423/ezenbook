@@ -1,19 +1,21 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { baseUrl } from '../components/commonApi/mainApi';
-import Pagination from '../components/Shared/Pagination';
+import { baseUrl } from '../../components/commonApi/mainApi';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
-import StarRate from '../components/Shared/StarRate';
-import '../css/category.css';
-import '../css/style.css';
-import '../css/bootstrap.min.css';
+import StarRate from '../../components/Shared/StarRate';
+import Pagination from '../../components/Shared/Pagination';
+import '../../css/category.css';
+import '../../css/style.css';
+import '../../css/bootstrap.min.css';
 
-const CategoryPage = () => {
+const MainListTemplate = (props) => {
   const [book, setbook] = useState([]);
   const [limit, setLimit] = useState(5);
   const [page, setPage] = useState(1);
   const offset = (page - 1) * limit;
+  const menu = baseUrl + '/' + props.menu + '/' + props.id;
+  console.log(menu);
 
   useEffect(() => {
     getbook();
@@ -21,7 +23,7 @@ const CategoryPage = () => {
 
   async function getbook() {
     await axios
-      .get(baseUrl + '/category')
+      .get(menu)
       .then((response) => {
         setbook(response.data);
       })
@@ -31,7 +33,7 @@ const CategoryPage = () => {
   }
 
   return (
-    <div className='categoryRight col-xl-12 col-lg-12 container-fluid mt-3'>
+    <div className='container-fluid colums-low mt-3'>
       <div className='set_pages'>
         <label>
           페이지 당 표시할 게시물 수&nbsp;&nbsp;:&nbsp;&nbsp;
@@ -61,7 +63,7 @@ const CategoryPage = () => {
               <div className='book-list-item d-flex'>
                 <div className='book-img col-2'>
                   <a href={'/bookdetail/' + book.book_num}>
-                    <img src={book.book_image}></img>
+                    <img src={book.book_image} alt={book.book_title} />
                   </a>
                 </div>
                 <div className='book-details col-9 colums-row'>
@@ -128,4 +130,4 @@ const CategoryPage = () => {
     </div>
   );
 };
-export default CategoryPage;
+export default MainListTemplate;

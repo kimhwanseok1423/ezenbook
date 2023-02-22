@@ -3,10 +3,10 @@ import '../css/admin.css';
 const UserPage = () => {
   return (
     <div className='UserPage-Wrap container-fluid col-xl-12 col-lg-12 mt-2'>
-      <div class='row'>
-        <div class='card'>
+      <div className='row'>
+        <div className='card'>
           {/* Default Table */}
-          <table class='table' id='user-table'>
+          <table className='table' id='user-table'>
             <thead>
               {/* 테이블 헤드 */}
               <tr>
@@ -60,7 +60,7 @@ const UserPage = () => {
                 <td className='user-modify'>수정</td>
                 <td className='user-delete'>삭제</td>
               </tr>
-              <tr class='fold'>
+              <tr classNames='fold'>
                 <td colSpan={10}>유저 상세내용 표시 예정 ex) asdfasf</td>
               </tr>
             </tbody>

@@ -1,13 +1,14 @@
+import '../css/cart.css';
+import '../css/bootstrap.min.css';
 import {
   faArrowRight,
   faMinus,
   faPlus,
+  faX,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
 import StarRate from '../components/Shared/StarRate';
-import '../css/cart.css';
-import '../css/bootstrap.min.css';
 
 let init = 1;
 
@@ -28,9 +29,9 @@ const CartPage = () => {
         ///////////반복 아이템
       }
 
-      <div class='cart-wrap colums-row container-fluid'>
+      <div className='cart-wrap colums-row container-fluid mt-3 '>
         <div className='cart-item d-flex' id='cart-item-1'>
-          <div className='cart-book-img col-2' id>
+          <div className='cart-book-img col-2'>
             <a href='/bookdetail'>
               <img src='../test/test1.jpg'></img>
             </a>
@@ -74,12 +75,26 @@ const CartPage = () => {
                 </p>
               </button>
               <p id='buying-book-quantity'>{num}</p>
+
               <button
                 className='btn btn-search'
                 onClick={decrease}
                 id='num_minus'
               >
-                <FontAwesomeIcon icon={faMinus}></FontAwesomeIcon>
+                {' '}
+                <p>
+                  <FontAwesomeIcon icon={faMinus}></FontAwesomeIcon>{' '}
+                </p>
+              </button>
+
+              <button
+                className='btn btn-search'
+                // onClick={delete}
+                id='num_delete'
+              >
+                <p>
+                  <FontAwesomeIcon icon={faX}></FontAwesomeIcon>
+                </p>
               </button>
             </div>
           </div>
@@ -150,13 +165,13 @@ const CartPage = () => {
           ///////////반복 아이템
         }
       </div>
-      <div className='cart-sum card conainer colums-row col-xl-2 col-lg-2'>
-        <div className='cart-sum-wrap mt-3'>
+      <div className='cart-sum card conainer colums-row col-xl-2 col-lg-2  mt-3'>
+        <div className='cart-sum-wrap'>
           <div className='cart-sum-price d-flex'>
             <p className='title'>상품금액 : </p>
             <p className='price'>100원 </p>
           </div>
-          <div class='cart-sum-shipping d-flex'>
+          <div className='cart-sum-shipping d-flex'>
             <p className='title'>배 송 비 : </p>
             <p className='price'> 0원 </p>
           </div>
@@ -165,7 +180,7 @@ const CartPage = () => {
             <p className='title'>결제금액 : </p>
             <p className='price'>100원 </p>
           </div>
-          <div calssName='cart-order'>
+          <div className='cart-order'>
             <a href='/order'>
               <button className='btn btn-search btn-cart-order'>
                 주문하기

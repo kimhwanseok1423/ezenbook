@@ -1,7 +1,7 @@
 import '../css/style.css';
 import '../css/category.css';
-import Categories from '../pages/Categories';
-import BookDetailPage from '../pages/BookDetailPage';
+import Categories from './Categories';
+import BookDetailPage from './BookDetailPage';
 
 const BookDetail = () => {
   return (

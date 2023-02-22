@@ -1,15 +1,17 @@
+import MainListTemplate from '../components/Shared/MainListTemplate';
 import Categories from '../pages/Categories';
 
-import NewestRight from '../pages/NewestRight.js';
+const Newest = (props) => {
+  const menu = props.menu;
+  const id = props.id;
 
-const Newest = () => {
   return (
     <div className='container-fluid d-flex'>
-      <div className='col-xl-2 col-lg-2'>
-        <Categories />
+      <div className='col-xl-2 col-lg-2 mt-2'>
+        <Categories name={menu} />
       </div>
-      <div className='col-xl-10 col-lg-10'>
-        <NewestRight />
+      <div className='categoryRight col-xl-10 col-lg-10 container-fluid mt-3'>
+        <MainListTemplate menu={menu} id={id} />
       </div>
     </div>
   );
