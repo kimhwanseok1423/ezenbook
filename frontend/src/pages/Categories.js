@@ -28,7 +28,7 @@ const Categories = (props) => {
   }
 
   return (
-    <ul>
+    <ul className='dropdown-wrap'>
       <li className='categorylist_li'>
         <a href={`${url}${props.name}`}>전체</a>
         {/* <a href={`${url}${props.name}`}>전체</a> */}

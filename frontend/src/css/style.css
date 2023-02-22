@@ -381,7 +381,7 @@ ol {
   position: absolute;
   left: 0;
   top: 56px;
-  width: 150px;
+  width: 160px;
   background: #ffffff;
   color: #000000;
   text-align: left;
@@ -402,7 +402,7 @@ ol {
 
 .header__menu ul li .dropdown li a,
 .category-list {
-  font-size: 15px;
+  font-size: 18px;
   color: #000000;
   font-weight: 400;
   text-align: left;
@@ -3761,8 +3761,8 @@ ol {
   background-color: #301fbf;
   border-color: #301fbf;
 }
-.btn-searchy:not(:disabled):not(.disabled).active,
-.btn-searchy:not(:disabled):not(.disabled):active,
+.btn-search:not(:disabled):not(.disabled).active,
+.btn-search:not(:disabled):not(.disabled):active,
 .show > .search.dropdown-toggle {
   color: #fff;
   background-color: #301fbf;

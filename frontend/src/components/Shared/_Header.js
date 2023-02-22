@@ -10,13 +10,9 @@ import {
   faBolt,
 } from '@fortawesome/free-solid-svg-icons';
 import Categories from '../../pages/Categories';
-import { useActiveMenu } from 'react-active-menu';
 const menu = 'category';
 
 const Header = () => {
-  const { registerTrigger } = useActiveMenu({
-    smooth: true,
-  });
   return (
     <div className='main-menu'>
       <div className='container-fluid'>
@@ -30,71 +26,29 @@ const Header = () => {
           </div>
           <div className='container colums-row col-xl-8 col-lg-8'>
             <div className='row'>
-              <nav className='header__menu triggers'>
+              <nav className='header__menu'>
                 <ul>
                   <li>
-                    <a href='/'>
-                      <button
-                        className='btn-act'
-                        ref={registerTrigger('home')}
-                        type='button'
-                      >
-                        Home
-                      </button>
-                    </a>
+                    <a href='/'>Home</a>
                   </li>
                   <li>
-                    <a href='/category'>
-                      <button
-                        className='btn-act'
-                        ref={registerTrigger('category')}
-                        type='button'
-                      >
-                        카테고리
-                      </button>
-                    </a>
+                    <a href='/category'>카테고리</a>
                     <ul className='dropdown'>
                       <Categories name={menu} />
                     </ul>
                   </li>
                   <li>
-                    <a href='/bestseller'>
-                      <button
-                        className='btn-act'
-                        ref={registerTrigger('bestseller')}
-                        type='button'
-                      >
-                        베스트셀러
-                      </button>
-                    </a>
+                    <a href='/bestseller'>베스트셀러</a>
                   </li>
-                  <li className='pick20'>
+                  <li>
                     <a href='/pick20'>
-                      <button
-                        className='btn-act'
-                        ref={registerTrigger('pick20')}
-                        type='button'
-                      >
-                        UserPick
-                        <FontAwesomeIcon
-                          icon={faBolt}
-                          size='sm'
-                          color='#301fbf'
-                        />
-                        20
-                      </button>
+                      UserPick
+                      <FontAwesomeIcon icon={faBolt} size='sm' />
+                      20
                     </a>
                   </li>
                   <li>
-                    <a href='/newest'>
-                      <button
-                        className='btn-act'
-                        ref={registerTrigger('newest')}
-                        type='button'
-                      >
-                        신간
-                      </button>
-                    </a>
+                    <a href='/newest'>신간</a>
                   </li>
                 </ul>
               </nav>
