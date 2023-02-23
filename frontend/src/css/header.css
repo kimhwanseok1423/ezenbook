@@ -3,6 +3,9 @@
 *:before {
   box-sizing: border-box;
 }
+/* * {
+  border: 1px solid black;
+} */
 
 input#main-search {
   width: 700px;
@@ -28,27 +31,6 @@ h2 {
   text-align: center;
 }
 
-button.btn-act {
-  background-color: white;
-  border: none;
-}
-
-.triggers button.active {
-  color: #fff;
-  background-color: #301fbf;
-  border-color: #301fbf;
-  box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
-}
-
-.btn-act:not(:disabled):not(.disabled).active,
-.btn-act:not(:disabled):not(.disabled):active,
-.show > .act.dropdown-toggle {
-  color: black;
-  background-color: white;
-  border-color: #301fbf;
-}
-.act:not(:disabled):not(.disabled).active:focus,
-.act:not(:disabled):not(.disabled):active:focus,
-.show > .act.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+nav#header__menu {
+  margin: auto;
 }

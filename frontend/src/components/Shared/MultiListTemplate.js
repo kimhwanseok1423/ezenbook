@@ -64,7 +64,7 @@ const MultiListTemplate = (props) => {
             <div key={book.book_num}>
               <div className='book-list-item d-flex'>
                 <div className='book-img col-2'>
-                  <a href={'/bookdetail/' + book.book_num}>
+                  <a href={'/book/' + book.book_num}>
                     <img src={book.book_image} alt={book.book_title} />
                   </a>
                 </div>

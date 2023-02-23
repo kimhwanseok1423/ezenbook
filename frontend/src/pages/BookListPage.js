@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react';
 import { baseUrl } from '../components/commonApi/mainApi';
 import Pagination from '../components/Shared/Pagination';
 import Table from 'react-bootstrap/Table';
-import '../css/booklist.css';
 import '../css/bootstrap.min.css';
+import '../css/booklist.css';
 
 const BookListPage = () => {
   const [book, setbook] = useState([]);
@@ -30,20 +30,27 @@ const BookListPage = () => {
 
   return (
     <div className='bookPage-Wrap container-fluid col-xl-12 col-lg-12'>
-      <div className='set_pages'>
-        <label>
-          페이지 당 표시할 게시물 수&nbsp;&nbsp;:&nbsp;&nbsp;
-          <select
-            type='number'
-            value={limit}
-            onChange={({ target: { value } }) => setLimit(Number(value))}
-          >
-            <option value='5'>5</option>
-            <option value='10'>10</option>
-            <option value='25'>25</option>
-            <option value='50'>50</option>
-          </select>
-        </label>
+      <div className='booklist-topmenu d-flex justify-content-between'>
+        <div className='set_pages'>
+          <label>
+            페이지 당 표시할 게시물 수&nbsp;&nbsp;:&nbsp;&nbsp;
+            <select
+              type='number'
+              value={limit}
+              onChange={({ target: { value } }) => setLimit(Number(value))}
+            >
+              <option value='5'>5</option>
+              <option value='10'>10</option>
+              <option value='25'>25</option>
+              <option value='50'>50</option>
+            </select>
+          </label>
+        </div>
+        <div className='booklist-topmenu-modify'>
+          <button className='btn-search' id='books-add'>
+            추가
+          </button>
+        </div>
       </div>
       <div className='row'>
         <div className='card'>

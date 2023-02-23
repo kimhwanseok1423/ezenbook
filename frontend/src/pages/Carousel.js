@@ -11,7 +11,7 @@ const CarouselPage = () => {
       <Carousel cols={5} rows={1} gap={15} loop>
         <Carousel.Item>
           <div id='book-image'>
-            <a href='/bookdetail'>
+            <a href='#'>
               <img src='./test/test1.jpg' />
             </a>
           </div>

@@ -71,11 +71,12 @@ p#book-detail-category {
   font-size: 18px;
 }
 p#book-discounted-price {
-  color: #f100e5;
+  color: #ec7357;
+  font-weight: bold;
 }
 
 p#book-discounted-percent {
-  color: #f100e5;
+  color: #ec7357;
 }
 
 .book-cart {

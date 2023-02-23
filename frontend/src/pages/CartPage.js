@@ -32,7 +32,7 @@ const CartPage = () => {
       <div className='cart-wrap colums-row container-fluid mt-3 '>
         <div className='cart-item d-flex' id='cart-item-1'>
           <div className='cart-book-img col-2'>
-            <a href='/bookdetail'>
+            <a href='#'>
               <img src='../test/test1.jpg'></img>
             </a>
           </div>
@@ -107,7 +107,7 @@ const CartPage = () => {
 
         {/* <div className='cart-item d-flex' id='cart-item-2'>
           <div className='book-img col-2'>
-            <a href='/bookdetail'>
+            <a href='#'>
               <img src='../test/test5.jpg'></img>
             </a>
           </div>
