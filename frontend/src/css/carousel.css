@@ -1,9 +1,11 @@
 div#book-image {
-  min-width: 300px !important;
-  min-height: 440px !important;
+  min-width: 300px;
+  min-height: 440px;
+  text-align: center;
 }
 div#book-image img {
-  margin: auto;
+  max-width: 330px;
+  max-height: 440px;
 }
 
 p#book-ranking {

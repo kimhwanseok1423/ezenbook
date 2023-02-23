@@ -1,10 +1,11 @@
-import '../css/bootstrap.min.css';
-import '../css/style.css';
-import '../css/carousel.css';
-import React, { useEffect, useState } from 'react';
-import Carousel from 'better-react-carousel';
+import '../css/carouselSmall.css';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { baseUrl } from '../components/commonApi/mainApi';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper';
 
 const NewestSmall = () => {
   const [book, setbook] = useState([]);
@@ -29,25 +30,31 @@ const NewestSmall = () => {
   return (
     <div className='neweast container col-xl-6 col-lg-6'>
       <div className='carousel container-fluid mt-4'>
-        <Carousel cols={2} rows={1} gap={15} loop>
-          {book.map((item) => {
+        <Swiper
+          navigation={true}
+          modules={[Navigation]}
+          spaceBetween={5}
+          slidesPerView={2}
+        >
+          {book.map((item, index) => {
             return (
-              <Carousel.Item key={item.book_num}>
-                <div id='book-image'>
-                  <a href={'/book/' + item.book_num}>
+              // <div className='carousel-item container d-flex' >
+              <SwiperSlide key={index}>
+                <div className='carousel-items'>
+                  <a href={'/book/' + item.book_num} id='carousel-img'>
                     <img src={item.book_image} alt={item.book_title} />
                   </a>
                 </div>
                 <div>
-                  <p id='book-ranking'>#1</p>
+                  <p id='book-ranking'>#{item.book_num}</p>
                   <p id='book-title'>{item.book_title}</p>
                   <p id='book-category'>{item.category_code}</p>
                 </div>
-              </Carousel.Item>
+              </SwiperSlide>
+              // </div>
             );
           })}
-          ;
-        </Carousel>
+        </Swiper>
       </div>
     </div>
   );

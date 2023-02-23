@@ -15,7 +15,7 @@ const BestsellerSmall = () => {
                 <img src='./test/test1.jpg' />
               </a>
             </div>
-            <div>
+            <div id='book-data'>
               <p id='book-ranking'>#1</p>
               <p id='book-title'>세이노의 가르침</p>
               <p id='book-category'>자기계발</p>
