@@ -66,7 +66,7 @@ const CartPage = () => {
           <div className='book-cart-count col-2 colums-row'>
             <div className='book-cart-quantity container d-flex'>
               <button
-                className='btn btn-search'
+                className='btn btn-search btn-cart-search'
                 onClick={increase}
                 id='num_plus'
               >
@@ -77,7 +77,7 @@ const CartPage = () => {
               <p id='buying-book-quantity'>{num}</p>
 
               <button
-                className='btn btn-search'
+                className='btn btn-search btn-cart-search'
                 onClick={decrease}
                 id='num_minus'
               >
@@ -88,7 +88,7 @@ const CartPage = () => {
               </button>
 
               <button
-                className='btn btn-search'
+                className='btn btn-search btn-cart-search'
                 // onClick={delete}
                 id='num_delete'
               >

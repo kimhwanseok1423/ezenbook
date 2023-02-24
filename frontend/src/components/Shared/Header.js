@@ -63,7 +63,7 @@ const Header = () => {
                   />
                   <label className='form-label' htmlFor='main-search'></label>
                 </div>
-                <button type='button' className='btn btn-search'>
+                <button type='button' className='btn btn-header btn-search'>
                   <FontAwesomeIcon icon={faMagnifyingGlass} />
                 </button>
               </div>

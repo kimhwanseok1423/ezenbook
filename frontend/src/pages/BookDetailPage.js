@@ -14,6 +14,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Review from './Review';
 import StarRate from '../components/Shared/StarRate';
+import { Rating } from '@mui/material';
 
 const BookDetailPage = () => {
   const { id } = useParams();
@@ -70,10 +71,13 @@ const BookDetailPage = () => {
                     <p>{book.book_author}</p>
                   </div>
                   <div className='rating columns-row'>
-                    {/* <StarRate name={book.book_rating} /> 
-                    별점 추가 작업 필요*/}
                     <div className='stars'>
                       <StarRate />
+                      {/* <Rating
+                        name='book-rating'
+                        value={book.book_rating}
+                        readOnly
+                      /> */}
                     </div>
                     <div className='shipping mt-2'>
                       <p>택배배송 / 무료배송</p>
@@ -113,29 +117,6 @@ const BookDetailPage = () => {
                   id='cart-sum'
                 >
                   <div className='cart-sum-wrap'>
-                    {/* <div className='book-cart-quantity container d-flex'>
-                      <button
-                        className='btn btn-search'
-                        id='plus'
-                        onClick={() => handleQuantity('plus')}
-                      >
-                        <p>
-                          <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
-                        </p>
-                      </button>
-                      <p id='buying-book-quantity'>{count}</p>
-
-                      <button
-                        className='btn btn-search'
-                        id='minus'
-                        onClick={() => handleQuantity('minus')}
-                      >
-                        {' '}
-                        <p>
-                          <FontAwesomeIcon icon={faMinus}></FontAwesomeIcon>{' '}
-                        </p>
-                      </button>
-                    </div> */}
                     <div
                       className='
                 order-info'
@@ -154,10 +135,10 @@ const BookDetailPage = () => {
                         <p className='price'>{sumPrice} 원 </p>
                       </div>
                       <div className='cart-order'>
-                        <div className='book-cart d-flex justify-content-between'>
+                        <div className='book-cart-body d-flex justify-content-between'>
                           <a href='/cart'>
                             <button
-                              className='btn btn-secondary'
+                              className='btn btn-secondary btn-bookdetial-cart'
                               id={'bookcart-' + book.book_num}
                             >
                               장바구니
@@ -166,7 +147,7 @@ const BookDetailPage = () => {
 
                           <a href='#'>
                             <button
-                              className='btn btn-search'
+                              className='btn btn-bookdetial-cart btn-search '
                               id={'bookorder-' + book.book_num}
                             >
                               바로구매
@@ -183,7 +164,9 @@ const BookDetailPage = () => {
               </div>
             </div>
             <div className='book-content card'>
-              <h4>책 소개</h4>
+              <p div className='book-content-description'>
+                책 소개
+              </p>
               <div className='book-description'>{book.book_desc}</div>
             </div>
           </div>

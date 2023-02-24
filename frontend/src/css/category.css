@@ -82,7 +82,7 @@ p#book-discounted-percent {
 .book-cart {
   margin-left: 10px;
 }
-.book-cart button {
+.book-cart .btn {
   width: 150px;
   height: 45px;
   margin-top: 10px;

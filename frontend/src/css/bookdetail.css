@@ -6,10 +6,12 @@
   margin: 0;
 }
 div.book-detail-img {
-  max-width: 430px;
-  max-height: 580px;
+  text-align: center;
 }
+
 div.book-detail-img img {
+  max-width: 430px !important;
+  max-height: 580px !important;
   object-fit: cover;
   box-shadow: 0 -0.5rem 1rem rgba(0 0 0 / 0.15);
 }
@@ -19,7 +21,7 @@ div.book-title-name {
 }
 div.book-title-name p {
   font-size: 32px;
-  font-weight: 700;
+  font-weight: bolder;
   color: #301fbf;
   display: block;
   white-space: nowrap;
@@ -142,20 +144,23 @@ p.price {
 div.book-content {
   margin-top: 20px;
   padding: 10px;
-  min-height: 300px;
-  max-height: 300px;
+  min-height: 335px;
+  max-height: 335px;
 }
-div.book-content h4 {
+div.book-content p.book-content-description {
   text-align: left;
-  margin-top: 1px 0px !important;
+  margin: 5px 10px;
+  font-size: 24px;
+  color: #301fbf;
+  font-weight: bold;
 }
 
 div.book-description {
-  max-height: 265px;
+  min-height: 260px;
   overflow: auto;
   /* text-overflow:  */
   word-break: break-all;
-  margin-top: 15px;
+  margin: 15px 10px 10px 10px;
   font-size: 18px;
 }
 
@@ -210,13 +215,12 @@ div.cart-sum .card {
   border-radius: 16px;
 }
 
-border-radius: 16px;
 hr {
   height: 12px;
   margin: 9px;
 }
 
-div.book-cart a button {
-  width: 100px !important;
-  margin: 20px 10px !important;
+button.btn-bookdetial-cart {
+  width: 100px;
+  margin: 20px 10px 15px 15px;
 }

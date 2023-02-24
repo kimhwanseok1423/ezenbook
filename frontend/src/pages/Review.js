@@ -1,16 +1,18 @@
+import '../css/bootstrap.min.css';
+import '../css/review.css';
 import axios from 'axios';
-import { useEffect } from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { baseUrl } from '../components/commonApi/mainApi';
-import StarRate from '../components/Shared/StarRate';
 import ReviewList from './Review_list';
+import { MDBBtn, MDBCollapse } from 'mdb-react-ui-kit';
 
 const Review = (props) => {
   const id = props.id;
-  const [review, setReview] = useState([]);
   const book_num = parseInt(id);
+  const [review, setReview] = useState([]);
   const [inputs, setInputs] = useState('');
-  console.log(id);
+  const [foldShow, setFoldShow] = useState(false);
+  const toggleShow = () => setFoldShow(!foldShow);
 
   useEffect(() => {
     getReview(book_num);
@@ -61,24 +63,47 @@ const Review = (props) => {
     setInputs(nextState[e.target.name]);
   };
   return (
-    <>
-      <h4>책 리뷰</h4>
-      <hr />
-      <div>
-        <StarRate />
+    <div className='review-body colmuns-row mt-2'>
+      <div className='review-list-title d-flex justify-content-between'>
+        <p className='review-view-title'>Review</p>
+        <p className='review-write'>
+          <MDBBtn
+            onClick={toggleShow}
+            className='review-write-btn btn btn-search'
+            id='btn-review-right'
+          >
+            작성
+          </MDBBtn>
+        </p>
       </div>
-      <form>
-        <textarea rows='4' cols='100' onChange={handleValueChange}></textarea>
-        <input type='button' value='등록' onClick={insertReview} />
-        <hr />
-      </form>
-      <ul>
+      <div className='review-write-form'>
+        <MDBCollapse show={foldShow}>
+          <div className='container-fluid d-flex form-box'>
+            <div className='write-form-wrap col-11' id='bb'>
+              <form className='write-form'>
+                <textarea onChange={handleValueChange}></textarea>
+              </form>
+            </div>
+            <div className='col-1' id='cc'>
+              <input
+                type='button'
+                className='btn btn-search review-add'
+                value='등록'
+                onClick={insertReview}
+              />
+            </div>
+          </div>
+        </MDBCollapse>
+      </div>
+      <hr />
+
+      <div className='container-fluid columns-row'>
         {review &&
           review.map((reviews) => {
             return <ReviewList key={reviews.review_num} reviews={reviews} />;
           })}
-      </ul>
-    </>
+      </div>
+    </div>
   );
 };
 

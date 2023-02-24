@@ -90,7 +90,7 @@ p.price {
   text-align: right;
 }
 
-div.cart-sum-wrap button.btn-search {
+div.cart-sum-wrap .btn-cart-search {
   width: 150px;
   margin-top: 0px;
 }
