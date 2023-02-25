@@ -7,14 +7,13 @@ import axios from 'axios';
 import { baseUrl } from '../components/commonApi/mainApi';
 import {
   faArrowRight,
-  faMinus,
-  faPlus,
-  faX,
+  // faMinus,
+  // faPlus,
+  // faX,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Review from './Review';
 import StarRate from '../components/Shared/StarRate';
-import { Rating } from '@mui/material';
+// import { Rating } from '@mui/material';
 
 const BookDetailPage = () => {
   const { id } = useParams();
