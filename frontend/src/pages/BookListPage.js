@@ -25,7 +25,6 @@ const BookListPage = () => {
       .catch((error) => {
         console.log(error);
       });
-    console.log('setbook added');
   }
 
   return (

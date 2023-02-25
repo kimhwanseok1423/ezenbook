@@ -9,6 +9,7 @@ import Header from './components/Shared/Header';
 import MainTemplate from './components/Shared/MainTemplate';
 import MultiTemplate from './components/Shared/MultiTemplate';
 import BookDetail from './routes/BookDetail';
+import SearchList from './routes/SearchList';
 
 function App() {
   const location = useLocation();
@@ -26,6 +27,7 @@ function App() {
         <Route path='/admin/booklist' element={<BookList />} />
         <Route path='/admin/userlist' element={<UserList />} />
         <Route path='/cart' element={<CartPage />} />
+        <Route path='/search' element={<SearchList name='category' />} />
       </Routes>
     </div>
   );

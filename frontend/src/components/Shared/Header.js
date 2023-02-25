@@ -10,9 +10,38 @@ import {
   faBolt,
 } from '@fortawesome/free-solid-svg-icons';
 import Categories from '../../pages/Categories';
+import { useState } from 'react';
 const menu = 'category';
-
 const Header = () => {
+  const [search, setSearch] = useState('');
+
+  // const [searchHistory, setSearchHistory] = useRef();
+
+  /* 검색하기 */
+  const onSubmitSearch = async () => {
+    if (search === '') searchBlank();
+    else {
+      console.log('keyword :', search);
+      window.location.href = 'search?keyword=' + search;
+    }
+  };
+
+  /* 엔터키 입력으로 검색하기 */
+  const onKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      onSubmitSearch();
+    }
+  };
+  /* 검색어가 공백일 때 */
+  const searchBlank = (e) => {
+    alert('검색어를 입력해주세요');
+  };
+
+  // 검색어가 복붙일 때
+  // const handleInputChange = (e) => {
+  //   setSearch(e.target.value);
+  // };
+
   return (
     <div className='container-fluid'>
       <div className='row'>
@@ -57,13 +86,27 @@ const Header = () => {
               <div className='input-group'>
                 <div className='form-outline'>
                   <input
-                    type='search'
-                    id='main-search'
+                    onChange={(e) => {
+                      setSearch(e.target.value);
+                      console.log(search);
+                    }}
+                    onKeyPress={onKeyPress}
+                    type='text'
                     className='form-control'
+                    id='main-search'
+                    placeholer='검색어를 입력하세요'
+                    autoFocus
+                    value={search}
                   />
                   <label className='form-label' htmlFor='main-search'></label>
                 </div>
-                <button type='button' className='btn btn-header btn-search'>
+                <button
+                  type='button'
+                  className='btn btn-header btn-search'
+                  onClick={() => {
+                    onSubmitSearch();
+                  }}
+                >
                   <FontAwesomeIcon icon={faMagnifyingGlass} />
                 </button>
               </div>
