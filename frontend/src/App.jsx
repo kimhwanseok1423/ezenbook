@@ -2,14 +2,19 @@ import './App.css';
 import { Route, Routes, useLocation } from 'react-router-dom';
 
 import Home from './components/Home/Home';
-import CartPage from './pages/CartPage';
 import BookList from './routes/BookList';
 import UserList from './routes/UserList';
 import Header from './components/Shared/Header';
 import MainTemplate from './components/Shared/MainTemplate';
 import MultiTemplate from './components/Shared/MultiTemplate';
 import BookDetail from './routes/BookDetail';
+import CartPage from './components/cart/CartPage';
 import SearchList from './routes/SearchList';
+import Login from './login/Login';
+import Logout from './login/Logout';
+import Register from './login/Register';
+
+// import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
   const location = useLocation();
@@ -28,6 +33,10 @@ function App() {
         <Route path='/admin/userlist' element={<UserList />} />
         <Route path='/cart' element={<CartPage />} />
         <Route path='/search' element={<SearchList name='category' />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
+        <Route path='/logout' element={<Logout />} />
+        {/* <Route path='*' element={<NotFoundPage />} /> */}
       </Routes>
     </div>
   );

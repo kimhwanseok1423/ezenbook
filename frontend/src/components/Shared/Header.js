@@ -21,7 +21,6 @@ const Header = () => {
   const onSubmitSearch = async () => {
     if (search === '') searchBlank();
     else {
-      console.log('keyword :', search);
       window.location.href = 'search?keyword=' + search;
     }
   };
@@ -116,8 +115,8 @@ const Header = () => {
         <div className='col-xl-2 col-lg-2 container colums-row'>
           <div className='header__right'>
             <div className='header__right__auth mt-2'>
-              <a href='#'>Login</a>/ &nbsp;&nbsp;
-              <a href='#'>SignUp</a>
+              <a href='/login'>Login</a>/ &nbsp;&nbsp;
+              <a href='/register'>SignUp</a>
             </div>
 
             <div className='row'>

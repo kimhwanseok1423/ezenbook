@@ -7,7 +7,9 @@ import Carousel from 'better-react-carousel';
 const CarouselPage = () => {
   return (
     <div className='carousel container-fluid mt-4'>
-      <p id='Carousel-title'>"name" 고객님을 위한 추천 도서</p>
+      <p id='Carousel-title'>
+        <span>{localStorage.getItem('username')}</span> 고객님을 위한 추천 도서
+      </p>
       <Carousel cols={5} rows={1} gap={15} loop>
         <Carousel.Item>
           <div id='book-image'>

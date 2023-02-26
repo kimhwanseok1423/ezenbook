@@ -1,5 +1,5 @@
-import '../css/cart.css';
-import '../css/bootstrap.min.css';
+import '../../css/cart.css';
+import '../../css/bootstrap.min.css';
 import {
   faArrowRight,
   faMinus,
@@ -8,7 +8,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
-import StarRate from '../components/Shared/StarRate';
+import StarRate from '../Shared/StarRate';
 
 let init = 1;
 

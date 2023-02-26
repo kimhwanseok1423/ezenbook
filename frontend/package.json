@@ -33,6 +33,7 @@
     "redux-promise": "^0.6.0",
     "redux-thunk": "^2.4.2",
     "swiper": "^9.0.5",
+    "use-shopping-cart": "^3.1.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
