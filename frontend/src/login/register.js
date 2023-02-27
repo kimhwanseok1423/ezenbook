@@ -25,7 +25,7 @@ const Register = () => {
       '최소 8자에 하나의 문자 및 하나의 숫자 및 하나의 특수 문자를 입력해주세요.',
     user_confirmpwd: '비밀번호가 일치하지 않습니다.',
     user_nickname:
-      '최소 2자에 영어,한글,숫자 상관없이 7자 안으로 입력해주세요.',
+      '최소 2자에 영어,한글,숫자 상관없이 10자 안으로 입력해주세요.',
     user_email: '이메일 형식에 맞게 작성해주세요.',
     user_role: 'ROLE_MEMBER',
   };
@@ -111,7 +111,7 @@ const Register = () => {
 
     // 닉네임 확인
     if (target !== 'submit' && target === 'user_nickname') {
-      const nicknameRegExp = /^(?=.*[a-z0-9가-힣])[a-z0-9가-힣]{2,7}$/;
+      const nicknameRegExp = /^(?=.*[a-z0-9가-힣])[a-z0-9가-힣]{2,10}$/;
       if (!nicknameRegExp.test(member.user_nickname)) {
         setEffect({ ...effect, user_nickname: false });
         return { valid: false, where: 'user_nickname' };

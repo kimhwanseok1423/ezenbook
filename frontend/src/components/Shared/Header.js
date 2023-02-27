@@ -11,6 +11,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import Categories from '../../pages/Categories';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 const menu = 'category';
 const Header = () => {
   const [search, setSearch] = useState('');
@@ -112,11 +113,26 @@ const Header = () => {
             </div>
           </div>
         </div>
-        <div className='col-xl-2 col-lg-2 container colums-row'>
+        <div className='col-xl-2 col-lg-2 container colums-row login-container'>
           <div className='header__right'>
             <div className='header__right__auth mt-2'>
-              <a href='/login'>Login</a>/ &nbsp;&nbsp;
-              <a href='/register'>SignUp</a>
+              {localStorage.getItem('username') !== null ? (
+                <div>
+                  <Link className='user-info' to='/logout'>
+                    {localStorage.getItem('username') + ' 님 / LOGOUT'}
+                  </Link>
+                </div>
+              ) : (
+                <div className='login-div'>
+                  <Link to='/login'>
+                    <span>Login</span>
+                  </Link>
+                  <span>/</span>
+                  <Link to='/register'>
+                    <span>Register</span>
+                  </Link>
+                </div>
+              )}
             </div>
 
             <div className='row'>

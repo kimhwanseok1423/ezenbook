@@ -55,8 +55,14 @@ const Login = () => {
       onSubmit();
     }
   };
-
   const onSubmit = async (e) => {
+    if (!user_name) {
+      console.log('aaaa');
+      return alert('아이디를 입력하세요.');
+    } else if (!user_pwd) {
+      console.log('bbbb');
+      return alert('비밀번호를 입력하세요.');
+    }
     e.preventDefault();
     await axios
       .post(
@@ -91,9 +97,11 @@ const Login = () => {
       .then((response) => {
         // navigate("/");
         window.location.replace('/');
+        alert(`${localStorage.getItem('username')} 님 환영합니다`);
       })
       .catch((err) => {
         console.error(err.message);
+        alert('아이디와 비밀번호를 확인해주세요');
       });
   };
 
@@ -101,7 +109,7 @@ const Login = () => {
     <div className='container login-wrap'>
       <div className=''>
         <p>로그인</p>
-        <form onSubmit={onSubmit}>
+        <form>
           <div className='form-group mt-5'>
             <input
               type='text'

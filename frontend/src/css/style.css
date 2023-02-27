@@ -43,8 +43,8 @@ body {
   -webkit-font-smoothing: antialiased;
   margin: auto;
 }
-/*
-body * {
+
+/* body * {
   border: 1px solid black;
 } */
 
@@ -451,10 +451,10 @@ ol {
 }
 
 .header__right__auth a {
-  font-size: 20px;
-  color: #666666;
+  font-size: 24px;
+  color: #301fbf;
   position: relative;
-  margin-right: 20px;
+  margin: 0px 10px;
 }
 
 .header__right__auth a:last-child {
