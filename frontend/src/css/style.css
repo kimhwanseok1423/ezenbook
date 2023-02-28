@@ -33,7 +33,7 @@
 
 html,
 body {
-  width: 1700px;
+  min-width: 1700px;
   height: 100%;
   font-family: 'Noto Sans Korean';
   src: url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;600&display=swap')

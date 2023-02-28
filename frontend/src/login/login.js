@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import { baseUrl } from '../components/commonApi/mainApi';
 
 //import { useNavigate } from "react-router-dom";
@@ -57,11 +58,11 @@ const Login = () => {
   };
   const onSubmit = async (e) => {
     if (!user_name) {
-      console.log('aaaa');
-      return alert('아이디를 입력하세요.');
+      e.preventDefault();
+      return Swal.fire({ text: '아이디를 입력해주세요', width: 400 });
     } else if (!user_pwd) {
-      console.log('bbbb');
-      return alert('비밀번호를 입력하세요.');
+      e.preventDefault();
+      return Swal.fire({ text: '비밀번호를 입력해주세요', width: 400 });
     }
     e.preventDefault();
     await axios
@@ -96,12 +97,19 @@ const Login = () => {
       })
       .then((response) => {
         // navigate("/");
+        e.preventDefault();
+        Swal.fire({
+          text: `${localStorage.getItem('username')} 님 환영합니다`,
+        });
+        e.preventDefault();
         window.location.replace('/');
-        alert(`${localStorage.getItem('username')} 님 환영합니다`);
       })
       .catch((err) => {
         console.error(err.message);
-        alert('아이디와 비밀번호를 확인해주세요');
+        Swal.fire({
+          text: '아이디와 비밀번호를 확인해주세요',
+          width: '500',
+        });
       });
   };
 

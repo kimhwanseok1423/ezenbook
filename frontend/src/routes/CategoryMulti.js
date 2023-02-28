@@ -4,7 +4,7 @@ import Categories from '../pages/Categories';
 const CategoryMulti = (props) => {
   const menu = props.menu;
   const id = props.id;
-  console.log('CategoryMulti Loaded : ' + `${menu}` + '/' + `${props.id}`);
+  // console.log('CategoryMulti Loaded : ' + `${menu}` + '/' + `${props.id}`);
 
   return (
     <div className='container-fluid d-flex'>

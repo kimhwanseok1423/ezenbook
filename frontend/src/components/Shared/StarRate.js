@@ -6,9 +6,7 @@ import { useState, useEffect } from 'react';
 }
 function StarRate(props) {
   const data = parseInt(props.rate) * 10;
-  console.log('data : ' + data);
   const AVR_RATE = 100;
-  console.log('AVR Rate : ' + AVR_RATE);
   const STAR_IDX_ARR = ['first', 'second', 'third', 'fourth', 'last'];
   const [ratesResArr, setRatesResArr] = useState([0, 0, 0, 0, 0]);
   const calcStarRates = () => {

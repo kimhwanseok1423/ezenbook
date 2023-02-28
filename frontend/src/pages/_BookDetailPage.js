@@ -13,9 +13,6 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import StarRate from '../components/Shared/StarRate';
-import { useDispatch } from 'react-redux';
-// import addItem from '../store/cartSlice';
-// import store from '../../src/store';
 // import { Rating } from '@mui/material';
 
 const BookDetailPage = () => {
@@ -26,8 +23,13 @@ const BookDetailPage = () => {
   const bPrice = (book.book_price * 1).toLocaleString('ko-KR');
   const bDiscountedPrice = (book.book_price * 0.9).toLocaleString('ko-KR');
   const sumPrice = (book.book_price * 0.9 * count).toLocaleString('ko-KR');
-  // const currentState = store.getState();
-  // console.log(currentState);
+
+  const ADD_TO_CART = 'ADD_TO_CART';
+
+  function addToCart() {
+  return {
+    type: ADD_TO_CART,
+  };
 
   // const increase = () => {
   //   setCount(count + 1);
@@ -55,14 +57,6 @@ const BookDetailPage = () => {
       setBook(response.data.find((book) => book.book_num === parseInt(id)));
     });
   };
-
-  // const Item = ({ book }) => {
-  //   const dispatch = useDispatch();
-  //   const addItemToCart = () => {
-  //     dispatch(addItem(book.book_id));
-  //     console.log(book.book_id);
-  //   };
-  // };
 
   return (
     <div className='book-detail-wrap container-fluid'>
@@ -148,9 +142,8 @@ const BookDetailPage = () => {
                       </div>
                       <div className='cart-order'>
                         <div className='book-cart-body d-flex justify-content-between'>
-                          <a href='#'>
+                          <a href='/cart'>
                             <button
-                              // onClick={addItemToCart}
                               className='btn btn-secondary btn-bookdetial-cart'
                               id={'bookcart-' + book.book_num}
                             >

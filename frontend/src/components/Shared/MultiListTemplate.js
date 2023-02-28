@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { baseUrl } from '../commonApi/mainApi';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { useDispatch } from 'react-redux';
 import StarRate from './StarRate';
 import Pagination from './Pagination';
 import '../../css/category.css';
@@ -15,9 +16,7 @@ const MultiListTemplate = (props) => {
   const [page, setPage] = useState(1);
   const offset = (page - 1) * limit;
   const menu = baseUrl + '/' + props.menu + '/' + props.id;
-  console.log(menu);
-  console.log(props.menu);
-  console.log(props.id);
+  // const dispatch = useDispatch();
 
   useEffect(() => {
     getbook();
@@ -97,14 +96,15 @@ const MultiListTemplate = (props) => {
                 </div>
                 <div className='book-cart col-2 colums-row'>
                   <div>
-                    <a href='/cart'>
-                      <button
-                        className='btn btn-secondary'
-                        id={'bookcart-' + book.book_num}
-                      >
-                        장바구니
-                      </button>
-                    </a>
+                    {/* <a href='/cart'> */}
+                    <button
+                      className='btn btn-secondary'
+                      id={book.index}
+                      // id={'bookcart-' + book.book_num}
+                    >
+                      장바구니
+                    </button>
+                    {/* </a> */}
                   </div>
                   <div>
                     <button

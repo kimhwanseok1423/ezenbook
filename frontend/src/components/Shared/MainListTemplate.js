@@ -15,8 +15,6 @@ const MainListTemplate = (props) => {
   const [page, setPage] = useState(1);
   const offset = (page - 1) * limit;
   const menu = baseUrl + '/' + props.menu;
-  console.log(menu);
-  console.log(props.menu);
 
   useEffect(() => {
     getbook();

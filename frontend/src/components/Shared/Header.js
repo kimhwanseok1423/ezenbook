@@ -12,6 +12,7 @@ import {
 import Categories from '../../pages/Categories';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 const menu = 'category';
 const Header = () => {
   const [search, setSearch] = useState('');
@@ -34,7 +35,7 @@ const Header = () => {
   };
   /* 검색어가 공백일 때 */
   const searchBlank = (e) => {
-    alert('검색어를 입력해주세요');
+    Swal.fire({ text: '검색어를 입력해주세요', width: 400 });
   };
 
   // 검색어가 복붙일 때

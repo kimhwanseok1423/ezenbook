@@ -9,8 +9,7 @@ import { Navigation } from 'swiper';
 
 const NewestSmall = () => {
   const [book, setbook] = useState([]);
-  const addr = baseUrl + '/newest';
-  console.log(addr);
+  const addr = baseUrl + '/newestsmall';
 
   useEffect(() => {
     getbook();

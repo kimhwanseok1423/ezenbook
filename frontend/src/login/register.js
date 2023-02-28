@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import { baseUrl } from '../components/commonApi/mainApi';
 import './../css/login.css';
 
@@ -43,10 +44,11 @@ const Register = () => {
     const result = validChk('submit');
     if (!result.valid) {
       const msg = errorMessage[result.where];
-      alert('가입완료');
-      window.location.href = '/';
+      e.preventDefault();
+      Swal.fire({ text: '가입완료', width: 400 });
     }
     e.preventDefault();
+    window.location.href = '/';
 
     await axios
       .post(`${baseUrl}/register`, member, {
