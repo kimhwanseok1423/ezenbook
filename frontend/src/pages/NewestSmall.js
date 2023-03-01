@@ -6,6 +6,7 @@ import axios from 'axios';
 import { baseUrl } from '../components/commonApi/mainApi';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper';
+import CategoryName from '../components/Shared/CategoryName';
 
 const NewestSmall = () => {
   const [book, setbook] = useState([]);
@@ -44,10 +45,14 @@ const NewestSmall = () => {
                     <img src={item.book_image} alt={item.book_title} />
                   </a>
                 </div>
-                <div>
-                  <p id='book-ranking'>#{item.book_num}</p>
-                  <p id='book-title'>{item.book_title}</p>
-                  <p id='book-category'>{item.category_code}</p>
+                <div className='carousel-book-info'>
+                  <p className='mt-4' id='book-title'>
+                    {item.book_title}
+                  </p>
+                  <p className='mt-2' id='book-author'>
+                    <CategoryName categoryCode={item.category_code} />
+                    &nbsp;&nbsp;//&nbsp;&nbsp;{item.book_author}
+                  </p>
                 </div>
               </SwiperSlide>
               // </div>

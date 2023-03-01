@@ -7,10 +7,6 @@ import { baseUrl } from '../components/commonApi/mainApi';
 const Categories = (props) => {
   const [category, setCategory] = useState([]);
   const url = 'http://localhost:3000/';
-  // const address = `${url}${props.name}`;
-  // console.log('Category Loaded : ' + `${url}` + `${props.name}`);
-  // console.log(address);
-  // console.log('Category Loaded : ' + `${props.name}`);
 
   useEffect(() => {
     getCategory();
@@ -31,7 +27,6 @@ const Categories = (props) => {
     <ul className='dropdown-wrap'>
       <li className='categorylist_li'>
         <a href={`${url}${props.name}`}>전체</a>
-        {/* <a href={`${url}${props.name}`}>전체</a> */}
       </li>
       {category.map((category) => {
         return (

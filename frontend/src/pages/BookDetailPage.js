@@ -1,9 +1,8 @@
 import '../css/bootstrap.min.css';
 import '../css/style.css';
 import '../css/bookdetail.css';
-import { useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useEffect, useState } from 'react';
 import { baseUrl } from '../components/commonApi/mainApi';
 import {
   faArrowRight,
@@ -13,38 +12,18 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import StarRate from '../components/Shared/StarRate';
-import { useDispatch } from 'react-redux';
-// import addItem from '../store/cartSlice';
-// import store from '../../src/store';
+import { useParams } from 'react-router-dom';
+import { useCart } from 'react-use-cart';
 // import { Rating } from '@mui/material';
 
 const BookDetailPage = () => {
   const { id } = useParams();
   const [book, setBook] = useState({});
-  const [count, setCount] = useState(1);
+  const { addItem } = useCart();
 
+  // 금액 천단위로 나누기
   const bPrice = (book.book_price * 1).toLocaleString('ko-KR');
   const bDiscountedPrice = (book.book_price * 0.9).toLocaleString('ko-KR');
-  const sumPrice = (book.book_price * 0.9 * count).toLocaleString('ko-KR');
-  // const currentState = store.getState();
-  // console.log(currentState);
-
-  // const increase = () => {
-  //   setCount(count + 1);
-  // };
-
-  // const decrease = () => {
-  //   if (count > 1) setCount(count - 1);
-  // };
-
-  // const handleQuantity = (type) => {
-  //   if (type === 'plus') {
-  //     setCount(count + 1);
-  //   } else {
-  //     if (count === 1) return;
-  //     setCount(count - 1);
-  //   }
-  // };
 
   useEffect(() => {
     getBook();
@@ -56,13 +35,29 @@ const BookDetailPage = () => {
     });
   };
 
-  // const Item = ({ book }) => {
-  //   const dispatch = useDispatch();
-  //   const addItemToCart = () => {
-  //     dispatch(addItem(book.book_id));
-  //     console.log(book.book_id);
-  //   };
-  // };
+  // 날짜형식 "YYYYMMDD" 에서 문자열 형식으로 변환
+  function formatDate(dateString) {
+    const year = dateString.substr(0, 4);
+    const month = dateString.substr(4, 2);
+    const day = dateString.substr(6, 2);
+    return year + '년 ' + month + '월 ' + day + '일';
+  }
+
+  // 카트넣기
+  const onSubmit = () => {
+    const item = {
+      id: book.book_num,
+      title: book.book_title,
+      image: book.book_image,
+      author: book.book_author,
+      oPrice: book.book_price,
+      price: bPrice,
+      dprice: bDiscountedPrice,
+      pdate: formatDate(book.book_pubdate),
+      publisher: book.book_publisher,
+    };
+    addItem(item);
+  };
 
   return (
     <div className='book-detail-wrap container-fluid'>
@@ -103,9 +98,9 @@ const BookDetailPage = () => {
                 </div>
                 <p id='book-publishing-date'>
                   발간일: &nbsp;
-                  {book.book_pubdate}
+                  {book.book_pubdate && formatDate(book.book_pubdate)}
                 </p>
-                <div className='row'>
+                <div className='book-price-body'>
                   <div className='book-price d-flex mt-4'>
                     <p id='book-original-price'>{bPrice}원</p>
                     <p id='arrow'>
@@ -135,7 +130,7 @@ const BookDetailPage = () => {
                     >
                       <div className='cart-sum-price d-flex'>
                         <p className='title'>상품금액 : </p>
-                        <p className='price'>{sumPrice} 원</p>
+                        <p className='price'>{bDiscountedPrice} 원</p>
                       </div>
                       <div className='cart-sum-shipping d-flex'>
                         <p className='title'>배 송 비 : </p>
@@ -144,24 +139,23 @@ const BookDetailPage = () => {
                       <hr />
                       <div className='cart-total-price d-flex'>
                         <p className='title'>결제금액 : </p>
-                        <p className='price'>{sumPrice} 원 </p>
+                        <p className='price'>{bDiscountedPrice} 원 </p>
                       </div>
                       <div className='cart-order'>
                         <div className='book-cart-body d-flex justify-content-between'>
-                          <a href='#'>
-                            <button
-                              // onClick={addItemToCart}
-                              className='btn btn-secondary btn-bookdetial-cart'
-                              id={'bookcart-' + book.book_num}
-                            >
-                              장바구니
-                            </button>
-                          </a>
+                          <button
+                            onClick={onSubmit}
+                            className='btn btn-secondary btn-bookdetial-cart'
+                            id={'bookcart-' + book.book_num}
+                          >
+                            장바구니
+                          </button>
 
-                          <a href='#'>
+                          <a href='/cart'>
                             <button
                               className='btn btn-bookdetial-cart btn-search '
                               id={'bookorder-' + book.book_num}
+                              onClick={onSubmit}
                             >
                               바로구매
                             </button>

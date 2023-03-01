@@ -84,24 +84,14 @@ button p {
   margin-right: 10px;
 } */
 
-p#buying-book-quantity {
-  min-width: 90px;
-  padding: 10px 20px 0px 10px;
-  height: 35px;
-  text-align: right;
-}
-p#buying-book-quantity text {
-  text-align: right;
-}
-
 button.button-search p {
   margin: 0;
 }
 
 div.book-price {
   height: 35px;
-  margin: 0px 0px 0px 15px !important;
 }
+
 div.book-price p {
   margin: 0px 5px 0px 0px;
   font-size: 20px;
@@ -123,7 +113,7 @@ div.stars {
 }
 
 div.book-ranking p {
-  margin: 10px 0px 0px 15px;
+  margin: 10px 0px 0px 0px;
   font-size: 24px;
   color: #301fbf;
 }

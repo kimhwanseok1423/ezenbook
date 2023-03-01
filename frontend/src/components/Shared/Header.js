@@ -10,14 +10,32 @@ import {
   faBolt,
 } from '@fortawesome/free-solid-svg-icons';
 import Categories from '../../pages/Categories';
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import axios from 'axios';
+import { baseUrl } from '../commonApi/mainApi';
 const menu = 'category';
 const Header = () => {
   const [search, setSearch] = useState('');
+  const [user, setUser] = useState('');
+  const username = localStorage.getItem('username');
 
-  // const [searchHistory, setSearchHistory] = useRef();
+  //로그인 사용자 정보 가져오기
+  const getUser = useCallback(async () => {
+    try {
+      const response = await axios.get(baseUrl + '/user/' + username);
+      setUser(response.data);
+      localStorage.setItem('nickname', response.data.user_nickname);
+      localStorage.setItem('role', response.data.user_role);
+    } catch (error) {
+      console.log(error);
+    }
+  }, [username]);
+
+  useEffect(() => {
+    getUser();
+  }, [getUser]);
 
   /* 검색하기 */
   const onSubmitSearch = async () => {
@@ -120,7 +138,7 @@ const Header = () => {
               {localStorage.getItem('username') !== null ? (
                 <div>
                   <Link className='user-info' to='/logout'>
-                    {localStorage.getItem('username') + ' 님 / LOGOUT'}
+                    {localStorage.getItem('nickname') + ' 님 / LOGOUT'}
                   </Link>
                 </div>
               ) : (
@@ -139,11 +157,15 @@ const Header = () => {
             <div className='row'>
               <div className='header__right__widget container d-flex justify-content-end mt-4'>
                 {/*  운영자 메뉴, 운영자만 접근 가능 */}
-                <div className='fontawsome' id='fascrewdriverwrench'>
-                  <a href='/admin'>
-                    <FontAwesomeIcon icon={faScrewdriverWrench} size='3x' />
-                  </a>
-                </div>
+                {localStorage.getItem('role') === 'ADMIN' ? (
+                  <div className='fontawsome admin' id='fascrewdriverwrench'>
+                    <a href='/admin'>
+                      <FontAwesomeIcon icon={faScrewdriverWrench} size='3x' />
+                    </a>
+                  </div>
+                ) : (
+                  <></>
+                )}
 
                 <div className='fontawsome' id='fauser'>
                   <a href='/mypage'>

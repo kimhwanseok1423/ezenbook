@@ -13,7 +13,6 @@ import SearchList from './routes/SearchList';
 import Login from './login/Login';
 import Logout from './login/Logout';
 import Register from './login/Register';
-import { Provider } from 'react-redux';
 
 // import NotFoundPage from './pages/NotFoundPage';
 

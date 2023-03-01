@@ -1,14 +1,14 @@
+import '../../css/category.css';
+import '../../css/style.css';
+import '../../css/bootstrap.min.css';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { baseUrl } from '../commonApi/mainApi';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
-import { useDispatch } from 'react-redux';
 import StarRate from './StarRate';
 import Pagination from './Pagination';
-import '../../css/category.css';
-import '../../css/style.css';
-import '../../css/bootstrap.min.css';
+import { useCart } from 'react-use-cart';
 
 const MultiListTemplate = (props) => {
   const [book, setbook] = useState([]);
@@ -16,7 +16,7 @@ const MultiListTemplate = (props) => {
   const [page, setPage] = useState(1);
   const offset = (page - 1) * limit;
   const menu = baseUrl + '/' + props.menu + '/' + props.id;
-  // const dispatch = useDispatch();
+  const { addItem } = useCart();
 
   useEffect(() => {
     getbook();
@@ -31,6 +31,13 @@ const MultiListTemplate = (props) => {
       .catch((error) => {
         console.log(error);
       });
+  }
+  // 날짜형식 "YYYYMMDD" 에서 문자열 형식으로 변환
+  function formatDate(dateString) {
+    const year = dateString.substr(0, 4);
+    const month = dateString.substr(4, 2);
+    const day = dateString.substr(6, 2);
+    return year + '년 ' + month + '월 ' + day + '일';
   }
 
   return (
@@ -55,10 +62,28 @@ const MultiListTemplate = (props) => {
           //////// 반복리스트
         }
         {book.slice(offset, offset + limit).map((book) => {
-          const bprice = book.book_price.toLocaleString('ko-KR');
-          const bdiscountedprice = (book.book_price * 0.9).toLocaleString(
+          const bPrice = book.book_price.toLocaleString('ko-KR');
+          const bDiscountedPrice = (book.book_price * 0.9).toLocaleString(
             'ko-KR'
           );
+
+          // 카트넣기
+          const onSubmit = () => {
+            const item = {
+              id: book.book_num,
+              title: book.book_title,
+              image: book.book_image,
+              author: book.book_author,
+              oPrice: book.book_price,
+              price: bPrice,
+              dprice: bDiscountedPrice,
+              pdate: formatDate(book.book_pubdate),
+              publisher: book.book_publisher,
+            };
+            addItem(item);
+            console.log(item);
+          };
+
           return (
             <div key={book.book_num}>
               <div className='book-list-item d-flex'>
@@ -81,13 +106,13 @@ const MultiListTemplate = (props) => {
                     <p id='book-publishing-date'>{book.book_pubdate}</p>
                   </div>
                   <div className='book-price d-flex mt-4'>
-                    <p id='book-original-price'>{bprice}원</p>
+                    <p id='book-original-price'>{bPrice}원</p>
                     <p>
                       &nbsp;
                       <FontAwesomeIcon icon={faArrowRight} />
                       &nbsp;
                     </p>
-                    <p id='book-discounted-price'>{bdiscountedprice}원</p>
+                    <p id='book-discounted-price'>{bDiscountedPrice}원</p>
                     <p id='book-discounted-percent'>&nbsp;(10%)</p>
                   </div>
                   <div className='rating'>
@@ -96,23 +121,24 @@ const MultiListTemplate = (props) => {
                 </div>
                 <div className='book-cart col-2 colums-row'>
                   <div>
-                    {/* <a href='/cart'> */}
                     <button
                       className='btn btn-secondary'
-                      id={book.index}
-                      // id={'bookcart-' + book.book_num}
+                      id={'bookcart-' + book.book_num}
+                      onClick={onSubmit}
                     >
                       장바구니
                     </button>
-                    {/* </a> */}
                   </div>
                   <div>
-                    <button
-                      className='btn btn-search'
-                      id={'bookorder-' + book.book_num}
-                    >
-                      바로구매
-                    </button>
+                    <a href='/cart'>
+                      <button
+                        className='btn btn-search'
+                        id={'bookorder-' + book.book_num}
+                        onClick={onSubmit}
+                      >
+                        바로구매
+                      </button>
+                    </a>
                   </div>
                 </div>
               </div>

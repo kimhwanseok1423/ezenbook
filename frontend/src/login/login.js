@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { baseUrl } from '../components/commonApi/mainApi';
 
@@ -41,6 +41,7 @@ const Login = () => {
   // const navigate = useNavigate();
   const [user_name, setUsername] = useState('');
   const [user_pwd, setPassword] = useState('');
+  const username = localStorage.getItem('username');
 
   const handleUsernameChange = (e) => {
     setUsername(e.target.value);
@@ -68,7 +69,10 @@ const Login = () => {
     await axios
       .post(
         `${baseUrl}/login`,
-        { user_name: user_name, user_pwd: user_pwd },
+        {
+          user_name: user_name,
+          user_pwd: user_pwd,
+        },
         {
           headers: {
             'Content-Type': 'application/json',

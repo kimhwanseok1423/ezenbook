@@ -5,7 +5,6 @@ const NewestMulti = (props) => {
   const menu = props.menu;
   const id = props.id;
   // console.log('NewestMulti Loaded :  ' + `${menu}` + '/' + `${props.id}`);
-  console.log('NewestMulti loaded');
 
   return (
     <div className='container-fluid d-flex'>
