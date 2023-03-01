@@ -11,4 +11,17 @@ import com.ezenbooks.backend.dto.BookDTO;
 public interface BookDAO {
 	
 	public List<BookDTO> getBookList() throws Exception;
+	
+	public List<BookDTO> getCategoryList(int code) throws Exception;
+	
+	public List<BookDTO> getNewestList() throws Exception;
+	
+	public List<BookDTO> getNewestSmallList() throws Exception;
+	
+	public List<BookDTO> getCategoryNewestList(int code) throws Exception;
+	
+	/* 여기서 부터 환석님꺼 합친거 */
+	
+	public List<BookDTO> getSearchList(String book_title) throws Exception;
+	
 }

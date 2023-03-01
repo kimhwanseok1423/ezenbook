@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+    <!-- namespace 끝에 있는 BookDAO 안에 있는 method 이름과 
+    namespace 에 정의되어 있는 값과 일치해야 한다. -->
+<mapper namespace="com.ezenbooks.backend.dao.BookDAO">
+	<select id="getBookList" resultType="BookDTO">
+		SELECT * FROM BOOKS
+	</select>
+	
+	<select id="getCategoryList"  resultType="BookDTO"  parameterType="int">
+		SELECT * FROM BOOKS
+	    WHERE CATEGORY_CODE = #{code}
+	</select>
+	
+	<!-- 신간 50권만 가져오기  -->
+	<select id="getNewestSmallList" resultType="BookDTO">
+    SELECT *
+    FROM (
+        SELECT *
+        FROM BOOKS
+        ORDER BY BOOK_PUBDATE DESC
+    )
+    WHERE ROWNUM &lt; 51
+</select>
+
+	<!-- 신간 전부 가져오기  -->
+	<select id="getNewestList" resultType="BookDTO">
+    SELECT *
+    FROM BOOKS
+    ORDER BY BOOK_PUBDATE DESC
+</select>
+
+	
+		<select id="getCategoryNewestList"  resultType="BookDTO"  parameterType="int">
+		SELECT * FROM BOOKS
+	    WHERE CATEGORY_CODE = #{code}
+        ORDER BY BOOK_PUBDATE DESC
+	</select>
+	<select id="getSearchList" resultType="BookDTO" parameterType="String">
+  		SELECT * FROM BOOKS
+  		WHERE BOOK_TITLE LIKE '%' || #{BOOK_TITLES} || '%' 
+    </select>
+	
+
+
+</mapper>
