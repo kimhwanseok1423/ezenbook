@@ -19,7 +19,7 @@ const CarouselPage = () => {
       .get(baseUrl + '/index/curation', {
         params: {
           user_name: userName,
-          bought: prevBook == null ? 1 : prevBookJSON.book_num
+          bought: prevBook == null ? 1 : prevBookJSON.book_num, // 바뀐 부분
         },
       })
       .then((response) => {
