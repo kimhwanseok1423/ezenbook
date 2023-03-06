@@ -12,3 +12,7 @@ a#carousel-img img {
   max-width: 330px;
   max-height: 440px;
 }
+
+p#bestseller-book-author {
+  margin-bottom: 25px;
+}

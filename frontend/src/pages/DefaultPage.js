@@ -1,4 +1,5 @@
 import '../css/header.css';
+import React from 'react';
 
 const DefaultPage = () => {
   return (

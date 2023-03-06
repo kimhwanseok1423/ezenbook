@@ -1,7 +1,7 @@
-import NeedLoginPage from '../login/NeedLoginPage';
+import BookSearch from '../pages/BookSearch';
 import Categories from '../pages/Categories';
 
-const NeedLogin = () => {
+const SearchList = () => {
   const menu = 'category';
 
   return (
@@ -9,10 +9,10 @@ const NeedLogin = () => {
       <div className='col-xl-2 col-lg-2 mt-2'>
         <Categories name={menu} />
       </div>
-      <div className='categoryRight col-xl-10 col-lg-10 container-fluid mt-3'>
-        <NeedLoginPage />
+      <div className='col-xl-10 col-lg-10 container-fluid mt-3'>
+        <BookSearch />
       </div>
     </div>
   );
 };
-export default NeedLogin;
+export default SearchList;

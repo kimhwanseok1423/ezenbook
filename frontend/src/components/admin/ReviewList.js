@@ -1,17 +1,17 @@
-import AdminMenu from '../pages/AdminMenu';
-import BookListPage from '../pages/BookListPage';
+import AdminMenu from './AdminMenu';
+import ReviewListPage from './ReviewListPage';
 
-const BookList = () => {
+const UserList = () => {
   return (
     <div className='container-fluid d-flex'>
       <div className='col-1'>
         <AdminMenu />
       </div>
       <div className='col-11 p-0'>
-        <BookListPage />
+        <ReviewListPage />
       </div>
     </div>
   );
 };
 
-export default BookList;
+export default UserList;

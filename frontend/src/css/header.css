@@ -4,6 +4,13 @@
   box-sizing: border-box;
 }
 
+/* * {
+  border: 1px solid black;
+} */
+
+.input-group {
+  width: 840px;
+}
 input#main-search {
   width: 700px;
   height: 45px;

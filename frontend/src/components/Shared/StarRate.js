@@ -1,5 +1,7 @@
-import styled from 'styled-components';
+import React from 'react';
+
 import { useState, useEffect } from 'react';
+import styled from 'styled-components';
 
 {
   /* AVR_RATE 에 별점값을 넣어줘야함 */

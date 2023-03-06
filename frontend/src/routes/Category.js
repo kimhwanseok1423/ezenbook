@@ -1,9 +1,9 @@
+import React from 'react';
 import MainListTemplate from '../components/Shared/MainListTemplate';
 import Categories from '../pages/Categories';
 
 const Category = (props) => {
   const menu = props.menu;
-  console.log('Category Loaded : ' + `${menu}`);
 
   return (
     <div className='container-fluid d-flex'>

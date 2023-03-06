@@ -1,5 +1,5 @@
-import AdminMenu from '../pages/AdminMenu';
-import UserListPage from '../pages/UserListPage';
+import AdminMenu from '../components/admin/AdminMenu';
+import UserListPage from '../components/admin/UserListPage';
 
 const UserList = () => {
   return (

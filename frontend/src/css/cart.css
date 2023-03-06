@@ -69,7 +69,7 @@ button#num_minus {
 
 p#buying-book-quantity {
   min-width: 90px;
-  padding: 10px 20px 0px 10px;
+  padding: 4px 20px 0px 10px;
   height: 35px;
   text-align: right;
   border: 1px solid black;
@@ -77,6 +77,7 @@ p#buying-book-quantity {
 }
 p#buying-book-quantity text {
   text-align: right;
+  padding: 0px;
 }
 
 button.btn-cart-order {
@@ -135,4 +136,14 @@ div.cart-empty-title p {
   color: #301fbf;
   text-align: center;
   margin-top: 200px;
+}
+
+div#fauser a {
+  color: #301fbf;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+div#fauser a:hover {
+  color: #4c40c0;
 }

@@ -1,7 +1,8 @@
-import styled from 'styled-components';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
+import styled from 'styled-components';
 
 function Pagination({ total, limit, page, setPage }) {
   const numPages = Math.ceil(total / limit);

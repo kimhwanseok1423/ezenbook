@@ -1,4 +1,5 @@
-import BookSearch from '../components/commonApi/BookSearch';
+import React from 'react';
+import BookSearch from '../pages/BookSearch';
 import Categories from '../pages/Categories';
 
 const SearchList = () => {

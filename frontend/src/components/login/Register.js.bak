@@ -2,8 +2,9 @@ import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import { baseUrl } from '../components/commonApi/mainApi';
-import './../css/login.css';
+
+import '../../css/login.css';
+import { baseUrl } from '../commonApi/mainApi';
 
 //회원가입
 const Register = () => {

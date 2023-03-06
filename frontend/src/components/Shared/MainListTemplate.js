@@ -1,6 +1,7 @@
 import '../../css/category.css';
 import '../../css/style.css';
 import '../../css/bootstrap.min.css';
+import React from 'react';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { baseUrl } from '../commonApi/mainApi';
@@ -9,6 +10,7 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import StarRate from './StarRate';
 import Pagination from './Pagination';
 import { useCart } from 'react-use-cart';
+import CategoryName from './CategoryName';
 
 const MainListTemplate = (props) => {
   const [book, setbook] = useState([]);
@@ -73,6 +75,7 @@ const MainListTemplate = (props) => {
             const item = {
               id: book.book_num,
               title: book.book_title,
+              code: book.category_code,
               image: book.book_image,
               author: book.book_author,
               oPrice: book.book_price,
@@ -98,13 +101,17 @@ const MainListTemplate = (props) => {
                     <p id='book-title-name'>{book.book_title}</p>
                   </div>
                   <div className='book-writer d-flex'>
-                    <p id='book-detail-category'>{book.category_code}</p>
+                    <p id='book-detail-category'>
+                      <CategoryName categoryCode={book.category_code} />
+                    </p>
                     <p> &nbsp;|&nbsp; </p>
                     <p id='book-writer-name'>{book.book_author}</p>
                     <p> &nbsp;|&nbsp; </p>
                     <p id='book-publisher'>{book.book_publisher}</p>
                     <p> &nbsp;|&nbsp; </p>
-                    <p id='book-publishing-date'>{book.book_pubdate}</p>
+                    <p id='book-publishing-date'>
+                      {book.book_pubdate && formatDate(book.book_pubdate)}
+                    </p>
                   </div>
                   <div className='book-price d-flex mt-4'>
                     <p id='book-original-price'>{bPrice}원</p>

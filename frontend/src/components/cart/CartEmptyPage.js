@@ -1,4 +1,5 @@
 import '../../css/cart.css';
+import React from 'react';
 
 const CartEmptyPage = () => {
   return (

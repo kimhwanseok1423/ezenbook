@@ -16,12 +16,21 @@ tr {
   padding: 0px;
 }
 
-.table {
+.booklist-table {
   min-width: 1500px;
   max-width: 1500px;
 }
+
+.booklist-table tr {
+  height: 50px;
+}
+
 .book_price {
   width: 80px;
+}
+
+th#th-book-num {
+  text-align: center;
 }
 
 .book_num,

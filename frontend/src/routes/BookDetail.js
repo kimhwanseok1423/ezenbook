@@ -1,10 +1,11 @@
 import '../css/style.css';
 import '../css/category.css';
+import React from 'react';
 import Categories from '../pages/Categories';
 import BookDetailPage from '../pages/BookDetailPage';
-import Review from '../pages/Review';
+
 import { useParams } from 'react-router-dom';
-import ReviewList from '../pages/Review_list';
+import Review from '../components/review/Review';
 
 const BookDetail = (props) => {
   const menu = props.name;

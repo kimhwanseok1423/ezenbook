@@ -1,3 +1,4 @@
+import React from 'react';
 import BestsellerPage from '../pages/BestsellerPage';
 import Categories from '../pages/Categories';
 const menu = 'bestseller';

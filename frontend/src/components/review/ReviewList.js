@@ -1,4 +1,5 @@
-import '../css/review.css';
+import '../../css/review.css';
+import React from 'react';
 import { Rating } from '@mui/material';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

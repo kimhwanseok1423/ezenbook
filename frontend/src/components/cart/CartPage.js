@@ -1,3 +1,4 @@
+import React from 'react';
 import '../../css/cart.css';
 import '../../css/bootstrap.min.css';
 import {
@@ -10,6 +11,10 @@ import StarRate from '../Shared/StarRate';
 import { useCart } from 'react-use-cart';
 import CartEmpty from '../../routes/CartEmpty';
 import Swal from 'sweetalert2';
+import CategoryName from '../Shared/CategoryName';
+import { baseUrl } from '../commonApi/mainApi';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const CartPage = () => {
   const { items } = useCart();
@@ -22,17 +27,46 @@ const CartPage = () => {
     console.log('cart is empty / cartTotal : ' + cartTotal);
   };
 
+  const navigator = useNavigate();
+
   if (items.length === 0) {
     return <CartEmpty />;
   }
 
+  const cart = JSON.parse(localStorage.getItem('react-use-cart')).items;
+
+  var title = cart.map((elem) => {
+    return elem.title;
+  });
+
   //로그인 여부 확인
-  const handleCartClick = (e) => {
+  const handleCartClick = async (e) => {
     if (localStorage.getItem('username') === null) {
       Swal.fire({ text: '로그인 후 이용해주세요', width: 400 });
       e.preventDefault();
     } else {
-      window.location.href = '/order';
+      e.preventDefault();
+
+      const formData = new FormData();
+      formData.append('itemName', title);
+      formData.append('username', localStorage.getItem('username'));
+      formData.append('price', localStorage.getItem('cartTotal'));
+      console.log(title);
+      const config = {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      };
+
+      await axios
+        .post(`${baseUrl}/order`, formData, config)
+        .then((response) => {
+          localStorage.setItem('id', response.data);
+          localStorage.setItem('itemName', title);
+
+          navigator(`/order`);
+        })
+        .catch((err) => {
+          console.error(err.message);
+        });
     }
   };
 
@@ -48,6 +82,7 @@ const CartPage = () => {
           const bookPage = '/book/' + book.id;
           cartTotal = cartTotal + book.oPrice * book.quantity;
           console.log(cartTotal);
+          localStorage.setItem('cartTotal', cartTotal * 0.9);
           return (
             <div className='cart-item d-flex' id={itemNo} key={book.id}>
               <div className='cart-book-img col-2'>
@@ -60,6 +95,9 @@ const CartPage = () => {
                   <p id='book-title-name'>{book.title}</p>
                 </div>
                 <div className='book-writer d-flex'>
+                  <p id='book-detail-category'>
+                    <CategoryName categoryCode={book.category_code} />
+                  </p>
                   <p id='book-writer-name'>{book.author}</p>
                   <p> &nbsp;|&nbsp; </p>
                   <p id='book-publisher'>{book.publisher}</p>

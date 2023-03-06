@@ -1,3 +1,4 @@
+import React from 'react';
 import { useParams } from 'react-router-dom';
 import Admin from '../../routes/Admin';
 import DefaultPage from '../../pages/DefaultPage';

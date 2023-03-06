@@ -1,3 +1,4 @@
+import React from 'react';
 import CartEmptyPage from '../components/cart/CartEmptyPage';
 import Categories from '../pages/Categories';
 

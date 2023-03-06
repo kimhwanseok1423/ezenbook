@@ -1,6 +1,6 @@
+import React from 'react';
 import '../css/carouselSmall.css';
-import 'swiper/css';
-import 'swiper/css/navigation';
+import '../css/swiper.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { baseUrl } from '../components/commonApi/mainApi';
@@ -32,6 +32,7 @@ const NewestSmall = () => {
       <div className='carousel container-fluid mt-4'>
         <Swiper
           navigation={true}
+          loop={true}
           modules={[Navigation]}
           spaceBetween={5}
           slidesPerView={2}

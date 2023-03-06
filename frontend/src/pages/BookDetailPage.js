@@ -1,6 +1,7 @@
 import '../css/bootstrap.min.css';
 import '../css/style.css';
 import '../css/bookdetail.css';
+import React from 'react';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { baseUrl } from '../components/commonApi/mainApi';
@@ -14,6 +15,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import StarRate from '../components/Shared/StarRate';
 import { useParams } from 'react-router-dom';
 import { useCart } from 'react-use-cart';
+import CategoryName from '../components/Shared/CategoryName';
 // import { Rating } from '@mui/material';
 
 const BookDetailPage = () => {
@@ -28,6 +30,8 @@ const BookDetailPage = () => {
   useEffect(() => {
     getBook();
   }, []);
+
+  localStorage.setItem('saw', JSON.stringify(book));
 
   const getBook = async () => {
     await axios.get(baseUrl + '/booklist').then((response) => {
@@ -48,6 +52,7 @@ const BookDetailPage = () => {
     const item = {
       id: book.book_num,
       title: book.book_title,
+      code: book.category_code,
       image: book.book_image,
       author: book.book_author,
       oPrice: book.book_price,
@@ -93,6 +98,9 @@ const BookDetailPage = () => {
                 </div>
                 <div className='container d-flex justify-content-between p-0 '>
                   <div className='book-publisher'>
+                    <p id='book-detail-category'>
+                      <CategoryName categoryCode={book.category_code} />
+                    </p>
                     <p>{book.book_publisher}</p>
                   </div>
                 </div>
@@ -113,7 +121,7 @@ const BookDetailPage = () => {
                   </div>
 
                   <div className='book-ranking'>
-                    <p>소설 #1 / 태그 #2 등등 랭킹자리</p>
+                    {/* <p>소설 #1 / 태그 #2 등등 랭킹자리</p> */}
                   </div>
                 </div>
               </div>

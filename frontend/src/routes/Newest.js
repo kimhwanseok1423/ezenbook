@@ -1,9 +1,9 @@
+import React from 'react';
 import MainListTemplate from '../components/Shared/MainListTemplate';
 import Categories from '../pages/Categories';
 
 const Newest = (props) => {
   const menu = props.menu;
-  console.log('NewestMulti loaded');
 
   return (
     <div className='container-fluid d-flex'>

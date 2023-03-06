@@ -1,3 +1,4 @@
+import React from 'react';
 import MultiListTemplate from '../components/Shared/MultiListTemplate';
 import Categories from '../pages/Categories';
 

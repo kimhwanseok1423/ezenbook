@@ -1,3 +1,7 @@
+/* * {
+  border: 1px solid black;
+} */
+
 li {
   list-style: none;
   display: inline-block;
@@ -6,34 +10,24 @@ li {
   font-size: 20px;
 }
 
-.user_role,
-.user_modify,
-.user_delete {
-  width: 80px;
+.user_role {
+  width: 150px;
 }
 
-.user_num,
-.user_name,
 .create_date,
-.modify_date {
+.modify_date,
+.user_id {
   width: 130px;
 }
 
-th.user_id {
-  padding-left: 15px;
-  text-align: left;
-}
-th.user_id {
-  width: 180px;
-}
+.user_name,
 .user_nickname {
-  width: 180px;
+  width: 200px;
 }
 
 .user_email {
   width: 350px;
 }
-
 td.user_name,
 td.user_email,
 td.user_nickname {

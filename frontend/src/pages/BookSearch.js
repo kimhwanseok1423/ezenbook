@@ -1,10 +1,13 @@
+import React from 'react';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { baseUrl } from './mainApi';
+import { baseUrl } from '../components/commonApi/mainApi';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
-import Pagination from '../Shared/Pagination';
+import Pagination from '../components/Shared/Pagination';
+import { useCart } from 'react-use-cart';
+import CategoryName from '../components/Shared/CategoryName';
 
 const BookSearch = () => {
   const [book, setbook] = useState([]);
@@ -12,8 +15,16 @@ const BookSearch = () => {
   const [page, setPage] = useState(1);
   const offset = (page - 1) * limit;
   const [searchParams] = useSearchParams();
+  const { addItem } = useCart();
+
+  // 금액 천단위로 나누기
+  const bPrice = (book.book_price * 1).toLocaleString('ko-KR');
+  const bDiscountedPrice = (book.book_price * 0.9).toLocaleString('ko-KR');
+
+  //검색 기능
   const keyword = searchParams.get('keyword');
   console.log('keyword : ' + keyword);
+
   useEffect(() => {
     getSearchData();
   }, []);
@@ -27,6 +38,16 @@ const BookSearch = () => {
       .catch((error) => {
         console.log(error);
       });
+  }
+  // 날짜형식 "YYYYMMDD" 에서 문자열 형식으로 변환
+  function formatDate(dateString) {
+    if (!dateString) {
+      return '';
+    }
+    const year = dateString.substr(0, 4);
+    const month = dateString.substr(4, 2);
+    const day = dateString.substr(6, 2);
+    return year + '년 ' + month + '월 ' + day + '일';
   }
 
   return (
@@ -47,12 +68,26 @@ const BookSearch = () => {
         </label>
       </div>
       <div className='book-list-body colums-row mt-1'>
-        {
-          //////// 반복리스트
-        }
         {book.slice(offset, offset + limit).map((book) => {
-          const bprice = book.book_price.toLocaleString('ko-KR');
-          const bdiscountedprice = (book.book_price * 0.9).toLocaleString(
+          // 카트넣기
+          const onSubmit = () => {
+            const item = {
+              id: book.book_num,
+              title: book.book_title,
+              code: book.category_code,
+              image: book.book_image,
+              author: book.book_author,
+              oPrice: book.book_price,
+              price: bPrice,
+              dprice: bDiscountedPrice,
+              pdate: formatDate(book.book_pubdate),
+              publisher: book.book_publisher,
+            };
+            addItem(item);
+          };
+
+          const bPrice = (book.book_price * 1).toLocaleString('ko-KR');
+          const bDiscountedPrice = (book.book_price * 0.9).toLocaleString(
             'ko-KR'
           );
           console.log(book.book_num);
@@ -69,22 +104,26 @@ const BookSearch = () => {
                     <p id='book-title-name'>{book.book_title}</p>
                   </div>
                   <div className='book-writer d-flex'>
-                    <p id='book-detail-category'>{book.category_code}</p>
+                    <p id='book-detail-category'>
+                      <CategoryName categoryCode={book.category_code} />
+                    </p>
                     <p> &nbsp;|&nbsp; </p>
                     <p id='book-writer-name'>{book.book_author}</p>
                     <p> &nbsp;|&nbsp; </p>
                     <p id='book-publisher'>{book.book_publisher}</p>
                     <p> &nbsp;|&nbsp; </p>
-                    <p id='book-publishing-date'>{book.book_pubdate}</p>
+                    <p id='book-publishing-date'>
+                      {book.book_pubdate && formatDate(book.book_pubdate)}
+                    </p>
                   </div>
                   <div className='book-price d-flex mt-4'>
-                    <p id='book-original-price'>{bprice}원</p>
+                    <p id='book-original-price'>{bPrice}원</p>
                     <p>
                       &nbsp;
                       <FontAwesomeIcon icon={faArrowRight} />
                       &nbsp;
                     </p>
-                    <p id='book-discounted-price'>{bdiscountedprice}원</p>
+                    <p id='book-discounted-price'>{bDiscountedPrice}원</p>
                     <p id='book-discounted-percent'>&nbsp;(10%)</p>
                   </div>
                   {/* <div className='rating'>
@@ -93,22 +132,24 @@ const BookSearch = () => {
                 </div>
                 <div className='book-cart col-2 colums-row'>
                   <div>
-                    <a href='/cart'>
-                      <button
-                        className='btn btn-secondary'
-                        id={'bookcart-' + book.book_num}
-                      >
-                        장바구니
-                      </button>
-                    </a>
+                    <button
+                      onClick={onSubmit}
+                      className='btn btn-secondary'
+                      id={'bookcart-' + book.book_num}
+                    >
+                      장바구니
+                    </button>
                   </div>
                   <div>
-                    <button
-                      className='btn btn-search'
-                      id={'bookorder-' + book.book_num}
-                    >
-                      바로구매
-                    </button>
+                    <a href='/cart'>
+                      <button
+                        className='btn btn-search'
+                        id={'bookorder-' + book.book_num}
+                        onClick={onSubmit}
+                      >
+                        바로구매
+                      </button>
+                    </a>
                   </div>
                 </div>
               </div>
