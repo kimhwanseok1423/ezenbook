@@ -98,7 +98,7 @@ const BookDetailPage = () => {
               <div className='book-detail-info colums-row col-8'>
                 <div className='container d-flex justify-content-between p-0 '>
                   <div className='book-author col-8'>
-                    <p>{book.book_author}</p>
+                    <p>저자 : {book.book_author}</p>
                   </div>
                   <div className='rating columns-row'>
                     {/* <div className='stars'>
@@ -115,7 +115,7 @@ const BookDetailPage = () => {
                     <p id='book-detail-category'>
                       <CategoryName categoryCode={book.category_code} />
                     </p>
-                    <p>{book.book_publisher}</p>
+                    <p>출판사 : {book.book_publisher}</p>
                   </div>
                 </div>
                 <p id='book-publishing-date'>

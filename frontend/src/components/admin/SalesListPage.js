@@ -8,7 +8,7 @@ import { baseUrl } from '../commonApi/mainApi';
 
 const SalesListPage = () => {
   const [book, setbook] = useState([]);
-  const [limit, setLimit] = useState(15);
+  const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(1);
   const currentDate = new Date();
   const currentYearMonth = currentDate.toISOString().slice(0, 7); // YYYY-MM 형식으로 반환
@@ -51,7 +51,7 @@ const SalesListPage = () => {
               onChange={({ target: { value } }) => setLimit(Number(value))}
             >
               <option value='10'>10</option>
-              <option value='15'>15</option>
+              <option value='20'>20</option>
               <option value='30'>30</option>
             </select>
           </label>

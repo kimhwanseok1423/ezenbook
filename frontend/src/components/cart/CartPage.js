@@ -39,36 +39,38 @@ const CartPage = () => {
     return elem.title;
   });
 
-  //로그인 여부 확인
-  const handleCartClick = async (e) => {
-    if (localStorage.getItem('username') === null) {
-      Swal.fire({ text: '로그인 후 이용해주세요', width: 400 });
-      e.preventDefault();
-    } else {
-      e.preventDefault();
+          //로그인 여부 확인
+          const handleCartClick = async(e) => {
+            if (localStorage.getItem('username') === null) {
+              Swal.fire({ text: '로그인 후 이용해주세요', width: 400 });
+              e.preventDefault();
+            } else {
+              e.preventDefault();
 
-      const formData = new FormData();
-      formData.append('itemName', title);
-      formData.append('username', localStorage.getItem('username'));
-      formData.append('price', localStorage.getItem('cartTotal'));
-      console.log(title);
-      const config = {
-        headers: { 'Content-Type': 'multipart/form-data' },
-      };
-
-      await axios
-        .post(`${baseUrl}/order`, formData, config)
-        .then((response) => {
-          localStorage.setItem('id', response.data);
-          localStorage.setItem('itemName', title);
-
-          navigator(`/order`);
-        })
-        .catch((err) => {
-          console.error(err.message);
-        });
-    }
-  };
+              const formData = new FormData();
+              formData.append('itemName', title);
+              formData.append('username', localStorage.getItem('username'));
+              formData.append('price', localStorage.getItem('cartTotal'));
+              console.log(title)
+              const config = {
+                headers:{'Content-Type' : 'multipart/form-data'},
+              };
+            
+              await axios
+              .post(
+                `${baseUrl}/order`, formData, config)
+              .then((response)=>{
+                localStorage.setItem("id",response.data);
+                localStorage.setItem("itemName", title);
+                
+              
+            
+                navigator(`/order`);
+              }).catch((err)=> {
+                console.error(err.message);
+              });
+              };
+            };
 
   return (
     <div className='cartpage-wrap container-fluid d-flex'>

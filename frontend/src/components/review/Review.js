@@ -40,11 +40,11 @@ const Review = (props) => {
 
     const form = new FormData();
 
-    form.append('user_id', 6);
+    form.append('user_id', localStorage.getItem('userid'));
     form.append('book_num', id);
     form.append('review_content', inputs);
     form.append('review_rating', star);
-    form.append('review_writer', 'aaaa');
+    form.append('review_writer', localStorage.getItem('usernickname'));
 
     await axios
       .post(baseUrl + '/review', form, config)
@@ -60,10 +60,7 @@ const Review = (props) => {
 
   const handleValueChange = (e) => {
     e.preventDefault();
-    let nextState = [];
-    nextState[e.target.name] = e.target.value;
-    console.log(nextState[e.target.name]);
-    setInputs(nextState[e.target.name]);
+    setInputs(e.target.value);
   };
 
   const deleteReview = async (review_num) => {
@@ -118,7 +115,7 @@ const Review = (props) => {
               className='write-form-wrap container-fluid columns-row'
               id='bb'
             >
-              <div className='write-form' onSubmit={insertReview}>
+              <form className='write-form' onSubmit={insertReview}>
                 <Wrap>
                   <Stars>
                     {ARRAY.map((el, idx) => {
@@ -133,22 +130,23 @@ const Review = (props) => {
                     })}
                   </Stars>
                 </Wrap>
-              </div>
-              <div className='containder d-flex'>
-                <textarea
-                  rows='4'
-                  cols='100'
-                  value={inputs}
-                  onChange={handleValueChange}
-                />
-                <div className='col-1' id='cc'>
-                  <input
-                    type='submit'
-                    className='btn btn-search review-add'
-                    value='등록'
+
+                <div className='containder d-flex'>
+                  <textarea
+                    rows='4'
+                    cols='100'
+                    value={inputs}
+                    onChange={handleValueChange}
                   />
+                  <div className='col-1' id='cc'>
+                    <input
+                      type='submit'
+                      className='btn btn-search review-add'
+                      value='등록'
+                    />
+                  </div>
                 </div>
-              </div>
+              </form>
             </div>
           </div>
         </MDBCollapse>
