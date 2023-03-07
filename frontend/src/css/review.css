@@ -87,3 +87,31 @@ div.review-writer {
 .review-writer {
   font-size: 20px;
 }
+
+div.review-write-inside {
+  padding: 0px;
+}
+
+.update-average {
+  font-size: 22px;
+  margin: 3px 10px 0px 0px;
+}
+
+#review-update-modify {
+  margin: 5px 10px 0px 0px;
+}
+#review-update-cancel {
+  margin: 5px 0px 0px 0px;
+}
+
+.review-update-title hr {
+  margin: 8px 0px 0px 0px;
+}
+
+#modify-star {
+  margin: 8px 0px 0px 0px;
+}
+
+button#review-modify-inside {
+  margin: 45px 0px 0px 45px;
+}

@@ -1,8 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { baseUrl } from '../../components/commonApi/mainApi';
-import Pagination from '../../components/Shared/Pagination';
+import { baseUrl } from '../commonApi/mainApi';
+import Pagination from '../Shared/Pagination';
 import '../../css/userlist.css';
 import '../../css/bootstrap.min.css';
 import Table from 'react-bootstrap/Table';
@@ -60,125 +60,120 @@ const UserListPage = () => {
           </select>
         </label>
       </div>
-      <div className='row'>
-        <div className='card'>
-          <Table className='table mb-0' id='user-title'>
-            <thead>
-              {/* 테이블 헤드 */}
-              <tr>
-                <th
-                  scope='col'
-                  className='user_id'
-                  onClick={() => sortTable('user_id')}
-                >
-                  ID
-                </th>
-                <th
-                  scope='col'
-                  className='user_name'
-                  onClick={() => sortTable('user_name')}
-                >
-                  Name
-                </th>
-                <th
-                  scope='col'
-                  className='user_email'
-                  onClick={() => sortTable('user_email')}
-                >
-                  Email
-                </th>
-                <th
-                  scope='col'
-                  className='user_nickname'
-                  onClick={() => sortTable('user_nickname')}
-                >
-                  Nickname
-                </th>
-                <th
-                  scope='col'
-                  className='user_role'
-                  onClick={() => sortTable('user_role')}
-                >
-                  Level
-                </th>
-                <th
-                  scope='col'
-                  className='create_date'
-                  onClick={() => sortTable('create_date')}
-                >
-                  가입일
-                </th>
-                <th
-                  scope='col'
-                  className='modify_date'
-                  onClick={() => sortTable('modify_date')}
-                >
-                  수정일
-                </th>
-                <th scope='col' className='user-modify'>
-                  Modify
-                </th>
-                <th scope='col' className='user-delete'>
+      <div className='row mb-2'>
+        <Table className='table mb-0' id='user-title'>
+          <thead>
+            {/* 테이블 헤드 */}
+            <tr>
+              <th
+                scope='col'
+                className='user_id'
+                onClick={() => sortTable('user_id')}
+              >
+                ID
+              </th>
+              <th
+                scope='col'
+                className='user_name'
+                onClick={() => sortTable('user_name')}
+              >
+                Name
+              </th>
+              <th
+                scope='col'
+                className='user_email'
+                onClick={() => sortTable('user_email')}
+              >
+                Email
+              </th>
+              <th
+                scope='col'
+                className='user_nickname'
+                onClick={() => sortTable('user_nickname')}
+              >
+                Nickname
+              </th>
+              <th
+                scope='col'
+                className='user_role'
+                onClick={() => sortTable('user_role')}
+              >
+                Level
+              </th>
+              <th
+                scope='col'
+                className='create_date'
+                onClick={() => sortTable('create_date')}
+              >
+                가입일
+              </th>
+              <th
+                scope='col'
+                className='modify_date'
+                onClick={() => sortTable('modify_date')}
+              >
+                수정일
+              </th>
+              <th scope='col' className='user_modify'>
+                Modify
+              </th>
+              {/* <th scope='col' className='user-delete'>
                   Delete
-                </th>
-              </tr>
-            </thead>
-          </Table>
-          {user.slice(offset, offset + limit).map((user) => {
-            const handleDelete = async (e) => {
-              e.preventDefault();
-              await axios
-                .delete(`${baseUrl}/userlist/delete/${user.user_id}`)
-                .then(() => {
-                  alert(
-                    `${user.user_name}` + '님의 회원정보가 삭제되었습니다.'
-                  );
-                  window.location.replace('/admin/userlist');
-                })
-                .catch((err) => console.error(err.message));
-            };
+                </th> */}
+            </tr>
+          </thead>
+        </Table>
+        {user.slice(offset, offset + limit).map((user) => {
+          const handleDelete = async (e) => {
+            e.preventDefault();
+            await axios
+              .delete(`${baseUrl}/userlist/delete/${user.user_id}`)
+              .then(() => {
+                alert(`${user.user_name}` + '님의 회원정보가 삭제되었습니다.');
+                window.location.replace('/admin/userlist');
+              })
+              .catch((err) => console.error(err.message));
+          };
 
-            return (
-              <div key={user.user_id}>
-                <Table className='user_data'>
-                  <tbody>
-                    <tr id={'row' + user.user_id}>
-                      <td className='user_id' id='uid'>
-                        {user.user_id}
-                      </td>
-                      <td className='user_name'>{user.user_name}</td>
-                      <td className='user_email'>{user.user_email}</td>
-                      <td className='user_nickname'>{user.user_nickname}</td>
-                      <td className='user_role'>{user.user_role}</td>
-                      <td className='create_date'>{user.create_date}</td>
-                      <td className='modify_date'>{user.modify_date}</td>
-                      <td className='user_modify'>
-                        <a href={'/admin/userlist/update/' + `${user.user_id}`}>
-                          수정
-                        </a>
-                      </td>
-                      <td className='user_delete'>
+          return (
+            <div key={user.user_id}>
+              <Table className='user_data'>
+                <tbody>
+                  <tr id={'row' + user.user_id}>
+                    <th className='user_id' id='uid'>
+                      {user.user_id}
+                    </th>
+                    <td className='user_name'>{user.user_name}</td>
+                    <td className='user_email'>{user.user_email}</td>
+                    <td className='user_nickname'>{user.user_nickname}</td>
+                    <td className='user_role'>{user.user_role}</td>
+                    <td className='create_date'>{user.create_date}</td>
+                    <td className='modify_date'>{user.modify_date}</td>
+                    <td className='user_modify'>
+                      <a href={'/admin/userlist/update/' + `${user.user_id}`}>
+                        수정
+                      </a>
+                    </td>
+                    {/* <td className='user_delete'>
                         <a href='' onClick={handleDelete}>
                           삭제
                         </a>
-                      </td>
-                    </tr>
-                  </tbody>
-                </Table>
-              </div>
-            );
-          })}
+                      </td> */}
+                  </tr>
+                </tbody>
+              </Table>
+            </div>
+          );
+        })}
 
-          <footer>
-            <hr />
-            <Pagination
-              total={user.length}
-              limit={limit}
-              page={page}
-              setPage={setPage}
-            />
-          </footer>
-        </div>
+        <footer>
+          <Pagination
+            total={user.length}
+            limit={limit}
+            page={page}
+            setPage={setPage}
+          />
+        </footer>
       </div>
     </div>
   );

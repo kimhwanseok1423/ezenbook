@@ -13,7 +13,6 @@ import Mypage from './components/login/Mypage';
 import Login from './components/login/Login';
 import Register from './components/login/Register';
 import Logout from './components/login/Logout';
-import ReviewUpdate from './components/review/ReviewUpdate';
 import UserPick from './pages/UserPick';
 import Bestseller from './routes/Bestseller';
 import OrderFail from './components/order/OrderFail';
@@ -21,6 +20,7 @@ import OrderSuc from './components/order/OrderSuc';
 import PayPage from './components/order/PayPage';
 import BookDetailPageupdel from './pages/BookDetailPageupdel';
 import BookUpdate from './pages/BookUpdate';
+import UserUpdatePage from './components/admin/UserUpdatePage';
 
 // import NotFoundPage from './pages/NotFoundPage';
 
@@ -39,10 +39,11 @@ function App() {
         <Route path='/book/:id' element={<BookDetail name='category' />} />
         <Route path='/bestseller' element={<Bestseller />} />
         <Route path='/userpick' element={<UserPick />} />
-        <Route path='/admin/:category' element={<Admin />} />
-        {/* <Route path='/admin/userlist/update/:id' element={<UserUpdate />} /> */}
+
+        <Route path='/admin/userlist/update/:id' element={<UserUpdatePage />} />
         <Route path='/admin/booklist/:id' element={<BookDetailPageupdel />} />
         <Route path='/admin/booklist/update/:id' element={<BookUpdate />} />
+        <Route path='/admin/:category' element={<Admin />} />
         <Route path='/cart' element={<CartPage />} />
         <Route path='/search' element={<SearchList name='category' />} />
         <Route
@@ -58,7 +59,6 @@ function App() {
         <Route path='/order/delete' element={<OrderFail />} />
         <Route path='/order/confirm' element={<OrderSuc />} />
         {/* <Route path='*' element={<NotFoundPage />} /> */}
-        <Route path='/review/:review_num' element={<ReviewUpdate />} />
       </Routes>
     </div>
   );

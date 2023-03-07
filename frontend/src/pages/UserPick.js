@@ -49,8 +49,8 @@ const UserPick = () => {
   }
 
   return (
-    <div className='userpick-Wrap container-fluid columns-row col-xl-12 col-lg-12'>
-      <div className='userpick-title mt-3'>
+    <div className='userpick-Wrap container-fluid columns-row col-xl-12 col-lg-12 mb-3'>
+      <div className='userpick-title'>
         <p>{nickname}님과 비슷한 취향의 고객님이 선택한 책들</p>
       </div>
 
@@ -70,125 +70,121 @@ const UserPick = () => {
         </label>
       </div>
       <div className='row'>
-        <div className='card' id='userpick-card'>
-          <table className='pick-table-header mt-2' id='booklist-title'>
-            <thead>
-              {/* 테이블 헤드 */}
-              <tr>
-                <th scope='col' className='userpick-category'>
-                  카테고리
-                </th>
-                <th scope='col' className='userpick-table-title'>
-                  제목
-                </th>
-                <th scope='col' className='userpick-author'>
-                  저자
-                </th>
-                <th scope='col' className='userpick-publisher'>
-                  출판사
-                </th>
-                <th scope='col' className='userpick-image'>
-                  표지
-                </th>
-                <th scope='col' className='userpick-price'>
-                  가격
-                </th>
-                <th scope='col' className='userpick-pubdate'>
-                  출판일
-                </th>
-                <th scope='col' className='userpick-cart'></th>
-              </tr>
-            </thead>
-          </table>
+        <table className='pick-table-header mt-2' id='booklist-title'>
+          <thead>
+            {/* 테이블 헤드 */}
+            <tr>
+              <th scope='col' className='userpick-category'>
+                카테고리
+              </th>
+              <th scope='col' className='userpick-table-title'>
+                제목
+              </th>
+              <th scope='col' className='userpick-author'>
+                저자
+              </th>
+              <th scope='col' className='userpick-publisher'>
+                출판사
+              </th>
+              <th scope='col' className='userpick-image'>
+                표지
+              </th>
+              <th scope='col' className='userpick-price'>
+                가격
+              </th>
+              <th scope='col' className='userpick-pubdate'>
+                출판일
+              </th>
+              <th scope='col' className='userpick-cart'></th>
+            </tr>
+          </thead>
+        </table>
 
-          {book.slice(offset, offset + limit).map((book) => {
-            const bPrice = book.book_price.toLocaleString('ko-KR');
-            const bDiscountedPrice = (book.book_price * 0.9).toLocaleString(
-              'ko-KR'
-            );
+        {book.slice(offset, offset + limit).map((book) => {
+          const bPrice = book.book_price.toLocaleString('ko-KR');
+          const bDiscountedPrice = (book.book_price * 0.9).toLocaleString(
+            'ko-KR'
+          );
 
-            // 카트넣기
-            const onSubmit = () => {
-              const item = {
-                id: book.book_num,
-                title: book.book_title,
-                code: book.category_code,
-                image: book.book_image,
-                author: book.book_author,
-                oPrice: book.book_price,
-                price: bPrice,
-                dprice: bDiscountedPrice,
-                pdate: formatDate(book.book_pubdate),
-                publisher: book.book_publisher,
-              };
-              addItem(item);
+          // 카트넣기
+          const onSubmit = () => {
+            const item = {
+              id: book.book_num,
+              title: book.book_title,
+              code: book.category_code,
+              image: book.book_image,
+              author: book.book_author,
+              oPrice: book.book_price,
+              price: bPrice,
+              dprice: bDiscountedPrice,
+              pdate: formatDate(book.book_pubdate),
+              publisher: book.book_publisher,
             };
+            addItem(item);
+          };
 
-            return (
-              <div key={book.book_num}>
-                <Table className='pick-data'>
-                  <tbody>
-                    <tr>
-                      <td className='userpick-category'>
-                        <p id='userpick-detail-category'>
-                          <CategoryName categoryCode={book.category_code} />
-                        </p>
-                      </td>
-                      <td className='userpick-table-title'>
-                        {book.book_title}
-                      </td>
-                      <td className='userpick-author'>{book.book_author}</td>
-                      <td className='userpick-publisher'>
-                        {book.book_publisher}
-                      </td>
-                      <td className='userpick-image'>
-                        <a href={'/book/' + book.book_num}>
-                          <img src={book.book_image} />
-                        </a>
-                      </td>
-                      <td className='userpick-price'>
-                        {bPrice}원 &nbsp;
-                        <FontAwesomeIcon icon={faArrowRight} />
-                        &nbsp;
-                        {bDiscountedPrice}원
-                      </td>
-                      <td className='userpick-pubdate'>
-                        {book.book_pubdate && formatDate(book.book_pubdate)}
-                      </td>
-                      <td className='userpick-cart'>
+          return (
+            <div key={book.book_num}>
+              <Table className='pick-data'>
+                <tbody>
+                  <tr>
+                    <td className='userpick-category'>
+                      <p id='userpick-detail-category'>
+                        <CategoryName categoryCode={book.category_code} />
+                      </p>
+                    </td>
+                    <td className='userpick-table-title'>{book.book_title}</td>
+                    <td className='userpick-author'>{book.book_author}</td>
+                    <td className='userpick-publisher'>
+                      {book.book_publisher}
+                    </td>
+                    <td className='userpick-image'>
+                      <a href={'/book/' + book.book_num}>
+                        <img src={book.book_image} />
+                      </a>
+                    </td>
+                    <td className='userpick-price'>
+                      {bPrice}원 &nbsp;
+                      <FontAwesomeIcon icon={faArrowRight} />
+                      &nbsp;
+                      {bDiscountedPrice}원
+                    </td>
+                    <td className='userpick-pubdate'>
+                      {book.book_pubdate && formatDate(book.book_pubdate)}
+                    </td>
+                    <td className='userpick-cart'>
+                      <button
+                        className='btn btn-secondary'
+                        id={'userpick-' + book.book_num}
+                        onClick={onSubmit}
+                      >
+                        장바구니
+                      </button>
+                      <a href='/cart'>
                         <button
-                          className='btn btn-secondary'
+                          className='btn btn-search'
                           id={'userpick-' + book.book_num}
                           onClick={onSubmit}
                         >
-                          장바구니
+                          바로구매
                         </button>
-                        <a href='/cart'>
-                          <button
-                            className='btn btn-search'
-                            id={'userpick-' + book.book_num}
-                            onClick={onSubmit}
-                          >
-                            바로구매
-                          </button>
-                        </a>
-                      </td>
-                    </tr>
-                  </tbody>
-                </Table>
-              </div>
-            );
-          })}
-        </div>
-        <footer>
-          <Pagination
-            total={book.length}
-            limit={limit}
-            page={page}
-            setPage={setPage}
-          />
-        </footer>
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </Table>
+            </div>
+          );
+        })}
       </div>
+      <footer>
+        <Pagination
+          total={book.length}
+          limit={limit}
+          page={page}
+          setPage={setPage}
+        />
+      </footer>
     </div>
   );
 };

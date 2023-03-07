@@ -8,6 +8,7 @@ import styled from 'styled-components';
 import { FaStar } from 'react-icons/fa';
 import { baseUrl } from '../commonApi/mainApi';
 import StarRate from '../Shared/StarRate';
+import Swal from 'sweetalert2';
 
 const Review = (props) => {
   const id = props.id;
@@ -33,29 +34,36 @@ const Review = (props) => {
   }
 
   const insertReview = async (e) => {
-    e.preventDefault();
-    const config = {
-      headers: { 'Content-Type': 'application/json' },
-    };
+    if (localStorage.getItem('userid')) {
+      e.preventDefault();
+      const config = {
+        headers: { 'Content-Type': 'application/json' },
+      };
 
-    const form = new FormData();
+      const form = new FormData();
 
-    form.append('user_id', localStorage.getItem('userid'));
-    form.append('book_num', id);
-    form.append('review_content', inputs);
-    form.append('review_rating', star);
-    form.append('review_writer', localStorage.getItem('usernickname'));
+      form.append('user_id', localStorage.getItem('userid'));
+      form.append('book_num', id);
+      form.append('review_content', inputs);
+      form.append('review_rating', star);
+      form.append('review_writer', localStorage.getItem('usernickname'));
 
-    await axios
-      .post(baseUrl + '/review', form, config)
-      .then((response) => {
-        console.log('post: ' + response.data);
-        getReview(book_num);
-        setInputs('');
-      })
-      .catch((error) => {
-        console.log(error);
+      await axios
+        .post(baseUrl + '/review', form, config)
+        .then((response) => {
+          getReview(book_num);
+          setInputs('');
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } else {
+      Swal.fire({
+        text: '로그인 후 이용해주세요.',
+        width: '500',
       });
+      e.preventDefault();
+    }
   };
 
   const handleValueChange = (e) => {
@@ -111,10 +119,7 @@ const Review = (props) => {
       <div className='review-write-form'>
         <MDBCollapse show={foldShow}>
           <div className='container-fluid d-flex form-box'>
-            <div
-              className='write-form-wrap container-fluid columns-row'
-              id='bb'
-            >
+            <div className='write-form-wrap col-12' id='bb'>
               <form className='write-form' onSubmit={insertReview}>
                 <Wrap>
                   <Stars>
@@ -122,7 +127,7 @@ const Review = (props) => {
                       return (
                         <FaStar
                           key={idx}
-                          size='30'
+                          size='25'
                           onClick={() => handleStarClick(el)}
                           className={clicked[el] && 'yellowStar'}
                         />
@@ -130,8 +135,7 @@ const Review = (props) => {
                     })}
                   </Stars>
                 </Wrap>
-
-                <div className='containder d-flex'>
+                <div className='d-flex container-fluid review-write-inside'>
                   <textarea
                     rows='4'
                     cols='100'
@@ -160,6 +164,7 @@ const Review = (props) => {
               <ReviewList
                 key={reviews.review_num}
                 reviews={reviews}
+                id={id}
                 deleteReview={deleteReview}
               />
             );

@@ -60,7 +60,7 @@ const Nav = styled.nav`
   justify-content: center;
   align-items: center;
   gap: 4px;
-  margin: 10px;
+  margin: 15px;
 `;
 
 const Button = styled.button`
@@ -71,7 +71,7 @@ const Button = styled.button`
   background: #301fbf;
   color: white;
   font-size: 1rem;
-  margin-right: 5px;
+  margin: 0px 5px 15px 0px;
   width: 50px;
 
   &:hover {

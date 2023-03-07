@@ -40,7 +40,7 @@ const SalesListPage = () => {
     setEndDate(e.target.value);
   }
   return (
-    <div className='bookPage-Wrap container-fluid col-xl-12 col-lg-12'>
+    <div className='salesPage-Wrap container-fluid col-xl-12 col-lg-12 mb-3'>
       <div className='booklist-topmenu d-flex justify-content-between'>
         <div className='set_pages'>
           <label>
@@ -75,54 +75,50 @@ const SalesListPage = () => {
         <div className='booklist-topmenu-modify'></div>
       </div>
       <div className='row'>
-        <div className='card' id='sales-card'>
-          <table className='saleslist mb-0' id='saleslist-title'>
-            <thead>
-              <tr className='sales-data'>
-                <th scope='col' className='book_num1'>
-                  날짜
-                </th>
-                <th scope='col' className='sales-category'>
-                  카테고리
-                </th>
+        <table className='saleslist mb-0' id='saleslist-title'>
+          <thead>
+            <tr>
+              <th scope='col' className='sales-date'>
+                날짜
+              </th>
+              <th scope='col' className='sales-category'>
+                카테고리
+              </th>
 
-                <th scope='col' className='sales-prices'>
-                  가격
-                </th>
-              </tr>
-            </thead>
-          </table>
-          {book.slice(offset, offset + limit).map((book, index) => {
-            return (
-              <React.Fragment key={index}>
-                <Table className='book_data'>
-                  <tbody>
-                    <tr>
-                      <th scope='row' className='book_num'>
-                        {book.month}
-                      </th>
-                      <td className='book_category'>
-                        {book.category_code !== 0
-                          ? book.category_code
-                          : '총합계'}
-                      </td>
-                      <td className='book_price'>{book.total}</td>
-                    </tr>
-                  </tbody>
-                </Table>
-              </React.Fragment>
-            );
-          })}
+              <th scope='col' className='sales-prices'>
+                가격
+              </th>
+            </tr>
+          </thead>
+        </table>
+        {book.slice(offset, offset + limit).map((book, index) => {
+          return (
+            <React.Fragment key={index}>
+              <Table className='book_data'>
+                <tbody>
+                  <tr>
+                    <th scope='row' className='sales-date'>
+                      {book.month}
+                    </th>
+                    <td className='sales-category'>
+                      {book.category_code !== 0 ? book.category_code : '총합계'}
+                    </td>
+                    <td className='sales-prices'>{book.total}</td>
+                  </tr>
+                </tbody>
+              </Table>
+            </React.Fragment>
+          );
+        })}
 
-          <footer>
-            <Pagination
-              total={book.length}
-              limit={limit}
-              page={page}
-              setPage={setPage}
-            />
-          </footer>
-        </div>
+        <footer>
+          <Pagination
+            total={book.length}
+            limit={limit}
+            page={page}
+            setPage={setPage}
+          />
+        </footer>
       </div>
     </div>
   );

@@ -1,8 +1,8 @@
+import '../../css/userlist.css';
 import axios from 'axios';
-import moment from 'moment/moment';
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { baseUrl } from '../components/commonApi/mainApi';
+import { baseUrl } from '../commonApi/mainApi';
 
 const UserUpdatePage = () => {
   const navigator = useNavigate();
@@ -28,7 +28,7 @@ const UserUpdatePage = () => {
     user_name,
     user_nickname,
     user_role,
-  } = UserUpdate;
+  } = userUpdate;
 
   useEffect(() => {
     getData();
@@ -111,18 +111,14 @@ const UserUpdatePage = () => {
           <h3>유저 정보 수정하기</h3>
           <br />
           <br />
-          <table>
+          <table className='user-update-table card col-4 p-4'>
             <tbody>
               <tr className='form-input'>
-                <td width='50%' align='center'>
-                  ID
-                </td>
+                <th>ID</th>
                 <td>{user.user_id}</td>
               </tr>
               <tr className='form-input'>
-                <td width='20%' align='center'>
-                  Name
-                </td>
+                <th>Name</th>
                 <td>
                   <input
                     className='form-input basic'
@@ -134,9 +130,7 @@ const UserUpdatePage = () => {
                 </td>
               </tr>
               <tr className='form-input'>
-                <td width='20%' align='center'>
-                  Email
-                </td>
+                <th>Email</th>
                 <td>
                   <input
                     className='form-input basic'
@@ -149,9 +143,7 @@ const UserUpdatePage = () => {
                 </td>
               </tr>
               <tr className='form-input'>
-                <td width='20%' align='center'>
-                  Nickname
-                </td>
+                <th>Nickname</th>
                 <td>
                   <input
                     className='form-input basic'
@@ -165,9 +157,7 @@ const UserUpdatePage = () => {
                 </td>
               </tr>
               <tr className='form-input'>
-                <td width='20%' align='center'>
-                  Level
-                </td>
+                <th>Level</th>
                 <td>
                   <input
                     className='form-input basic'
@@ -180,23 +170,20 @@ const UserUpdatePage = () => {
                 </td>
               </tr>
               <tr className='form-input'>
-                <td width='20%' align='center'>
-                  가입일
-                </td>
+                <th>가입일</th>
                 <td>{create_date}</td>
               </tr>
             </tbody>
           </table>
 
           <br />
-          <br />
-          <button className='btn btn-primary' onClick={handleUpdate}>
+          <button className='btn btn-search' onClick={handleUpdate}>
             수정
           </button>
-          <button className='btn btn-primary' onClick={handleReset}>
+          <button className='btn btn-search' onClick={handleReset}>
             취소
           </button>
-          <button className='btn btn-primary' onClick={handleBack}>
+          <button className='btn btn-search' onClick={handleBack}>
             뒤로
           </button>
         </center>
