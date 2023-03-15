@@ -85,32 +85,38 @@ const Login = () => {
         console.log(response.headers);
         console.log(response.data);
 
-        // 값을 받을때는 소문자
-        let jwtToken = response.headers['authorization'];
-        console.log(response.headers.get('Authorization'));
-        console.log(response.headers['Access-Control-Allow-Credentials']);
-        // let jwtToken = response.headers.get("Authorization");
+        if (response.data.userrole === 'none') {
+          Swal.fire({
+            text: '아이디와 비밀번호를 확인해주세요',
+            width: '500',
+          });
+          e.preventDefault();
+        } else {
+          // 값을 받을때는 소문자
+          let jwtToken = response.headers['authorization'];
+          console.log(response.headers.get('Authorization'));
+          console.log(response.headers['Access-Control-Allow-Credentials']);
+          // let jwtToken = response.headers.get("Authorization");
 
-        let jwtUsername = response.data.username;
-        let jwtUsernickname = response.data.usernickname;
-        let jwtUserid = response.data.userid;
-        console.log("jwtToken", jwtToken);
-        localStorage.setItem("Authorization", jwtToken);
-        localStorage.setItem("username", jwtUsername);
-        localStorage.setItem("usernickname", jwtUsernickname);
-        localStorage.setItem("userid", jwtUserid);
+          let jwtUsername = response.data.username;
+          let jwtUsernickname = response.data.usernickname;
+          let jwtUserid = response.data.userid;
+          console.log('jwtToken', jwtToken);
+          localStorage.setItem('Authorization', jwtToken);
+          localStorage.setItem('username', jwtUsername);
+          localStorage.setItem('usernickname', jwtUsernickname);
+          localStorage.setItem('userid', jwtUserid);
 
-        setUsername('');
-        setPassword('');
-      })
-      .then((response) => {
-        // navigate("/");
-        e.preventDefault();
-        Swal.fire({
-          text: `${localStorage.getItem('username')} 님 환영합니다`,
-        });
-        e.preventDefault();
-        window.location.replace('/');
+          setUsername('');
+          setPassword('');
+
+          e.preventDefault();
+          Swal.fire({
+            text: `${localStorage.getItem('username')} 님 환영합니다`,
+          });
+          e.preventDefault();
+          window.location.replace('/');
+        }
       })
       .catch((err) => {
         console.error(err.message);

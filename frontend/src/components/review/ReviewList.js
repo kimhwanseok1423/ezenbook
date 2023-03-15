@@ -154,7 +154,7 @@ const ReviewList = ({ reviews, deleteReview, id }) => {
           })}
         </Stars>
         <div className='container-fluid d-flex p-0'>
-          <div className='p-0'>
+          <div className='p-0 review-modify-text'>
             <textarea rows='4' cols='100' onChange={handleValueChange} />{' '}
           </div>
           <div className='col-1 p-0'>

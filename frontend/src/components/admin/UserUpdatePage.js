@@ -103,7 +103,7 @@ const UserUpdatePage = () => {
   };
 
   return (
-    <div>
+    <div className='userupdate-wrap'>
       <form name='frm' encType='multipart/form-data'>
         <center>
           <br />

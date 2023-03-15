@@ -100,3 +100,7 @@ div.user-update-table {
   border-right: none;
   width: 170px;
 }
+
+.user-update-table tr td {
+  padding-left: 15px;
+}

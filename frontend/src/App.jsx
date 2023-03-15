@@ -20,6 +20,7 @@ import OrderSuc from './components/order/OrderSuc';
 import PayPage from './components/order/PayPage';
 import BookDetailPageupdel from './pages/BookDetailPageupdel';
 import BookUpdate from './pages/BookUpdate';
+import Modify from './components/login/Modify';
 import UserUpdatePage from './components/admin/UserUpdatePage';
 
 // import NotFoundPage from './pages/NotFoundPage';
@@ -39,7 +40,6 @@ function App() {
         <Route path='/book/:id' element={<BookDetail name='category' />} />
         <Route path='/bestseller' element={<Bestseller />} />
         <Route path='/userpick' element={<UserPick />} />
-
         <Route path='/admin/userlist/update/:id' element={<UserUpdatePage />} />
         <Route path='/admin/booklist/:id' element={<BookDetailPageupdel />} />
         <Route path='/admin/booklist/update/:id' element={<BookUpdate />} />
@@ -55,6 +55,7 @@ function App() {
         <Route path='/register' element={<Register />} />
         <Route path='/logout' element={<Logout />} />
         <Route path='/mypage/:id' element={<Mypage />} />
+        <Route path='/modify/:id' element={<Modify />} />
         <Route path='/order' element={<PayPage />} />
         <Route path='/order/delete' element={<OrderFail />} />
         <Route path='/order/confirm' element={<OrderSuc />} />

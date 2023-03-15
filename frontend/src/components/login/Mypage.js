@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useCallback, useEffect, useState } from 'react';
 import { baseUrl } from '../commonApi/mainApi';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 const Mypage = () => {
   const [user, setUser] = useState('');
@@ -16,57 +17,48 @@ const Mypage = () => {
   const getUser = useCallback(async () => {
     try {
       const response = await axios.get(baseUrl + '/user/' + username);
+      console.log(response.data);
       setUser(response.data);
     } catch (error) {
       console.log(error);
     }
   }, []);
 
-  function userWithdraw() {
-    Swal.fire({
-      text: '탈퇴하시겠습니까?',
-      showDenyButton: true,
-      showCancelButton: true,
-      showConfirmButton: false,
-      cancelButtonText: '아니오',
-      denyButtonText: '탈퇴',
-      width: 400,
-    });
-  }
+  async function userWithdraw(user_id) {
+    // Swal.fire({
+    //   text: '탈퇴하시겠습니까?',
+    //   showDenyButton: true,
+    //   showCancelButton: true,
+    //   showConfirmButton: false,
+    //   cancelButtonText: '아니오',
+    //   denyButtonText: '탈퇴',
+    //   width: 400,
+    // });
+    const form = new FormData();
+    form.append('user_id', user.user_id);
+    form.append('user_name', user.user_name);
+    form.append('user_pwd', user.user_password);
+    form.append('user_profile', user.user_profile);
+    form.append('user_nickname', user.user_nickname);
+    form.append('user_email', user.user_email);
+    form.append('user_role', 'none');
 
-  //nickname 변경
-  function nickChange() {
-    Swal.fire({
-      title: '변경할 이름을 입력하세요',
-      input: 'text',
-      inputAttributes: {
-        autocapitalize: 'off',
-      },
-      showCancelButton: true,
-      confirmButtonText: '수정',
-      cancelButtonText: '취소',
-      showLoaderOnConfirm: true,
-      preConfirm: (login) => {
-        return fetch(`//api.github.com/users/${login}`)
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error(response.statusText);
-            }
-            return response.json();
-          })
-          .catch((error) => {
-            Swal.showValidationMessage(`다시 입력해주세요: ${error}`);
-          });
-      },
-      allowOutsideClick: () => !Swal.isLoading(),
-    }).then((result) => {
-      if (result.isConfirmed) {
-        Swal.fire({
-          title: `${result.value.login}'s avatar`,
-          imageUrl: result.value.avatar_url,
-        });
-      }
-    });
+    const config = {
+      headers: { 'Content-Type': 'application/json' },
+    };
+
+    await axios
+      .put(baseUrl + '/delete/' + user_id, form, config)
+      .then((response) => {
+        alert('탈퇴가 완료되었습니다.');
+        localStorage.removeItem('Authorization');
+        localStorage.removeItem('username');
+        localStorage.clear();
+        window.location.replace('/');
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   return (
@@ -76,13 +68,28 @@ const Mypage = () => {
       <div className='mypage-user-email'>Email : {user.user_email}</div>
       <div className='mypage-user-nickname'>
         Nickname : {user.user_nickname}
-        <button className='btn btn-search nickname-edit' onClick={nickChange}>
-          수정하기
-        </button>
       </div>
+      <div className='mypage-create-date'>가입일 : {user.create_date}</div>
       <div className='mypage-create-date'>
-        가입일 : {user.create_date}
-        <button className='btn btn-search user-withdraw' onClick={userWithdraw}>
+        <Link
+          to={`/modify/${user.user_name}`}
+          state={{
+            id: user.user_id,
+            name: user.user_name,
+            pwd: user.user_password,
+            email: user.user_email,
+            nickname: user.user_nickname,
+            profile: user.user_profile,
+            role: user.user_role,
+            createdate: user.create_date,
+          }}
+        >
+          <button className='btn btn-search nickname-edit'>수정하기</button>
+        </Link>
+        <button
+          className='btn btn-search user-withdraw'
+          onClick={() => userWithdraw(user.user_id)}
+        >
           탈퇴하기
         </button>
       </div>
