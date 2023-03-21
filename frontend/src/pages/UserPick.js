@@ -11,14 +11,13 @@ import { useCart } from 'react-use-cart';
 import Pagination from '../components/Shared/Pagination';
 
 const UserPick = () => {
-  const [book, setbook] = useState([]);
+  const [book, setBook] = useState([]);
   const [limit, setLimit] = useState(5);
   const [page, setPage] = useState(1);
   const offset = (page - 1) * limit;
 
   const userName = localStorage.getItem('username');
   const nickname = localStorage.getItem('nickname');
-
   const { addItem } = useCart();
 
   async function getBook() {
@@ -29,7 +28,7 @@ const UserPick = () => {
         },
       })
       .then((response) => {
-        setbook(response.data);
+        setBook(response.data);
       })
       .catch((err) => {
         console.log(err);
@@ -48,10 +47,11 @@ const UserPick = () => {
     return year + '년 ' + month + '월 ' + day + '일';
   }
 
+  console.log(nickname);
   return (
     <div className='userpick-Wrap container-fluid columns-row col-xl-12 col-lg-12 mb-3'>
       <div className='userpick-title'>
-        <p>{nickname}님과 비슷한 취향의 고객님이 선택한 책들</p>
+        <p>고객님과 비슷한 취향의 고객님이 선택한 책들</p>
       </div>
 
       <div className='set_pages'>
