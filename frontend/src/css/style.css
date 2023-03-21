@@ -385,7 +385,7 @@ ol {
   left: 0;
   top: 56px;
   width: 160px;
-  background: #ffffff;
+  /* background: #ffffff; */
   color: #000000;
   text-align: left;
   padding: 2px;
@@ -395,6 +395,7 @@ ol {
   -webkit-transition: all, 0.3s;
   -o-transition: all, 0.3s;
   transition: all, 0.3s;
+  border: none;
 }
 
 .header__menu ul li .dropdown li {
