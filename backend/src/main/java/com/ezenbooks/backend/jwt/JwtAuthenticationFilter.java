@@ -87,7 +87,14 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
       
       final Map<String, Object> body = new HashMap<String, Object>();
       body.put("username", principalDetails.getUser().getUser_name()); // username은 body에 담아 보내줌, body는 Map에 담는다
+<<<<<<< HEAD
 
+=======
+      body.put("usernickname", principalDetails.getUser().getUser_nickname()); 
+      body.put("userid", principalDetails.getUser().getUser_id());
+      body.put("userrole", principalDetails.getUser().getUser_role());
+      
+>>>>>>> bdb1accde08a7a252b7433c0c4d0f343f4ad4d42
       ObjectMapper mapper = new ObjectMapper();
       mapper.writeValue(response.getOutputStream(), body);
    }

@@ -60,4 +60,30 @@ public class BookServiceImp implements BookService {
 	public List<BookDTO> searchList(String book_title) throws Exception {
 		return bookDAO.getSearchList(book_title);
 	}
+<<<<<<< HEAD
+=======
+	
+	/* 예림 */
+	/* booklist insert/update/delete */
+	@Override
+	public int insert(BookDTO bookDTO) throws Exception {
+		return bookDAO.insertBookList(bookDTO);
+	}
+	
+	@Override
+	public BookDTO updatepro(int book_num) {
+		return bookDAO.content(book_num);
+	}
+
+	@Override
+	public void update(BookDTO bookDTO)throws Exception {
+		bookDAO.updateBookList(bookDTO);
+	}
+	
+	
+	@Override
+	public int delete(int book_num) throws Exception {
+		return bookDAO.delBookList(book_num);
+	}
+>>>>>>> bdb1accde08a7a252b7433c0c4d0f343f4ad4d42
 }

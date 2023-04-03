@@ -22,12 +22,21 @@
 		from BOOK_REVIEW br
 	</select>
 	
+<<<<<<< HEAD
 	<select id="getUsersCount" resultType="int">
 		select count(*) from users
 	</select>
 	
 	<select id="getBooksCount" resultType="int">
 		select count(*) from books
+=======
+	<select id="getUsersCount" resultType="Integer">
+		select max(user_id) from users
+	</select>
+	
+	<select id="getBooksCount" resultType="Integer">
+		select max(book_num) from books
+>>>>>>> bdb1accde08a7a252b7433c0c4d0f343f4ad4d42
 	</select>
 	
 	<select id="getOrderDetailData" resultType="DataSetDTO">
@@ -36,6 +45,26 @@
     		on uod.ORDER_NUM = uo.ORDER_NUM
 		order by uo.USER_ID
 	</select>
+<<<<<<< HEAD
+=======
+	
+	<select id="getUserId" resultType="Integer">
+		select user_id from users where user_name = #{user_name, jdbcType=VARCHAR}
+	</select>
+	
+	<select id="getRecentPurchase" resultType="Integer">
+	<![CDATA[
+		select BOOK_NUM
+		from (select b.BOOK_NUM
+      		  from USER_ORDER uo
+          	  	join USER_ORDER_DETAIL UOD on uo.ORDER_NUM = UOD.ORDER_NUM
+          		join BOOKS B on B.BOOK_NUM = UOD.BOOKS_BOOK_NUM
+      		  where uo.USER_ID = #{user_id, jdbcType=INTEGER}
+              order by uo.ORDER_DATE desc)
+		where rownum <= 1
+	]]>
+	</select>
+>>>>>>> bdb1accde08a7a252b7433c0c4d0f343f4ad4d42
 </mapper>   
 
 

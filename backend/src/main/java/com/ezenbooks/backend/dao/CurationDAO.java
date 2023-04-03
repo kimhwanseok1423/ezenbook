@@ -18,4 +18,10 @@ public interface CurationDAO {
 	public int getUsersCount();
 	public int getBooksCount();
 	
+<<<<<<< HEAD
+=======
+	public Integer getUserId(String user_name);
+	public Integer getRecentPurchase(Integer user_id);
+	
+>>>>>>> bdb1accde08a7a252b7433c0c4d0f343f4ad4d42
 }

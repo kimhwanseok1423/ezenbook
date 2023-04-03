@@ -4,9 +4,14 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+<<<<<<< HEAD
+=======
+import org.springframework.web.bind.annotation.PutMapping;
+>>>>>>> bdb1accde08a7a252b7433c0c4d0f343f4ad4d42
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -35,6 +40,7 @@ public class BookController {
 			return bookService.bookSearch();
 			}//end getBookList()
 		
+<<<<<<< HEAD
 		//모든 책 정보 
 		//http://localhost:8090/category
 		@GetMapping("/category")
@@ -42,10 +48,46 @@ public class BookController {
 			return bookService.bookSearch();
 			} //end getCategoryList	
 			
+=======
+		//http://localhost:8090/booklist/write
+		@PostMapping("/booklist/write")
+		public void insertBookList(BookDTO bookDTO) throws Exception{
+			bookService.insert(bookDTO);;
+			}//end newBookList()
+		
+		
+		@GetMapping("/booklist/update/{book_num}")
+		public BookDTO updateBookList(@PathVariable("book_num") int book_num) {
+			System.out.println(book_num);
+			return bookService.updatepro(book_num);
+		}//end updateBookList()
+		
+		
+		@PutMapping("/booklist/update/{book_num}")
+		public void updateProBookList(@PathVariable("book_num") int book_num, BookDTO bookDTO) throws Exception{
+			System.out.printf("id:%d, title:%s\n", bookDTO.getBook_num(), bookDTO.getBook_title());
+			
+			bookService.update(bookDTO);
+		}//end updateProBookList
+		
+		@DeleteMapping("/booklist/delete/{book_num}")
+		public void delBookList(@PathVariable("book_num") int book_num) throws Exception {
+			bookService.delete(book_num);
+		} //end delBookList
+				
+		//모든 책 정보 
+		//http://localhost:8090/category
+		@GetMapping("/category")
+		public List<BookDTO> getCategoryList() throws Exception{
+			return bookService.bookSearch();
+			} //end getCategoryList	
+			
+>>>>>>> bdb1accde08a7a252b7433c0c4d0f343f4ad4d42
 		//카테고리별 책 정보
 		//http://localhost:8090/categorylist/3
 		@GetMapping("/category/{code}")
 		public List<BookDTO>getCategoryList(@PathVariable("code") int code) throws Exception{
+<<<<<<< HEAD
 		return bookService.bookCategorySearch(code);
 		} //end getCategoryList
 	
@@ -68,6 +110,29 @@ public class BookController {
 		} //end getCategoryList	
 		
 		
+=======
+			return bookService.bookCategorySearch(code);
+			} //end getCategoryList
+			
+		//http://localhost:8090/newest
+		@GetMapping("/newest")
+		public List<BookDTO> getBookNewest() throws Exception{
+			return bookService.bookNewest();
+			} //end getCategoryList	
+				
+		//http://localhost:8090/newest
+		@GetMapping("/newestsmall")
+		public List<BookDTO> getBookNewestSmall() throws Exception{
+			return bookService.bookNewestSmall();
+			} //end getCategoryList	
+				
+		//http://localhost:8090/newest/3
+		@GetMapping("/newest/{code}")
+		public List<BookDTO> getCategoryNewestList(@PathVariable("code") int code) throws Exception{
+			return bookService.bookNewestSearch(code);
+			} //end getCategoryList	
+				
+>>>>>>> bdb1accde08a7a252b7433c0c4d0f343f4ad4d42
 		
 		/* 여기서부터 현승님꺼 합친거 */
 		
@@ -78,7 +143,11 @@ public class BookController {
 		/* 여기서부터 환석님거 합친거 */
 		
 		//http://localhost:8090/search
+<<<<<<< HEAD
 		@GetMapping("/search")
+=======
+	    @GetMapping(value = {"/search", "/category/search","book/search"})
+>>>>>>> bdb1accde08a7a252b7433c0c4d0f343f4ad4d42
 		public List<BookDTO> getSearchList(@RequestParam("keyword") String book_title) throws Exception{
 		return bookService.searchList(book_title);
 		}

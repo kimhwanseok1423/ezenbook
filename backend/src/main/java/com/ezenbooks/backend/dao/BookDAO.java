@@ -24,4 +24,19 @@ public interface BookDAO {
 	
 	public List<BookDTO> getSearchList(String book_title) throws Exception;
 	
+<<<<<<< HEAD
+=======
+
+	/* 예림 */
+    public void boardInsert(BookDTO bookDTO) throws Exception;
+    
+    public int insertBookList(BookDTO bookDTO) throws Exception;
+	
+	public BookDTO content(int book_num);
+	
+	public void updateBookList(BookDTO bookDTO) throws Exception;
+	
+	public int delBookList(int book_num) throws Exception;
+	
+>>>>>>> bdb1accde08a7a252b7433c0c4d0f343f4ad4d42
 }

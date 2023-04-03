@@ -119,5 +119,20 @@ public class CurationServiceImpl extends Calculator implements CurationService {
 		
 		return list;
 	}
+<<<<<<< HEAD
+=======
+
+	@Override
+	public Integer userIdProcess(String user_name) {
+		
+		return dao.getUserId(user_name);
+	}
+
+	@Override
+	public Integer recentPurchaseProcess(Integer user_id) {
+				
+		return dao.getRecentPurchase(user_id);
+	}
+>>>>>>> bdb1accde08a7a252b7433c0c4d0f343f4ad4d42
 	
 } // end class

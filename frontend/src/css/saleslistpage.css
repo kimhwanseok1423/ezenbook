@@ -1,14 +1,20 @@
+<<<<<<< HEAD
 li {
   list-style: none;
   display: inline-block;
   width: 150px;
   height: 60px;
   font-size: 20px;
+=======
+.salesPage-Wrap {
+  margin-left: 15px;
+>>>>>>> bdb1accde08a7a252b7433c0c4d0f343f4ad4d42
 }
 
 th {
   text-align: center;
   padding: 0px;
+<<<<<<< HEAD
 }
 
 tr {
@@ -77,10 +83,27 @@ tr {
 }
 
 table.book_data tr {
+=======
+  height: 50px;
+}
+
+tr {
+  padding: 0px;
+}
+
+.sales-date,
+.sales-category,
+.sales-prices {
+  width: 500px;
+}
+
+table.saleslist tr {
+>>>>>>> bdb1accde08a7a252b7433c0c4d0f343f4ad4d42
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
   height: 40px;
 }
 
+<<<<<<< HEAD
 div.bookpage-wrap label {
   text-align: right !important;
 }
@@ -110,10 +133,13 @@ td.book_image {
   padding: 0px;
 }
 
+=======
+>>>>>>> bdb1accde08a7a252b7433c0c4d0f343f4ad4d42
 .table {
   margin-bottom: 0;
 }
 
+<<<<<<< HEAD
 .bookPage-Wrap {
   padding: 0px;
   width: 1500px;
@@ -134,3 +160,19 @@ div.booklist-topmenu .btn-search {
 .date-range label {
   margin-right: 10px;
 }
+=======
+label#set-start-date,
+label#set-end-date {
+  margin-left: 20px;
+}
+.sales-prices {
+  border-right: none;
+}
+td.sales-prices {
+  text-align: right;
+}
+
+.saleslist {
+  border-top: 1px solid lightgray;
+}
+>>>>>>> bdb1accde08a7a252b7433c0c4d0f343f4ad4d42

@@ -23,11 +23,20 @@ public class ReviewServiceImp implements ReviewService{
 	}
 	
 	@Override
+<<<<<<< HEAD
+=======
+	public List<ReviewDTO> review() throws Exception {
+		return reviewDAO.review();
+	}
+	
+	@Override
+>>>>>>> bdb1accde08a7a252b7433c0c4d0f343f4ad4d42
 	public List<ReviewDTO> reviewList(int book_num) throws Exception {
 		return reviewDAO.reviewList(book_num);
 	}
 
 	@Override
+<<<<<<< HEAD
 	public int insert(ReviewDTO reviewdDTO) throws Exception {
 		System.out.println("ReviewService");
 		return reviewDAO.insertReview(reviewdDTO);
@@ -41,5 +50,20 @@ public class ReviewServiceImp implements ReviewService{
 	@Override
 	public int delete(int user_id) throws Exception {
 		return reviewDAO.deleteReview(user_id);
+=======
+	public int insert(ReviewDTO dto) throws Exception {
+		System.out.println("ReviewService");
+		return reviewDAO.insertReview(dto);
+	}
+
+	@Override
+	public void update(ReviewDTO dto) throws Exception {
+		reviewDAO.updateReview(dto);
+	}
+
+	@Override
+	public int delete(int review_num) throws Exception {
+		return reviewDAO.deleteReview(review_num);
+>>>>>>> bdb1accde08a7a252b7433c0c4d0f343f4ad4d42
 	}
 }

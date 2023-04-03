@@ -38,13 +38,18 @@ public class MainController {
 	
 	/**
 	 * 주문 기록 기반 추천
+<<<<<<< HEAD
 	 * 접속중인 유저 ID와 최근 본 책의 번호를 받아 추천 리스트를 반환한다.
+=======
+	 * 접속중인 유저 ID와 최근 구매한 책의 번호를 받아 추천 리스트를 반환한다.
+>>>>>>> bdb1accde08a7a252b7433c0c4d0f343f4ad4d42
 	 * 
 	 * @author 김요한
 	 * @param user_id
 	 * @param bought
 	 * @return List<BookDTO>
 	 */
+<<<<<<< HEAD
 	@GetMapping({"/curation/{user_id}/{bought}", "/curation"})
 	public ResponseEntity<List<BookDTO>> curation(@PathVariable(required = false) Integer user_id, 
 												  @PathVariable(required = false) Integer bought) {
@@ -55,6 +60,23 @@ public class MainController {
 			user_id = 1;
 			bought = 1;
 		}
+=======
+	@GetMapping("/curation")
+	public ResponseEntity<List<BookDTO>> curation(@RequestParam(required = false) String user_name, 
+												  @RequestParam(required = false) Integer bought) {
+				
+		log.info("user_name: " + user_name);
+		log.info("bought: " + bought);
+		
+		Integer user_id = curationService.userIdProcess(user_name);
+		
+		if (ObjectUtils.isEmpty(bought)) {
+			bought = 1;
+		}
+		if(ObjectUtils.isEmpty(user_id)) {
+			user_id = 1;
+		}
+>>>>>>> bdb1accde08a7a252b7433c0c4d0f343f4ad4d42
 		
 		List<BookDTO> list = curationService.curationProcess(user_id, bought);
 		
@@ -70,6 +92,7 @@ public class MainController {
 	 * @param bought
 	 * @return List<BookDTO>
 	 */
+<<<<<<< HEAD
 	@GetMapping({"/userPick/{user_id}/{bought}", "/userPick"})
 	public ResponseEntity<List<BookDTO>> userPick(@PathVariable(required = false) Integer user_id, 
 			 									  @PathVariable(required = false) Integer bought) {
@@ -78,6 +101,19 @@ public class MainController {
 		log.info("user_id: " + user_id);
 		
 		if (ObjectUtils.isEmpty(bought) || ObjectUtils.isEmpty(bought)) {
+=======
+	@GetMapping("/userPick")
+	public ResponseEntity<List<BookDTO>> userPick(@RequestParam(required = false) String user_name) {
+				
+		Integer user_id = curationService.userIdProcess(user_name);
+		Integer bought = curationService.recentPurchaseProcess(user_id);
+		
+		log.info("user_name: " + user_name);
+		log.info("bought: " + bought);
+		
+		// 로그인이 안된 사용자 이거나, 내역이 없는 사용자인 경우
+		if (ObjectUtils.isEmpty(user_name) || ObjectUtils.isEmpty(bought)) {
+>>>>>>> bdb1accde08a7a252b7433c0c4d0f343f4ad4d42
 			user_id = 1;
 			bought = 1;
 		}
@@ -101,7 +137,11 @@ public class MainController {
 	public ResponseEntity<List<BookDTO>> bestseller(
 			@RequestParam(value = "category_code", required = false, defaultValue = "0") Integer category_code) {
 		 
+<<<<<<< HEAD
 		log.info("bestseller.............");
+=======
+//		log.info("bestseller.............");
+>>>>>>> bdb1accde08a7a252b7433c0c4d0f343f4ad4d42
 		
 		BestsellerDTO bestsellerDTO = BestsellerDTO.builder()
 				.category_code(category_code)

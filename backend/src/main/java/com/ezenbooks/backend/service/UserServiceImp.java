@@ -27,5 +27,25 @@ public class UserServiceImp implements UserService{
 	public List<UserDTO> userSearchList() throws Exception {
 		return userDAO.getUserList();
 	}
+<<<<<<< HEAD
+=======
+	
+	/* 예림 */
+	
+	@Override
+	public UserDTO updatepro(int user_id) {
+		return userDAO.content(user_id);
+	}
+
+	@Override
+	public void update(UserDTO userDTO)throws Exception {
+		userDAO.updateUserList(userDTO);
+	}
+	
+	@Override
+	public int delete(int user_id) throws Exception {
+		return userDAO.delUserList(user_id);
+	}
+>>>>>>> bdb1accde08a7a252b7433c0c4d0f343f4ad4d42
 
 	}

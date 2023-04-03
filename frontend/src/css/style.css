@@ -33,7 +33,7 @@
 
 html,
 body {
-  width: 1700px;
+  min-width: 1700px;
   height: 100%;
   font-family: 'Noto Sans Korean';
   src: url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;600&display=swap')
@@ -43,8 +43,8 @@ body {
   -webkit-font-smoothing: antialiased;
   margin: auto;
 }
-/*
-body * {
+
+/* body * {
   border: 1px solid black;
 } */
 
@@ -342,8 +342,11 @@ ol {
 }
 
 .header__menu {
-  padding: 20px 0 10px;
+  padding: 20px 0 0px;
   margin: auto;
+}
+.header__menu ul {
+  height: 45px;
 }
 
 .header__menu ul li {
@@ -370,6 +373,7 @@ ol {
   top: 56px;
   opacity: 1;
   visibility: visible;
+  border: none;
 }
 
 .header__menu ul li:last-child {
@@ -381,7 +385,7 @@ ol {
   left: 0;
   top: 56px;
   width: 160px;
-  background: #ffffff;
+  /* background: #ffffff; */
   color: #000000;
   text-align: left;
   padding: 2px;
@@ -391,12 +395,14 @@ ol {
   -webkit-transition: all, 0.3s;
   -o-transition: all, 0.3s;
   transition: all, 0.3s;
+  border: none;
 }
 
 .header__menu ul li .dropdown li {
   display: block;
   margin-right: 0;
   height: 40px;
+  background-color: white;
 }
 
 .header__menu ul li .dropdown li a,
@@ -414,6 +420,7 @@ ol {
 
 .header__menu ul li a {
   color: #111111;
+  /* background-color: white; */
   font-weight: 500;
   display: block;
   padding: 0;
@@ -451,10 +458,10 @@ ol {
 }
 
 .header__right__auth a {
-  font-size: 20px;
-  color: #666666;
+  font-size: 24px;
+  color: #301fbf;
   position: relative;
-  margin-right: 20px;
+  margin: 0px 10px;
 }
 
 .header__right__auth a:last-child {
@@ -467,9 +474,8 @@ ol {
 
 .header__right__widget {
   display: inline-block;
-  height: 75px;
+  height: 55px;
   margin: 5px 0px 0px 5px;
-  padding-top: 10px;
 }
 
 .header__right__widget div {
