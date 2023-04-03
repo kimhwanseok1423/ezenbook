@@ -60,7 +60,7 @@ const SalesListPage = () => {
             <label>
               시작 날짜:&nbsp;&nbsp;
               <input
-                
+                type='month'
                 value={startDate}
                 onChange={handleStartDateChange}
               />
