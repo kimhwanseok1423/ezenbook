@@ -5,9 +5,9 @@
     
     <!-- namespace 끝에 있는 BookDAO 안에 있는 method 이름과 
     namespace 에 정의되어 있는 값과 일치해야 한다. -->
-<mapper namespace="com.ezenbooks.backend.dao.BookDAO">
-	<select id="getBookList" resultType="BookDTO">
-		SELECT * FROM BOOKS
+<mapper namespace="com.ezenbooks.backend.dao.CategoryDAO">
+	<select id="getCategoryList" resultType="CategoryDTO">
+		SELECT * FROM BOOK_CATEGORY
 	</select>
-	
+
 </mapper>

@@ -6,6 +6,9 @@ import com.ezenbooks.backend.dto.UserDTO;
 
 @Service
 public interface UserService {
+	
+	public UserDTO userSearch(String username) throws Exception;
 
-	public List<UserDTO> userSearch() throws Exception;
+	public List<UserDTO> userSearchList() throws Exception;
+
 }

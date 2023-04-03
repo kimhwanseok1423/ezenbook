@@ -13,6 +13,11 @@ const AdminMenu = () => {
             <li>상품 관리</li>
           </a>
           <li>리뷰 관리</li>
+          <a>
+            <a href='/admin/SalesList'>
+              <li>회계 분석 </li>
+            </a>
+          </a>
         </ul>
       </div>
     </div>

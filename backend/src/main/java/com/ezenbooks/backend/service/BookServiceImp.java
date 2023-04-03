@@ -22,4 +22,42 @@ public class BookServiceImp implements BookService {
 	public List<BookDTO> bookSearch() throws Exception {
 		return bookDAO.getBookList();
 	}
+	
+	@Override
+	public List<BookDTO> bookCategorySearch(int code) throws Exception {
+		return bookDAO.getCategoryList(code);
+	}
+
+	@Override
+	public List<BookDTO> bookNewest() throws Exception {
+		return bookDAO.getNewestList();
+	}
+	
+	@Override
+	public List<BookDTO> bookNewestSmall() throws Exception {
+		return bookDAO.getNewestSmallList();
+	}
+	
+	@Override
+	public List<BookDTO> bookNewestSearch(int code) throws Exception {
+
+		return bookDAO.getCategoryNewestList(code);
+	}
+
+	/* 여기서부터 현승님꺼 합친거 */
+	
+	public void setBookDAO(BookDAO bookDAO) {
+		this.bookDAO = bookDAO;
+	}
+	@Override
+	public List<BookDTO> search() throws Exception {
+		System.out.println("sv:" + bookDAO.getBookList());
+		return bookDAO.getBookList();
+	}
+	
+	/* 여기서 부터 환석님꺼 합친거 */
+	
+	public List<BookDTO> searchList(String book_title) throws Exception {
+		return bookDAO.getSearchList(book_title);
+	}
 }

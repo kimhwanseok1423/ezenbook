@@ -18,13 +18,14 @@ import lombok.ToString;
 @ToString
 public class UserDTO {
 
-		private int user_id;
-		private String user_name;
-		private String user_pwd;
-		private String user_email;
-		private String user_nickname;
-		private String user_role;
-		private Date create_date;
-		private Date modify_date;
+	private int user_id;
+	private String user_name;
+	private String user_pwd;
+	private String user_email;
+	private String user_nickname;
+	private String user_profile;
+	private String user_role;
+	private Date create_date;
+	private Date modify_date;
 		
 }

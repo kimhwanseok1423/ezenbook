@@ -9,6 +9,8 @@ import Header from './components/Shared/Header';
 import MainTemplate from './components/Shared/MainTemplate';
 import MultiTemplate from './components/Shared/MultiTemplate';
 import BookDetail from './routes/BookDetail';
+import CountList from './routes/CountList';
+import SalesList from './routes/SalesList';
 
 function App() {
   const location = useLocation();
@@ -26,6 +28,8 @@ function App() {
         <Route path='/admin/booklist' element={<BookList />} />
         <Route path='/admin/userlist' element={<UserList />} />
         <Route path='/cart' element={<CartPage />} />
+        <Route path='/:admin/countlist' element={<CountList />} />
+        <Route path='/admin/saleslist' element={<SalesList />} />
       </Routes>
     </div>
   );

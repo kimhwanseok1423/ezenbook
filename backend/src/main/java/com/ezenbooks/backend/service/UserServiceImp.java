@@ -17,8 +17,15 @@ public class UserServiceImp implements UserService{
 
 	public UserServiceImp() {
 	}
+	
 	@Override
-	public List<UserDTO> userSearch() throws Exception {
+	public UserDTO userSearch(String username) throws Exception {
+		return userDAO.getUser(username);
+	}
+	
+	@Override
+	public List<UserDTO> userSearchList() throws Exception {
 		return userDAO.getUserList();
 	}
-}
+
+	}

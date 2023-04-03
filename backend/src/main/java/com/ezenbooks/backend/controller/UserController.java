@@ -3,9 +3,12 @@ package com.ezenbooks.backend.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.ezenbooks.backend.dto.UserDTO;
 import com.ezenbooks.backend.service.UserService;
@@ -22,17 +25,23 @@ public class UserController {
 	 private UserService userService;
 	
 	public UserController() {
-		System.out.println("User Controller Called");
 	} // end UserController
 	
 	//http://localhost:8090/userlist
 	//	@ResponseBody
 	@GetMapping("/userlist")
 	public List<UserDTO> getUserList() throws Exception{
-		System.out.println("UserList Called");
-		return userService.userSearch();
+		return userService.userSearchList();
 
 	} //end getUserList()	
+	
+	@GetMapping("/user/{username}")
+    public UserDTO getUser(@PathVariable("username")  String username) throws Exception {
+        if (username == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found");
+        }
+        return userService.userSearch(username);
+    }
 
 } // end class
 
